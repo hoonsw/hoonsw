@@ -3,11 +3,11 @@
 
 
 ## Now learning
-### College
+### in College
 > Operating System 
 > 
 > System Programming
-### By myself
+### by Myself
 > node.js (vue.js, express.js)
 > 
 > Algorithm
