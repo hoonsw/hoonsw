@@ -1,0 +1,48 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Python
+**/__pycache__/
+**/*.py[cod]
+**/.Python
+**/.venv/
+**/venv/
+**/env/
+**/ENV/
+
+# Node
+**/node_modules/
+
+# Project runtime data
+projects/*/input/
+projects/*/output/
+projects/*/runs/
+projects/*/runs_v3/
+projects/*/logs/
+projects/*/source
+projects/*/translated
+projects/*/jobs
+projects/*/delivery
+
+# Generated translator artifacts
+projects/*/*.chunks.json
+projects/*/*.report.txt
+projects/*/*.report.json
+projects/*/*.report.html
+projects/*/*.v2.ledger.json
+projects/*/*.v2.report.json
+projects/*/*.v2.preview.txt
+projects/*/*.v2.blocked.txt
+projects/*/*.docx
+
+# Local scratch
+projects/*/--only-chunks
+projects/*/-o
+projects/*/_sample_codex_skill_ko.txt.log
+projects/*/.codex

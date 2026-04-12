@@ -1,0 +1,63 @@
+pipeline_version: "v2"   # v2 / legacy
+chunk_size: 2000         # Approximate characters per chunk
+overlap_sentences: 3     # Context overlap between chunks (last N sentences from previous chunk)
+source_lang: "ja"        # ja / en
+target_lang: "ko"
+provider: "openai"       # Default provider when providers.translation is absent
+model: "gpt-5.2-chat-latest"  # ChatGPT-aligned default model
+max_turns: 1             # Translation requires only 1 turn
+
+# Genre preset (optional — adjusts translation/review/retry behavior)
+# Available: ja_novel, ja_essay, ja_philosophy, en_fiction, en_nonfiction, en_philosophy
+# preset: "ja_novel"
+
+# Auto-retry configuration (phase 2)
+# retry:
+#   enabled: true            # Enable auto-retry for problem chunks
+#   max_retries: 2           # Max retry attempts per chunk
+#   score_threshold: 0.6     # Minimum quality score (0.0-1.0) to accept
+#   auto_split: true         # Split large failing chunks and retry sub-chunks
+
+# Progress reporting (phase 2)
+# progress:
+#   notify: false            # Send OpenClaw notifications
+#   report_interval: 900     # Seconds between periodic reports (default: 15 min)
+
+# Provider configuration
+providers:
+  translation:
+    provider: openai
+    model: gpt-5.2-chat-latest
+  review:
+    provider: openai
+    model: gpt-5.2-chat-latest
+
+# translator_v2 tuning (Phase 1)
+v2:
+  max_segment_chars: 900
+  max_segment_sentences: 6
+  hard_max_segment_chars: 1200
+  local_retry_max: 2
+  split_retry_max: 1
+  max_total_repairs_per_segment: 3
+  protected_regexes: []
+
+# Parallel translation (phase 3)
+# parallel:
+#   enabled: false             # Enable chapter-level parallel translation
+#   max_workers: 3             # Max concurrent chapter translations
+#   min_chapter_size: 500      # Min chars for a chapter to be parallelized
+
+# Report generation (phase 3)
+# report:
+#   enabled: false             # Auto-generate post-editing reports
+#   formats:                   # Report formats: text, json, html
+#     - text
+#     - json
+#     - html
+
+# Finalize stage (phase 3)
+# finalize:
+#   enabled: false             # Auto-finalize after pipeline
+#   clean_text: true           # Clean up translation text (whitespace, blank lines)
+#   deliver_to: ""             # Copy finalized package to this directory

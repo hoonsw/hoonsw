@@ -1,0 +1,9 @@
+chunk_size: 2000
+overlap_sentences: 3
+source_lang: "en"
+target_lang: "ko"
+model: "claude-sonnet-4-6"
+max_turns: 1
+progress:
+  notify: false
+  report_interval: 300

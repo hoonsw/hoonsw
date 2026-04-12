@@ -1,0 +1,50 @@
+# Workspace data / manuscripts
+input/
+output/
+runs/
+runs_v3/
+logs/
+source
+translated
+jobs
+delivery
+
+# Generated translator artifacts
+*.chunks.json
+*.report.txt
+*.report.json
+*.report.html
+*.v2.ledger.json
+*.v2.report.json
+*.v2.preview.txt
+*.v2.blocked.txt
+*.docx
+
+# Local scratch / accidental files
+--only-chunks
+-o
+_sample_codex_skill_ko.txt.log
+.codex
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db

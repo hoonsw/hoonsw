@@ -1,0 +1,4 @@
+CHAPTER 1
+
+This chapter begins in English, but the quoted phrase 「これはテストです」 appears in the middle
+of the paragraph to test mixed-language routing.

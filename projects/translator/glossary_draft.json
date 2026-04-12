@@ -1,0 +1,2286 @@
+{
+  "머큐리C": "수성C",
+  "안병원": "안뵤인",
+  "安病院": "안뵤인",
+  "安病院オワル": "안뵤인 오와루",
+  "A-Musik": {
+    "translation": "A-뮤직",
+    "category": "organization",
+    "annotate": true,
+    "count": 2
+  },
+  "Cosima von Bonin": {
+    "translation": "코지마 폰 보닌",
+    "category": "person",
+    "annotate": true,
+    "count": 2
+  },
+  "Christoph Gurk": {
+    "translation": "크리스토프 구르크",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Steirischer Herbst": {
+    "translation": "슈타이리셔 헤르프스트",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "4 Plattenläden für Graz": {
+    "translation": "그라츠를 위한 4개의 레코드 가게",
+    "category": "work",
+    "annotate": true,
+    "count": 2
+  },
+  "John Cage": {
+    "translation": "존 케이지",
+    "category": "person",
+    "annotate": false,
+    "count": 18
+  },
+  "Wergo": {
+    "translation": "베르고",
+    "category": "organization",
+    "annotate": true,
+    "count": 2
+  },
+  "Works for Piano and Prepared Piano, Volume I": {
+    "translation": "피아노와 프리페어드 피아노를 위한 작품, 1권",
+    "category": "work",
+    "annotate": true,
+    "count": 2
+  },
+  "Morton Feldman": {
+    "translation": "모튼 펠드먼",
+    "category": "person",
+    "annotate": false,
+    "count": 5
+  },
+  "Gavin Bryars": {
+    "translation": "개빈 브라이어스",
+    "category": "person",
+    "annotate": true,
+    "count": 3
+  },
+  "David Grubbs": {
+    "translation": "데이비드 그럽스",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Amy Ruth Buchanan": {
+    "translation": "에이미 루스 뷰캐넌",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Garamond Premier Pro": {
+    "translation": "개러몬드 프리미어 프로",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Tseng Information Systems, Inc.": {
+    "translation": "쩡 인포메이션 시스템스",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "John Ashbery": {
+    "translation": "존 애쉬베리",
+    "category": "person",
+    "annotate": true,
+    "count": 2
+  },
+  "Three Poems": {
+    "translation": "세 편의 시",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Georges Borchardt, Inc.": {
+    "translation": "조르주 보르샤르트",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "Henry Flynt": {
+    "translation": "헨리 플린트",
+    "category": "person",
+    "annotate": true,
+    "count": 8
+  },
+  "Bob Dylan": {
+    "translation": "밥 딜런",
+    "category": "person",
+    "annotate": false,
+    "count": 3
+  },
+  "James Brown": {
+    "translation": "제임스 브라운",
+    "category": "person",
+    "annotate": false,
+    "count": 5
+  },
+  "John Coltrane": {
+    "translation": "존 콜트레인",
+    "category": "person",
+    "annotate": false,
+    "count": 3
+  },
+  "Brian Jones": {
+    "translation": "브라이언 존스",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Albert Ayler": {
+    "translation": "앨버트 에일러",
+    "category": "person",
+    "annotate": true,
+    "count": 3
+  },
+  "Public Image Ltd": {
+    "translation": "퍼블릭 이미지 리미티드",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "Death Disco": {
+    "translation": "데스 디스코",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "John Lydon": {
+    "translation": "존 라이던",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "the Fall": {
+    "translation": "더 폴",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "Max Neuhaus": {
+    "translation": "맥스 노이하우스",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Electronics and Percussion: Five Realizations": {
+    "translation": "전자음악과 타악기: 다섯 가지 실현",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Alga Marghen": {
+    "translation": "알가 마르겐",
+    "category": "organization",
+    "annotate": true,
+    "count": 3
+  },
+  "Fontana Mix—Feed": {
+    "translation": "폰타나 믹스—피드",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Stockhausen": {
+    "translation": "슈토크하우젠",
+    "category": "person",
+    "annotate": false,
+    "count": 4
+  },
+  "Zyklus": {
+    "translation": "치클루스",
+    "category": "work",
+    "annotate": true,
+    "count": 2
+  },
+  "Mandel Hall": {
+    "translation": "만델 홀",
+    "category": "place",
+    "annotate": true,
+    "count": 1
+  },
+  "Cologne Studios": {
+    "translation": "쾰른 스튜디오",
+    "category": "place",
+    "annotate": true,
+    "count": 1
+  },
+  "Westdeutscher Rundfunk": {
+    "translation": "서독일 방송",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "Kenneth Goldsmith": {
+    "translation": "케네스 골드스미스",
+    "category": "person",
+    "annotate": true,
+    "count": 7
+  },
+  "UbuWeb": {
+    "translation": "우부웹",
+    "category": "organization",
+    "annotate": true,
+    "count": 5
+  },
+  "Aspen": {
+    "translation": "아스펜",
+    "category": "work",
+    "annotate": true,
+    "count": 2
+  },
+  "The King of Denmark": {
+    "translation": "덴마크의 왕",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Radio Net": {
+    "translation": "라디오 넷",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Music of Our Time": {
+    "translation": "우리 시대의 음악",
+    "category": "work",
+    "annotate": true,
+    "count": 3
+  },
+  "Contemporary Sound Series": {
+    "translation": "현대 사운드 시리즈",
+    "category": "work",
+    "annotate": true,
+    "count": 3
+  },
+  "David Behrman": {
+    "translation": "데이비드 베어만",
+    "category": "person",
+    "annotate": true,
+    "count": 4
+  },
+  "Odyssey": {
+    "translation": "오디세이",
+    "category": "organization",
+    "annotate": true,
+    "count": 2
+  },
+  "David Tudor": {
+    "translation": "데이비드 튜더",
+    "category": "person",
+    "annotate": true,
+    "count": 7
+  },
+  "Frederic Rzewski": {
+    "translation": "프레데릭 제프스키",
+    "category": "person",
+    "annotate": true,
+    "count": 2
+  },
+  "Christian Wolff": {
+    "translation": "크리스티안 볼프",
+    "category": "person",
+    "annotate": true,
+    "count": 5
+  },
+  "Robert Craft": {
+    "translation": "로버트 크래프트",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Stravinsky": {
+    "translation": "스트라빈스키",
+    "category": "person",
+    "annotate": false,
+    "count": 2
+  },
+  "Glenn Gould": {
+    "translation": "글렌 굴드",
+    "category": "person",
+    "annotate": false,
+    "count": 4
+  },
+  "Robert Ashley": {
+    "translation": "로버트 애슐리",
+    "category": "person",
+    "annotate": true,
+    "count": 7
+  },
+  "Pauline Oliveros": {
+    "translation": "폴린 올리베로스",
+    "category": "person",
+    "annotate": true,
+    "count": 4
+  },
+  "Alvin Lucier": {
+    "translation": "앨빈 루시에",
+    "category": "person",
+    "annotate": true,
+    "count": 4
+  },
+  "Richard Maxfield": {
+    "translation": "리처드 맥스필드",
+    "category": "person",
+    "annotate": true,
+    "count": 4
+  },
+  "Steve Reich": {
+    "translation": "스티브 라이히",
+    "category": "person",
+    "annotate": false,
+    "count": 3
+  },
+  "Terry Riley": {
+    "translation": "테리 라일리",
+    "category": "person",
+    "annotate": false,
+    "count": 3
+  },
+  "In C": {
+    "translation": "인 C",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "A Rainbow in Curved Air": {
+    "translation": "곡선 공기 속의 무지개",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Earle Brown": {
+    "translation": "얼 브라운",
+    "category": "person",
+    "annotate": true,
+    "count": 3
+  },
+  "New York School": {
+    "translation": "뉴욕 악파",
+    "category": "concept",
+    "annotate": true,
+    "count": 1
+  },
+  "Project for Music for Magnetic Tape": {
+    "translation": "자기 테이프 음악 프로젝트",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "Louis and Bebe Barron": {
+    "translation": "루이스와 베베 배런",
+    "category": "person",
+    "annotate": true,
+    "count": 2
+  },
+  "Williams Mix": {
+    "translation": "윌리엄스 믹스",
+    "category": "work",
+    "annotate": true,
+    "count": 2
+  },
+  "Octet I": {
+    "translation": "옥텟 I",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Anthology of American Folk Music": {
+    "translation": "미국 포크 음악 선집",
+    "category": "work",
+    "annotate": false,
+    "count": 3
+  },
+  "John Fahey": {
+    "translation": "존 파헤이",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Dean Blackwood": {
+    "translation": "딘 블랙우드",
+    "category": "person",
+    "annotate": true,
+    "count": 2
+  },
+  "Revenant Records": {
+    "translation": "레버넌트 레코드",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "Raw Music": {
+    "translation": "로 뮤직",
+    "category": "concept",
+    "annotate": true,
+    "count": 1
+  },
+  "Harry Smith": {
+    "translation": "해리 스미스",
+    "category": "person",
+    "annotate": true,
+    "count": 2
+  },
+  "Dock Boggs": {
+    "translation": "독 보그스",
+    "category": "person",
+    "annotate": true,
+    "count": 2
+  },
+  "Country Blues": {
+    "translation": "컨트리 블루스",
+    "category": "work",
+    "annotate": true,
+    "count": 2
+  },
+  "American Primitive, Volume 1: Raw Pre-war Gospel": {
+    "translation": "아메리칸 프리미티브, 1권: 로 프리워 가스펠",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Folkways": {
+    "translation": "포크웨이스",
+    "category": "organization",
+    "annotate": false,
+    "count": 2
+  },
+  "Greil Marcus": {
+    "translation": "그레일 마커스",
+    "category": "person",
+    "annotate": true,
+    "count": 2
+  },
+  "Geoffrey O'Brien": {
+    "translation": "제프리 오브라이언",
+    "category": "person",
+    "annotate": true,
+    "count": 2
+  },
+  "Shawn Fanning": {
+    "translation": "숀 패닝",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "New American Ethnic Music": {
+    "translation": "새로운 미국 민속 음악",
+    "category": "concept",
+    "annotate": true,
+    "count": 2
+  },
+  "WFMU": {
+    "translation": "WFMU",
+    "category": "organization",
+    "annotate": true,
+    "count": 4
+  },
+  "Tony Conrad": {
+    "translation": "토니 콘래드",
+    "category": "person",
+    "annotate": true,
+    "count": 4
+  },
+  "Rip Van Winkle": {
+    "translation": "립 반 윙클",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "La Monte Young": {
+    "translation": "라 몬테 영",
+    "category": "person",
+    "annotate": true,
+    "count": 5
+  },
+  "Yoko Ono": {
+    "translation": "오노 요코",
+    "category": "person",
+    "annotate": false,
+    "count": 3
+  },
+  "Ornette Coleman": {
+    "translation": "오넷 콜먼",
+    "category": "person",
+    "annotate": true,
+    "count": 3
+  },
+  "Robert Johnson": {
+    "translation": "로버트 존슨",
+    "category": "person",
+    "annotate": true,
+    "count": 3
+  },
+  "Ali Akbar Khan": {
+    "translation": "알리 아크바르 칸",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Pandit Pran Nath": {
+    "translation": "판디트 프란 나트",
+    "category": "person",
+    "annotate": true,
+    "count": 2
+  },
+  "John Lee Hooker": {
+    "translation": "존 리 후커",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Bo Diddley": {
+    "translation": "보 디들리",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Kyle Gann": {
+    "translation": "카일 겐",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Music Downtown": {
+    "translation": "뮤직 다운타운",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Yasunao Tone": {
+    "translation": "도네 야스나오",
+    "category": "person",
+    "annotate": true,
+    "count": 2
+  },
+  "Fluxus": {
+    "translation": "플럭서스",
+    "category": "organization",
+    "annotate": true,
+    "count": 3
+  },
+  "Group Ongaku": {
+    "translation": "그룹 온가쿠",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "Silence: Lectures and Writings": {
+    "translation": "침묵: 강연과 저술",
+    "category": "work",
+    "annotate": true,
+    "count": 2
+  },
+  "Daniel Charles": {
+    "translation": "다니엘 샤를",
+    "category": "person",
+    "annotate": true,
+    "count": 3
+  },
+  "4′33″": {
+    "translation": "4분 33초",
+    "category": "work",
+    "annotate": false,
+    "count": 2
+  },
+  "Luc Ferrari": {
+    "translation": "뤽 페라리",
+    "category": "person",
+    "annotate": true,
+    "count": 4
+  },
+  "Presque rien ou le lever du jour au bord de la mer": {
+    "translation": "거의 아무것도 없거나 바닷가의 새벽",
+    "category": "work",
+    "annotate": true,
+    "count": 3
+  },
+  "Imaginary Landscape": {
+    "translation": "상상의 풍경",
+    "category": "work",
+    "annotate": true,
+    "count": 3
+  },
+  "I Don't Wanna": {
+    "translation": "아이 돈트 워너",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Ed Sanders": {
+    "translation": "에드 샌더스",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Tuli Kupferberg": {
+    "translation": "툴리 쿠퍼버그",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "the Fugs": {
+    "translation": "더 퓨그스",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "Subterranean Homesick Blues": {
+    "translation": "서브터레이니언 홈식 블루스",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Kirana": {
+    "translation": "키라나",
+    "category": "concept",
+    "annotate": true,
+    "count": 1
+  },
+  "Essay: Concept Art (Provisional Version)": {
+    "translation": "에세이: 개념 미술 (잠정판)",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "An Anthology of Chance Operations": {
+    "translation": "우연적 작동, 불확정성, 개념 미술 선집",
+    "category": "work",
+    "annotate": true,
+    "count": 2
+  },
+  "La Monte Young in New York, 1960–62": {
+    "translation": "뉴욕의 라 몬테 영, 1960-62",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Ted Kaczynski": {
+    "translation": "테드 카진스키",
+    "category": "person",
+    "annotate": true,
+    "count": 2
+  },
+  "Chambers Street loft": {
+    "translation": "체임버스 스트리트 로프트",
+    "category": "place",
+    "annotate": true,
+    "count": 1
+  },
+  "Jackson Mac Low": {
+    "translation": "잭슨 맥 로우",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Simone Forti": {
+    "translation": "시몬 포르티",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Robert Morris": {
+    "translation": "로버트 모리스",
+    "category": "person",
+    "annotate": true,
+    "count": 2
+  },
+  "Arabic Numeral (Any Integer) to H.F.": {
+    "translation": "아라비아 숫자 (임의의 정수) H.F.에게",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "X for Henry Flynt": {
+    "translation": "헨리 플린트를 위한 X",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Internationale Ferienkurse für Neue Musik": {
+    "translation": "국제 신음악 여름 강좌",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "Darmstadt": {
+    "translation": "다름슈타트",
+    "category": "place",
+    "annotate": true,
+    "count": 2
+  },
+  "566 (to Henry Flynt)": {
+    "translation": "566 (헨리 플린트에게)",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Jack Smith": {
+    "translation": "잭 스미스",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Picket Stockhausen Concert!": {
+    "translation": "슈톡하우젠 콘서트 피켓!",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Philip Corner": {
+    "translation": "필립 코너",
+    "category": "person",
+    "annotate": true,
+    "count": 2
+  },
+  "Dick Higgins": {
+    "translation": "딕 히긴스",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Alison Knowles": {
+    "translation": "앨리슨 노울스",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Benjamin Patterson": {
+    "translation": "벤저민 패터슨",
+    "category": "person",
+    "annotate": true,
+    "count": 2
+  },
+  "Nam Jun Paik": {
+    "translation": "백남준",
+    "category": "person",
+    "annotate": false,
+    "count": 1
+  },
+  "Takehisa Kosugi": {
+    "translation": "고스기 다케히사",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Blueprint for a Higher Civilization": {
+    "translation": "더 높은 문명을 위한 청사진",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Emily Harvey Gallery": {
+    "translation": "에밀리 하비 갤러리",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "Walter De Maria": {
+    "translation": "월터 드 마리아",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Diane Wakoski": {
+    "translation": "다이앤 와코스키",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Edition Hundertmark": {
+    "translation": "에디션 훈더트마르크",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "You Are My Everlovin / Celestial": {
+    "translation": "유 아 마이 에버러빈 / 셀레스티얼",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Pierre Schaeffer": {
+    "translation": "피에르 셰페르",
+    "category": "person",
+    "annotate": true,
+    "count": 2
+  },
+  "Boulez": {
+    "translation": "불레즈",
+    "category": "person",
+    "annotate": true,
+    "count": 2
+  },
+  "Music Promenade": {
+    "translation": "음악 산책",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Variations IV": {
+    "translation": "변주곡 4번",
+    "category": "work",
+    "annotate": true,
+    "count": 2
+  },
+  "Luciano Berio": {
+    "translation": "루치아노 베리오",
+    "category": "person",
+    "annotate": true,
+    "count": 3
+  },
+  "Sinfonia": {
+    "translation": "신포니아",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Hymnen": {
+    "translation": "찬가",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Telemusik": {
+    "translation": "텔레무지크",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Dan Warburton": {
+    "translation": "댄 워버튼",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Dalmatian": {
+    "translation": "달마티아",
+    "category": "place",
+    "annotate": true,
+    "count": 1
+  },
+  "Groupe de Recherches Musicales": {
+    "translation": "음악 연구 그룹",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "phonogene": {
+    "translation": "포노젠",
+    "category": "concept",
+    "annotate": true,
+    "count": 1
+  },
+  "Tête et queue du dragon": {
+    "translation": "용의 머리와 꼬리",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Brunhild Ferrari": {
+    "translation": "브룬힐트 페라리",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Arnold Schoenberg": {
+    "translation": "아르놀트 쇤베르크",
+    "category": "person",
+    "annotate": false,
+    "count": 3
+  },
+  "Six Short Inventions for Seven Instruments": {
+    "translation": "일곱 악기를 위한 여섯 개의 짧은 발명",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "First Construction in Metal": {
+    "translation": "금속의 첫 번째 구성",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Tony Oxley": {
+    "translation": "토니 옥슬리",
+    "category": "person",
+    "annotate": true,
+    "count": 2
+  },
+  "The 25-Year Retrospective Concert": {
+    "translation": "25년 회고 콘서트",
+    "category": "work",
+    "annotate": true,
+    "count": 3
+  },
+  "George Avakian": {
+    "translation": "조지 아바키안",
+    "category": "person",
+    "annotate": true,
+    "count": 2
+  },
+  "Town Hall": {
+    "translation": "타운 홀",
+    "category": "place",
+    "annotate": true,
+    "count": 1
+  },
+  "James Tenney": {
+    "translation": "제임스 테니",
+    "category": "person",
+    "annotate": true,
+    "count": 2
+  },
+  "Collage No. 1 (Blue Suede)": {
+    "translation": "콜라주 1번 (블루 스웨이드)",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Richard Kostelanetz": {
+    "translation": "리처드 코스텔라네츠",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Cartridge Music": {
+    "translation": "카트리지 뮤직",
+    "category": "work",
+    "annotate": true,
+    "count": 4
+  },
+  "Howlin' Wolf": {
+    "translation": "하울린 울프",
+    "category": "person",
+    "annotate": true,
+    "count": 3
+  },
+  "Marilyn Crispell": {
+    "translation": "마릴린 크리스펠",
+    "category": "person",
+    "annotate": true,
+    "count": 2
+  },
+  "Fred Anderson": {
+    "translation": "프레드 앤더슨",
+    "category": "person",
+    "annotate": true,
+    "count": 3
+  },
+  "Hamid Drake": {
+    "translation": "하미드 드레이크",
+    "category": "person",
+    "annotate": true,
+    "count": 2
+  },
+  "James Lastra": {
+    "translation": "제임스 라스트라",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Walter Benjamin": {
+    "translation": "발터 벤야민",
+    "category": "person",
+    "annotate": false,
+    "count": 3
+  },
+  "A Short History of Photography": {
+    "translation": "사진의 작은 역사",
+    "category": "work",
+    "annotate": false,
+    "count": 3
+  },
+  "Wilhelm Joseph von Schelling": {
+    "translation": "빌헬름 요제프 폰 셸링",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Roland Barthes": {
+    "translation": "롤랑 바르트",
+    "category": "person",
+    "annotate": false,
+    "count": 5
+  },
+  "Moe Asch": {
+    "translation": "모 애쉬",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Eric Salzman": {
+    "translation": "에릭 살츠만",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Concert for Piano and Orchestra": {
+    "translation": "피아노와 오케스트라를 위한 협주곡",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Fontana Mix": {
+    "translation": "폰타나 믹스",
+    "category": "work",
+    "annotate": true,
+    "count": 3
+  },
+  "Mureau": {
+    "translation": "뮤로",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Rainforest II": {
+    "translation": "레인포레스트 II",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Lecture on Nothing": {
+    "translation": "무(無)에 관한 강연",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Grand Street": {
+    "translation": "그랜드 스트리트",
+    "category": "place",
+    "annotate": true,
+    "count": 1
+  },
+  "Water Walk": {
+    "translation": "워터 워크",
+    "category": "work",
+    "annotate": true,
+    "count": 2
+  },
+  "Silence": {
+    "translation": "침묵",
+    "category": "work",
+    "annotate": true,
+    "count": 2
+  },
+  "Derek Bailey": {
+    "translation": "데릭 베일리",
+    "category": "person",
+    "annotate": false,
+    "count": 7
+  },
+  "Invisible Jukebox": {
+    "translation": "인비저블 주크박스",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Paco Peña": {
+    "translation": "파코 페냐",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Improvisation: Its Nature and Practice in Music": {
+    "translation": "즉흥연주: 음악에서의 본질과 실천",
+    "category": "work",
+    "annotate": true,
+    "count": 2
+  },
+  "Clifford Brown": {
+    "translation": "클리포드 브라운",
+    "category": "person",
+    "annotate": true,
+    "count": 2
+  },
+  "Max Roach Quintet": {
+    "translation": "맥스 로치 퀸텟",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "AMM": {
+    "translation": "AMM",
+    "category": "organization",
+    "annotate": true,
+    "count": 9
+  },
+  "Cornelius Cardew": {
+    "translation": "코넬리우스 카듀",
+    "category": "person",
+    "annotate": true,
+    "count": 5
+  },
+  "Eddie Prévost": {
+    "translation": "에디 프레보",
+    "category": "person",
+    "annotate": true,
+    "count": 3
+  },
+  "Incus": {
+    "translation": "인커스",
+    "category": "organization",
+    "annotate": true,
+    "count": 3
+  },
+  "Matchless": {
+    "translation": "매치리스",
+    "category": "organization",
+    "annotate": true,
+    "count": 3
+  },
+  "Keith Rowe": {
+    "translation": "키스 로우",
+    "category": "person",
+    "annotate": true,
+    "count": 4
+  },
+  "John Corbett": {
+    "translation": "존 코벳",
+    "category": "person",
+    "annotate": true,
+    "count": 2
+  },
+  "Performing Right Society": {
+    "translation": "공연권협회",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "GEMA": {
+    "translation": "게마",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "SACEM": {
+    "translation": "사셈",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "ASCAP": {
+    "translation": "ASCAP",
+    "category": "organization",
+    "annotate": true,
+    "count": 2
+  },
+  "BMI": {
+    "translation": "BMI",
+    "category": "organization",
+    "annotate": true,
+    "count": 2
+  },
+  "AMMMusic": {
+    "translation": "AMMMusic",
+    "category": "work",
+    "annotate": true,
+    "count": 3
+  },
+  "Towards an Ethic of Improvisation": {
+    "translation": "즉흥 윤리를 향하여",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "John Tilbury": {
+    "translation": "존 틸버리",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "The Great Learning": {
+    "translation": "대학",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Treatise": {
+    "translation": "Treatise",
+    "category": "work",
+    "annotate": true,
+    "count": 4
+  },
+  "Stockhausen Serves Imperialism": {
+    "translation": "슈톡하우젠은 제국주의에 봉사한다",
+    "category": "work",
+    "annotate": true,
+    "count": 2
+  },
+  "Lou Gare": {
+    "translation": "루 게어",
+    "category": "person",
+    "annotate": true,
+    "count": 2
+  },
+  "Lawrence Sheaff": {
+    "translation": "로렌스 시프",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Morley College": {
+    "translation": "몰리 칼리지",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "Christopher Hobbs": {
+    "translation": "크리스토퍼 홉스",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Spontaneous Music Ensemble": {
+    "translation": "스폰테이니어스 뮤직 앙상블",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "Kenny Wheeler": {
+    "translation": "케니 휠러",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Dave Holland": {
+    "translation": "데이브 홀랜드",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "John Stevens": {
+    "translation": "존 스티븐스",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Karyobin": {
+    "translation": "카료빈",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "George E. Lewis": {
+    "translation": "조지 E. 루이스",
+    "category": "person",
+    "annotate": true,
+    "count": 2
+  },
+  "New Phonic Art": {
+    "translation": "뉴 포닉 아트",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "Vinko Globokar": {
+    "translation": "빈코 글로보카르",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Iskra 1903": {
+    "translation": "이스크라 1903",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "Barry Guy": {
+    "translation": "배리 가이",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Paul Rutherford": {
+    "translation": "폴 러더퍼드",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Wired": {
+    "translation": "와이어드",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "Conny Plank": {
+    "translation": "코니 플랑크",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Neu!": {
+    "translation": "노이!",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "Harmonia": {
+    "translation": "하르모니아",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "ReR Records": {
+    "translation": "ReR 레코드",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "Live Electronic Music Improvised": {
+    "translation": "라이브 전자음악 즉흥연주",
+    "category": "work",
+    "annotate": true,
+    "count": 2
+  },
+  "Frazer Pearce": {
+    "translation": "프레이저 피어스",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "I've Got a Secret": {
+    "translation": "아이브 갓 어 시크릿",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Music with Roots in the Aether": {
+    "translation": "뮤직 위드 루츠 인 디 에테르",
+    "category": "work",
+    "annotate": true,
+    "count": 3
+  },
+  "Lovely Music, Ltd.": {
+    "translation": "러블리 뮤직",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "Monument Valley": {
+    "translation": "모뉴먼트 밸리",
+    "category": "place",
+    "annotate": true,
+    "count": 1
+  },
+  "Free Music Archive": {
+    "translation": "프리 뮤직 아카이브",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "Other Minds Audio Archive": {
+    "translation": "아더 마인즈 오디오 아카이브",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "Archive.org": {
+    "translation": "아카이브닷오알지",
+    "category": "organization",
+    "annotate": true,
+    "count": 2
+  },
+  "Michel Foucault": {
+    "translation": "미셸 푸코",
+    "category": "person",
+    "annotate": false,
+    "count": 2
+  },
+  "Jacques Derrida": {
+    "translation": "자크 데리다",
+    "category": "person",
+    "annotate": false,
+    "count": 2
+  },
+  "Source": {
+    "translation": "소스",
+    "category": "work",
+    "annotate": true,
+    "count": 4
+  },
+  "MEV": {
+    "translation": "MEV",
+    "category": "organization",
+    "annotate": true,
+    "count": 2
+  },
+  "Alvin Curran": {
+    "translation": "앨빈 커런",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Solo Works: The '70s": {
+    "translation": "솔로 작품집: 70년대",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Magic Carpet": {
+    "translation": "매직 카펫",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "New World": {
+    "translation": "뉴 월드",
+    "category": "organization",
+    "annotate": true,
+    "count": 2
+  },
+  "Jacques Attali": {
+    "translation": "자크 아탈리",
+    "category": "person",
+    "annotate": true,
+    "count": 3
+  },
+  "Sound American": {
+    "translation": "사운드 아메리칸",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Experimental Intermedia Archive": {
+    "translation": "실험 인터미디어 아카이브",
+    "category": "organization",
+    "annotate": true,
+    "count": 2
+  },
+  "Anthony Braxton": {
+    "translation": "앤서니 브랙스턴",
+    "category": "person",
+    "annotate": true,
+    "count": 2
+  },
+  "Tri-Centric Foundation": {
+    "translation": "트라이센트릭 재단",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "Ben Hall Gospel Archive": {
+    "translation": "벤 홀 가스펠 아카이브",
+    "category": "organization",
+    "annotate": true,
+    "count": 2
+  },
+  "Jon Appleton": {
+    "translation": "존 애플턴",
+    "category": "person",
+    "annotate": true,
+    "count": 2
+  },
+  "Elaine Summers": {
+    "translation": "일레인 서머스",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Trisha Brown": {
+    "translation": "트리샤 브라운",
+    "category": "person",
+    "annotate": true,
+    "count": 2
+  },
+  "Phill Niblock": {
+    "translation": "필 나이블록",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Centre Street": {
+    "translation": "센터 스트리트",
+    "category": "place",
+    "annotate": true,
+    "count": 1
+  },
+  "Steve Cellum": {
+    "translation": "스티브 셀럼",
+    "category": "person",
+    "annotate": true,
+    "count": 2
+  },
+  "Tom Johnson": {
+    "translation": "톰 존슨",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Hamiet Bluiett": {
+    "translation": "하미엣 블루이엣",
+    "category": "person",
+    "annotate": true,
+    "count": 2
+  },
+  "Eliane Radigue": {
+    "translation": "엘리안 라디그",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Kazuo Uehara": {
+    "translation": "우에하라 카즈오",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Julius Eastman": {
+    "translation": "줄리어스 이스트먼",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Arnold Dreyblatt": {
+    "translation": "아놀드 드레이블랫",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Orchestra of Excited Strings": {
+    "translation": "흥분한 현악 오케스트라",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Margaret Smith": {
+    "translation": "마거릿 스미스",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Derek Bailey and the Story of Free Improvisation": {
+    "translation": "데릭 베일리와 자유즉흥연주의 역사",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Nothing Is": {
+    "translation": "나싱 이즈",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "esp-Disk": {
+    "translation": "ESP-디스크",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "Mode Records": {
+    "translation": "모드 레코드",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "flux Quartet": {
+    "translation": "플럭스 콰르텟",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "Turbine Hall": {
+    "translation": "터빈 홀",
+    "category": "place",
+    "annotate": true,
+    "count": 1
+  },
+  "Piano, Violin, Viola, Cello": {
+    "translation": "피아노, 바이올린, 비올라, 첼로",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "hat art": {
+    "translation": "햇 아트",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "Douglas Wolk": {
+    "translation": "더글러스 월크",
+    "category": "person",
+    "annotate": true,
+    "count": 2
+  },
+  "Live at the Apollo": {
+    "translation": "라이브 앳 디 아폴로",
+    "category": "work",
+    "annotate": false,
+    "count": 2
+  },
+  "The Howlin' Wolf Album": {
+    "translation": "더 하울린 울프 앨범",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Cadet Concept": {
+    "translation": "캐뎃 컨셉트",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "Pete Cosey": {
+    "translation": "피트 코지",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "AACM": {
+    "translation": "AACM",
+    "category": "organization",
+    "annotate": true,
+    "count": 3
+  },
+  "Peter Bürger": {
+    "translation": "페터 뷔르거",
+    "category": "person",
+    "annotate": true,
+    "count": 3
+  },
+  "Theory of the Avant-Garde": {
+    "translation": "아방가르드 이론",
+    "category": "work",
+    "annotate": true,
+    "count": 2
+  },
+  "Amy C. Beal": {
+    "translation": "에이미 C. 빌",
+    "category": "person",
+    "annotate": true,
+    "count": 3
+  },
+  "Henry Cowell": {
+    "translation": "헨리 카웰",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Ruth Crawford": {
+    "translation": "루스 크로포드",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "New Music, New Allies": {
+    "translation": "새로운 음악, 새로운 동맹",
+    "category": "work",
+    "annotate": true,
+    "count": 3
+  },
+  "Benjamin Piekut": {
+    "translation": "벤자민 피쿠트",
+    "category": "person",
+    "annotate": true,
+    "count": 3
+  },
+  "KPFA-FM": {
+    "translation": "KPFA-FM",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "KRAB": {
+    "translation": "KRAB",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "WBAI": {
+    "translation": "WBAI",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "112 Chambers Street": {
+    "translation": "체임버스 스트리트 112번지",
+    "category": "place",
+    "annotate": true,
+    "count": 1
+  },
+  "The Four Dreams of China": {
+    "translation": "중국의 네 가지 꿈",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Gramavision": {
+    "translation": "그라마비전",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "Lester Bangs": {
+    "translation": "레스터 뱅스",
+    "category": "person",
+    "annotate": true,
+    "count": 3
+  },
+  "No Wave": {
+    "translation": "노 웨이브",
+    "category": "concept",
+    "annotate": true,
+    "count": 1
+  },
+  "The White Noise Supremacists": {
+    "translation": "백색 소음 지상주의자들",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "The Contortions": {
+    "translation": "더 컨토션스",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "Psychotic Reactions and Carburetor Dung": {
+    "translation": "정신병적 반응과 기화기 똥",
+    "category": "work",
+    "annotate": true,
+    "count": 2
+  },
+  "A Power Stronger Than Itself": {
+    "translation": "자신보다 강한 힘",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Die Reihe": {
+    "translation": "디 라이에",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Karlheinz Stockhausen": {
+    "translation": "카를하인츠 슈토크하우젠",
+    "category": "person",
+    "annotate": true,
+    "count": 2
+  },
+  "Herbert Eimert": {
+    "translation": "헤르베르트 아이메르트",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Universal Edition": {
+    "translation": "유니버설 에디션",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "Arthur Russell": {
+    "translation": "아서 러셀",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Hold On to Your Dreams": {
+    "translation": "당신의 꿈을 붙잡아라",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Gordon Mumma": {
+    "translation": "고든 뮴마",
+    "category": "person",
+    "annotate": true,
+    "count": 2
+  },
+  "W. J. T. Mitchell": {
+    "translation": "W. J. T. 미첼",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Landscape and Power": {
+    "translation": "풍경과 권력",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Bruce Nauman": {
+    "translation": "브루스 나우만",
+    "category": "person",
+    "annotate": true,
+    "count": 2
+  },
+  "Coosje van Bruggen": {
+    "translation": "쿠시에 판 브뤼헌",
+    "category": "person",
+    "annotate": true,
+    "count": 2
+  },
+  "Sounddance": {
+    "translation": "사운드댄스",
+    "category": "work",
+    "annotate": true,
+    "count": 2
+  },
+  "Composition 1960": {
+    "translation": "컴포지션 1960",
+    "category": "work",
+    "annotate": true,
+    "count": 2
+  },
+  "The Theatre of Eternal Music": {
+    "translation": "영원한 음악의 극장",
+    "category": "organization",
+    "annotate": true,
+    "count": 2
+  },
+  "The Tortoise, His Dreams and Journeys": {
+    "translation": "거북이, 그의 꿈과 여정",
+    "category": "work",
+    "annotate": true,
+    "count": 2
+  },
+  "John Cale": {
+    "translation": "존 케일",
+    "category": "person",
+    "annotate": true,
+    "count": 2
+  },
+  "Vintage Violence": {
+    "translation": "빈티지 바이올런스",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "The Church of Anthrax": {
+    "translation": "탄저병의 교회",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "The United States of America": {
+    "translation": "유나이티드 스테이츠 오브 아메리카",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "Larry Austin": {
+    "translation": "래리 오스틴",
+    "category": "person",
+    "annotate": true,
+    "count": 2
+  },
+  "Edition Wandelweiser": {
+    "translation": "에디션 반델바이저",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "Antoine Beuger": {
+    "translation": "앙투안 보이거",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Burkhard Schlothauer": {
+    "translation": "부르크하르트 슐로타우어",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Radu Malfatti": {
+    "translation": "라두 말파티",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Jürg Frey": {
+    "translation": "위르크 프라이",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Michael Pisaro": {
+    "translation": "마이클 피사로",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Taku Sugimoto": {
+    "translation": "스기모토 타쿠",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Sachiko M": {
+    "translation": "사치코 M",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Taku Unami": {
+    "translation": "우나미 타쿠",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Solo for Wounded": {
+    "translation": "상처 입은 이를 위한 솔로",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "mp3 Deviations": {
+    "translation": "mp3 디비에이션스",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Tzadik": {
+    "translation": "차디크",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "Editions Mego": {
+    "translation": "에디션스 메고",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "Dai Vaughan": {
+    "translation": "다이 본",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Tom Gunning": {
+    "translation": "톰 거닝",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Joan Retallack": {
+    "translation": "조앤 레탈랙",
+    "category": "person",
+    "annotate": true,
+    "count": 2
+  },
+  "Poethics of a Complex Realism": {
+    "translation": "복잡한 리얼리즘의 시윤리학",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Dialogues with Marcel Duchamp": {
+    "translation": "마르셀 뒤샹과의 대화",
+    "category": "work",
+    "annotate": true,
+    "count": 2
+  },
+  "Sound Technology and the American Cinema": {
+    "translation": "사운드 기술과 미국 영화",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Gramophone, Film, Typewriter": {
+    "translation": "축음기, 영화, 타자기",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Branden W. Joseph": {
+    "translation": "브랜든 W. 조지프",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Variations II": {
+    "translation": "변주곡 II",
+    "category": "work",
+    "annotate": true,
+    "count": 2
+  },
+  "New Electronic Music": {
+    "translation": "새로운 전자 음악",
+    "category": "work",
+    "annotate": true,
+    "count": 2
+  },
+  "Everest Records": {
+    "translation": "에베레스트 레코드",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "Eric Drott": {
+    "translation": "에릭 드롯",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "The Politics of Presque rien": {
+    "translation": "거의 아무것도 아닌 것의 정치학",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Sound Commitments": {
+    "translation": "사운드 커미트먼트",
+    "category": "work",
+    "annotate": true,
+    "count": 2
+  },
+  "Experimentalism Otherwise": {
+    "translation": "다른 방식의 실험주의",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Chance as Ideology": {
+    "translation": "이데올로기로서의 우연",
+    "category": "work",
+    "annotate": true,
+    "count": 2
+  },
+  "Theodor W. Adorno": {
+    "translation": "테오도어 W. 아도르노",
+    "category": "person",
+    "annotate": false,
+    "count": 3
+  },
+  "Vers une musique informelle": {
+    "translation": "비형식적 음악을 향하여",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Philosophy of Modern Music": {
+    "translation": "현대 음악의 철학",
+    "category": "work",
+    "annotate": true,
+    "count": 2
+  },
+  "Liz Kotz": {
+    "translation": "리즈 코츠",
+    "category": "person",
+    "annotate": true,
+    "count": 2
+  },
+  "Words to Be Looked At": {
+    "translation": "보아야 할 말들",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Carl Andre": {
+    "translation": "칼 안드레",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Paris Transatlantic": {
+    "translation": "파리 트랜스아틀란틱",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "Eric Weisbard": {
+    "translation": "에릭 와이스바드",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Experience Music Project": {
+    "translation": "익스피리언스 뮤직 프로젝트",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "Allen S. Weiss": {
+    "translation": "앨런 S. 와이스",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Errant Bodies": {
+    "translation": "에런트 바디스",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "mela Foundation": {
+    "translation": "멜라 재단",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "Milton Babbitt": {
+    "translation": "밀턴 배빗",
+    "category": "person",
+    "annotate": true,
+    "count": 2
+  },
+  "Konrad Boehmer": {
+    "translation": "콘라트 뵈머",
+    "category": "person",
+    "annotate": true,
+    "count": 2
+  },
+  "Georgina Born": {
+    "translation": "조지나 본",
+    "category": "person",
+    "annotate": true,
+    "count": 2
+  },
+  "Joe Boyd": {
+    "translation": "조 보이드",
+    "category": "person",
+    "annotate": true,
+    "count": 2
+  },
+  "Sylvano Bussotti": {
+    "translation": "실바노 부소티",
+    "category": "person",
+    "annotate": true,
+    "count": 2
+  },
+  "Joseph Byrd": {
+    "translation": "조지프 버드",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Han Bennink": {
+    "translation": "한 베닝크",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Charles Bernstein": {
+    "translation": "찰스 번스타인",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Leonard Bernstein": {
+    "translation": "레너드 번스타인",
+    "category": "person",
+    "annotate": false,
+    "count": 2
+  },
+  "Jonathan Cott": {
+    "translation": "조너선 콧",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Michel Chion": {
+    "translation": "미셸 시옹",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Carolyn Brown": {
+    "translation": "캐롤린 브라운",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Chance and Circumstance": {
+    "translation": "우연과 환경: 케이지와 커닝햄과 함께한 20년",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Robert Adlington": {
+    "translation": "로버트 애들링턴",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Aesthetic Theory": {
+    "translation": "미학 이론",
+    "category": "work",
+    "annotate": false,
+    "count": 1
+  },
+  "Empty Words": {
+    "translation": "빈 말들",
+    "category": "work",
+    "annotate": true,
+    "count": 2
+  },
+  "Sharon Freeman": {
+    "translation": "샤론 프리먼",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "OkkaDisc": {
+    "translation": "오카디스크",
+    "category": "organization",
+    "annotate": true,
+    "count": 1
+  },
+  "Noise: The Political Economy of Music": {
+    "translation": "소음: 음악의 정치경제학",
+    "category": "work",
+    "annotate": false,
+    "count": 1
+  },
+  "Brian Massumi": {
+    "translation": "브라이언 마수미",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Douglas Kahn": {
+    "translation": "더글러스 칸",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Camera Lucida": {
+    "translation": "카메라 루시다",
+    "category": "work",
+    "annotate": false,
+    "count": 1
+  },
+  "The San Francisco Tape Music Center": {
+    "translation": "샌프란시스코 테이프 뮤직 센터",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "Ursula Block": {
+    "translation": "우르술라 블록",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Michael Glasmeier": {
+    "translation": "미하엘 글라스마이어",
+    "category": "person",
+    "annotate": true,
+    "count": 1
+  },
+  "Broken Music: Artists' Recordworks": {
+    "translation": "브로큰 뮤직: 아티스트 레코드워크",
+    "category": "work",
+    "annotate": true,
+    "count": 1
+  },
+  "For the Birds": {
+    "translation": "새들을 위하여",
+    "category": "work",
+    "annotate": true,
+    "count": 2
+  }
+}
