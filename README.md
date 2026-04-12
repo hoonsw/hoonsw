@@ -1,38 +1,4 @@
-### 🐤🐤🐤
+## About me
 
-
-
-## Now learning
-### in College
-> Operating System 
-> 
-> System Programming
-### by Myself
-> node.js (vue.js, express.js)
-> 
-> Algorithm
-> 
-> Swift
-> 
-
-
-> English
-> 
-> Japanese
-
-
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fhoonsw&count_bg=%236AC624&title_bg=%233DC294&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
-<!--
-**hoonsw/hoonsw** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-
-Here are some ideas to get you started:
-
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+LLMを活用した開発支援・業務改善に関心があり、AIエージェント運用や自動化ワークフローの検証に取り組んでいます。  
+このGitHubでは、ツール検証、プロトタイプ、業務改善に関連する実装やメモを整理しています。
