@@ -1,8 +1,14 @@
-# Projects
+# projects
 
-This directory contains the real project code that backs the portfolio.
+このディレクトリには、ポートフォリオとして公開する実プロジェクトを配置します。
 
-Current state:
+## 現在の状態
 
-- `translator/` imported
-- other local projects will be migrated in over time
+- `translator/` を先行で収録
+- ほかのローカルプロジェクトは、整理と公開品質の確認ができ次第、段階的に移行予定
+
+## 方針
+
+- まずは「完成度が高いもの」を優先して追加する
+- 実行ログ、入力データ、生成物などの運用データは原則として含めない
+- README は日本語で統一する

@@ -1,32 +1,27 @@
 # hoonsw
 
-Personal portfolio monorepo for AI-assisted tools, automation workflows, media utilities, and translation systems.
+AI エージェント、翻訳ワークフロー、自動化ツールを中心に開発している個人ポートフォリオ用モノレポです。
 
-This repository is where I collect the projects I actively build, refine, and document.
-Some projects are already imported here, and others will be migrated in gradually.
+このリポジトリでは、実際に運用・改善しているツールを `projects/` 配下で管理し、ルート README では全体像が分かるように整理しています。
 
-## Focus Areas
-
-- Long-form translation and OCR repair workflows
-- AI agent orchestration and local automation
-- Media processing and archive tooling
-- Creator tools and experimental interfaces
-
-## Featured Projects
+## 現在の公開対象
 
 ### `projects/translator`
 
-Long-form translation workbench for TXT/PDF manuscripts.
+長文 TXT / PDF 向けの翻訳ワークベンチです。
 
-- Current production path: `translator_v3 + codex_local`
-- Supports review bundles, preview outputs, run metadata, Synology delivery, and OpenClaw/Discord operation
-- Includes benchmark, validation, repair, and orchestration layers
+- 現在の主運用経路: `translator_v3 + codex_local`
+- プレビュー生成、レビュー・バンドル、実行メタデータ、Synology 納品、OpenClaw / Discord 運用に対応
+- OCR 系入力を前提にした前処理、品質検証、再試行、ジョブ管理を含む
 
-See: [projects/translator/README.md](projects/translator/README.md)
+詳細:
 
-## Planned Imports
+- [projects/translator/README.md](projects/translator/README.md)
 
-These local projects exist already and are good candidates to migrate into this monorepo over time:
+## 今後追加予定のローカルプロジェクト
+
+現時点では、完成度と公開品質を優先して `translator` のみを収録しています。
+今後は必要に応じて以下のローカルプロジェクトを順次移行する予定です。
 
 - `aituber`
 - `earEater`
@@ -37,17 +32,18 @@ These local projects exist already and are good candidates to migrate into this 
 - `toMp3`
 - `toMp4`
 
-## Repository Layout
+## リポジトリ構成
 
 ```text
 .
-├─ projects/     # real project code
-├─ docs/         # cross-project notes and architecture docs
-└─ assets/       # images and portfolio assets
+├─ projects/   # 公開対象の実プロジェクト
+├─ docs/       # 横断ドキュメント
+└─ assets/     # ポートフォリオ用アセット
 ```
 
-## Status
+## 運用方針
 
-- `translator` imported
-- portfolio root organized
-- additional projects will be migrated incrementally
+- README は日本語を基本とする
+- コミットメッセージも日本語を基本とする
+- 未整理の実験データやローカル生成物は極力含めない
+- 公開品質に達したプロジェクトから順に取り込む
