@@ -1,0 +1,44 @@
+{
+  "cases": [
+    {
+      "case_id": "clean_en",
+      "label": "clean prose txt",
+      "input_path": "clean_en.txt",
+      "source_lang": "en",
+      "tags": ["clean", "txt"],
+      "expected_input_class": "clean_text"
+    },
+    {
+      "case_id": "pdfish_en",
+      "label": "pdf-ish OCR text dump",
+      "input_path": "pdfish_en.txt",
+      "source_lang": "en",
+      "tags": ["ocr_noise", "txt", "pdfish"],
+      "expected_input_class": "unknown_noisy_text"
+    },
+    {
+      "case_id": "mixed_lang",
+      "label": "mixed language prose",
+      "input_path": "mixed_lang.txt",
+      "source_lang": "en",
+      "tags": ["mixed_language", "txt"],
+      "expected_input_class": "clean_text"
+    },
+    {
+      "case_id": "footnotes",
+      "label": "footnote-heavy sample",
+      "input_path": "footnotes.txt",
+      "source_lang": "en",
+      "tags": ["footnotes", "txt"],
+      "expected_input_class": "clean_text"
+    },
+    {
+      "case_id": "broken_order",
+      "label": "broken reading-order sample",
+      "input_path": "broken_order.txt",
+      "source_lang": "en",
+      "tags": ["broken_order", "txt"],
+      "expected_input_class": "clean_text"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+openai
+pyyaml
+
+# PDF support (optional — install for PDF input)
+# pymupdf          # pip install pymupdf  — fast PDF text extraction
+# pdfplumber       # pip install pdfplumber  — alternative PDF text extraction
+
+# OCR support (optional — install for scanned PDF input)
+# pytesseract      # pip install pytesseract  — Tesseract OCR wrapper
+# pdf2image        # pip install pdf2image  — PDF to image conversion for OCR
+
+# Alternative providers (optional)
+# claude-agent-sdk # pip install claude-agent-sdk  — Claude API / Max bridge
+# google-genai     # pip install google-genai  — Google Gemini API

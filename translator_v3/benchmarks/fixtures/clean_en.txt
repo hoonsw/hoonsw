@@ -1,0 +1,3 @@
+This is a clean English prose sample.
+
+It has normal paragraph structure and no obvious OCR or PDF layout artifacts.

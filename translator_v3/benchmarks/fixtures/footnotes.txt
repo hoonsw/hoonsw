@@ -1,0 +1,7 @@
+Chapter 3
+
+The record collector described the archive in patient detail.¹
+
+¹ This footnote is intentionally short but meaningful.
+
+² A second note keeps the page from looking like plain prose.

@@ -1,0 +1,29 @@
+from enum import Enum
+
+
+class DocumentStatus(str, Enum):
+    INGESTED = "INGESTED"
+    SEGMENTED = "SEGMENTED"
+    TRANSLATING = "TRANSLATING"
+    VALIDATING = "VALIDATING"
+    ASSEMBLED = "ASSEMBLED"
+    DELIVERABLE = "DELIVERABLE"
+    BLOCKED = "BLOCKED"
+
+
+class SegmentStatus(str, Enum):
+    PENDING = "PENDING"
+    TRANSLATING = "TRANSLATING"
+    DRAFTED = "DRAFTED"
+    FAILED_PARSE = "FAILED_PARSE"
+    FAILED_VALIDATION = "FAILED_VALIDATION"
+    SUPERSEDED_BY_CHILDREN = "SUPERSEDED_BY_CHILDREN"
+    ACCEPTED = "ACCEPTED"
+    BLOCKED = "BLOCKED"
+
+
+class IssueSeverity(str, Enum):
+    CRITICAL = "critical"
+    WARNING = "warning"
+    REPAIR_TRIGGER = "repair-trigger"
+
