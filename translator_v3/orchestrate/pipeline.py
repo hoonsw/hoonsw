@@ -32,7 +32,58 @@ def _unit_paths(root: str | Path) -> Dict[str, Path]:
     }
 
 
-def _failure_hint(unit: TranslationUnit) -> str:
+def _char_ratio(source_text: str, translated_text: str) -> float:
+    return len(translated_text.strip()) / max(1, len(source_text.strip()))
+
+
+def _compression_retry_telemetry(unit: TranslationUnit) -> dict:
+    if unit.unit_class != "body_paragraph":
+        return {}
+    telemetry = unit.telemetry.setdefault("compression_repair_retry", {})
+    telemetry.setdefault("classified_compression_like", False)
+    telemetry.setdefault("specialized_hint_used", False)
+    telemetry.setdefault("retry_attempt_number", None)
+    telemetry.setdefault("post_repair_status", "not_used")
+    return telemetry
+
+
+def _is_compression_like_failure(unit: TranslationUnit, config: V3Config) -> bool:
+    if unit.unit_class != "body_paragraph":
+        return False
+    issue_types = {issue.get("issue_type", "") for issue in unit.validation_errors}
+    if issue_types & {"adequacy_review_failed", "severe_undertranslation"}:
+        return True
+    return "coverage_drop" in issue_types and _char_ratio(unit.source_text, unit.translated_text) < config.adequacy_review_ratio_threshold
+
+
+def _needs_compression_repair_retry(unit: TranslationUnit, config: V3Config) -> bool:
+    return unit.attempt_count == 1 and _is_compression_like_failure(unit, config)
+
+
+def _needs_additional_compression_retry(unit: TranslationUnit) -> bool:
+    if unit.unit_class != "body_paragraph":
+        return False
+    telemetry = _compression_retry_telemetry(unit)
+    if not telemetry.get("specialized_hint_used"):
+        return False
+    if unit.attempt_count != telemetry.get("retry_attempt_number"):
+        return False
+    issue_types = {issue.get("issue_type", "") for issue in unit.validation_errors}
+    return bool(issue_types & {"adequacy_review_failed", "severe_undertranslation"})
+
+
+def _compression_repair_hint() -> str:
+    return (
+        "[translator_v3 compression repair]\n"
+        "- 이번 재시도에서는 원문에서 회복 가능한 의미를 모두 보존하세요.\n"
+        "- 압축된 절, 관계, 판단을 다시 펼쳐서 빠진 뜻을 복원하세요.\n"
+        "- 요약하지 말고, 압축된 표현을 자연스러운 한국어 문장으로 충분히 풀어 쓰세요.\n"
+        "- 최종 한국어는 매끄럽게 읽혀야 하지만, 의미를 축약하거나 생략하지 마세요."
+    )
+
+
+def _failure_hint(unit: TranslationUnit, config: V3Config) -> str:
+    telemetry = _compression_retry_telemetry(unit)
     if not unit.validation_errors:
         return ""
     lines = []
@@ -46,7 +97,23 @@ def _failure_hint(unit: TranslationUnit) -> str:
             lines.append(f"{issue_type}: {observed}")
         else:
             lines.append(issue_type)
+    is_compression_like = _is_compression_like_failure(unit, config)
+    if telemetry:
+        telemetry["classified_compression_like"] = telemetry["classified_compression_like"] or is_compression_like
+    if _needs_compression_repair_retry(unit, config):
+        lines.append("")
+        lines.append(_compression_repair_hint())
+        telemetry["specialized_hint_used"] = True
+        telemetry["retry_attempt_number"] = unit.attempt_count + 1
     return "\n".join(lines)
+
+
+def _finalize_compression_retry_telemetry(unit: TranslationUnit) -> None:
+    telemetry = _compression_retry_telemetry(unit)
+    if not telemetry:
+        return
+    if telemetry["specialized_hint_used"]:
+        telemetry["post_repair_status"] = unit.status
 
 
 def _sentence_count(text: str, lang: str) -> int:
@@ -155,9 +222,10 @@ async def run_pipeline(input_path: str, output_path: str, config: V3Config) -> V
 
     async def _process_unit(unit: TranslationUnit) -> None:
         attempt = 0
+        _compression_retry_telemetry(unit)
         async with semaphore:
             while True:
-                hint = _failure_hint(unit)
+                hint = _failure_hint(unit, config)
                 try:
                     response = await backend.translate_unit(unit, failure_hint=hint)
                 except Exception as exc:
@@ -219,9 +287,10 @@ async def run_pipeline(input_path: str, output_path: str, config: V3Config) -> V
                     unit.status = "ACCEPTED"
                     break
                 attempt += 1
-                if attempt > config.max_retry_per_unit:
+                if attempt > config.max_retry_per_unit and not _needs_additional_compression_retry(unit):
                     unit.status = "BLOCKED"
                     break
+            _finalize_compression_retry_telemetry(unit)
             await _maybe_write_snapshot(unit)
 
     await asyncio.gather(*(_process_unit(unit) for unit in units))

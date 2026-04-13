@@ -1,0 +1,47 @@
+{
+  "backend_name": "fixture_script",
+  "provider_name": "fixture_script",
+  "model_name": "compression_attempt3_blocked",
+  "unit_scripts": {
+    "heading": {
+      "text": "(전체 문서)",
+      "failure_hint_equals": ""
+    },
+    "body_paragraph": {
+      "attempts": [
+        {
+          "failure_hint_equals": "",
+          "translation": "흥미롭고 교육적이다.",
+          "review": {
+            "ok": false,
+            "reason": "material qualifier still missing"
+          }
+        },
+        {
+          "failure_hint_contains": [
+            "adequacy_review_failed",
+            "[translator_v3 compression repair]"
+          ],
+          "translation": "그것은 교육적인 일이다.",
+          "review": {
+            "ok": false,
+            "reason": "material qualifier still missing"
+          }
+        },
+        {
+          "failure_hint_contains": [
+            "adequacy_review_failed"
+          ],
+          "failure_hint_not_contains": [
+            "[translator_v3 compression repair]"
+          ],
+          "translation": "그것은 여전히 교육적인 일이다.",
+          "review": {
+            "ok": false,
+            "reason": "material qualifier still missing"
+          }
+        }
+      ]
+    }
+  }
+}

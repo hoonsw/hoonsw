@@ -1,0 +1,59 @@
+{
+  "summary": {
+    "evaluated_at": "2026-04-13T22:21:20+09:00",
+    "manifest_path": "/home/hoonsw/dev/translator/translator_v3/benchmarks/fixtures/quality/cases.json",
+    "backend": "codex_local",
+    "model": "gpt-5.4",
+    "reasoning_effort": "high",
+    "artifact_root": "/home/hoonsw/dev/translator/runs_v3/quality_fixtures",
+    "output_root": "/home/hoonsw/dev/translator/output/quality_fixtures",
+    "case_count": 1,
+    "blocked_case_count": 0,
+    "detected_case_count": 0,
+    "detection_rate": 0.0,
+    "average_char_ratio": 0.5806,
+    "minimum_char_ratio": 0.5806,
+    "by_failure_mode": {
+      "over_compression": {
+        "case_count": 1,
+        "blocked_case_count": 0,
+        "detected_case_count": 0,
+        "detection_rate": 0.0,
+        "average_char_ratio": 0.5806
+      }
+    }
+  },
+  "results": [
+    {
+      "case_id": "en_compression_truncated_predicate",
+      "label": "Over-compression or truncation on a damaged clause",
+      "failure_mode": "over_compression",
+      "source_lang": "en",
+      "status": "DELIVERABLE",
+      "elapsed_ms": 25088,
+      "artifact_dir": "/home/hoonsw/dev/translator/runs_v3/quality_fixtures/20260413-222056-en_compression_truncated_predicate",
+      "translated_output_path": "/home/hoonsw/dev/translator/output/quality_fixtures/en_compression_truncated_predicate_ko.txt",
+      "total_units": 2,
+      "blocked_units": 0,
+      "issue_types": [],
+      "expected_detection_signals": [
+        "adequacy_review_failed",
+        "coverage_drop",
+        "severe_undertranslation"
+      ],
+      "expected_signals_detected": false,
+      "residue_issue_count": 0,
+      "adequacy_issue_count": 0,
+      "posthoc_residue_hits": 0,
+      "low_char_ratio": false,
+      "min_char_ratio": 0.55,
+      "source_chars": 155,
+      "translated_chars": 90,
+      "char_ratio": 0.5806,
+      "translated_preview": "누군가가 당신이라면 그 사람의 마음과 실천에 매우 가깝고 소중할 것이라고 생각했을 인물이나 음악 작품을 알아보지 못할 때, 그것은 흥미롭고도 교육적인 일이 된다.",
+      "origin_run": "runs/20260412-225815-reco_txt/v3_artifacts/20260412-225816-reco",
+      "origin_unit_id": "chapter.ch003.block.b0213.u01",
+      "notes": "Blocked because the output collapsed into an incomplete Korean predicate and failed to recover missing meaning."
+    }
+  ]
+}

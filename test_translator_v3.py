@@ -11,6 +11,7 @@ os.chdir(Path(__file__).parent)
 sys.path.insert(0, str(Path(__file__).parent))
 
 from translator_v3.benchmarks import default_manifest_path, load_cases, run_benchmark_suite
+import translator_v3.benchmarks.quality_eval as quality_eval
 from translator_v3.core.io import load_graph, write_graph_bundle
 from translator_v3.core.models import ClassifiedInput, TranslationUnit, V3Config
 from translator_v3.extractors.adapters import available_capabilities
@@ -45,6 +46,27 @@ def test(name):
             errors.append((name, str(exc)))
 
     return decorator
+
+
+def _run_quality_fixture_case(case_id: str, fixture_name: str):
+    cases = quality_eval.load_quality_cases(
+        Path("translator_v3/benchmarks/fixtures/quality/cases.json")
+    )
+    case = next(case for case in cases if case.case_id == case_id)
+    with tempfile.TemporaryDirectory() as tmp:
+        return asyncio.run(
+            quality_eval._run_case(
+                case,
+                backend="fixture_script",
+                mock_backend_fixture_path=str(
+                    Path("translator_v3/benchmarks/fixtures/quality") / fixture_name
+                ),
+                model="fixture-script",
+                reasoning_effort="high",
+                artifact_root=tmp,
+                output_root=tmp,
+            )
+        )
 
 
 print("=" * 60)
@@ -524,6 +546,233 @@ def _():
             for issue in unit.get("validation_errors", [])
         }
         assert "adequacy_review_failed" in issue_types
+
+
+@test("compression-like body retry gets specialized repair hint once")
+def _():
+    unit = TranslationUnit(
+        unit_id="u4",
+        node_id="block.004",
+        chapter_id="chapter.001",
+        source_order_index=4,
+        node_reading_order=4,
+        unit_index_within_node=1,
+        unit_class="body_paragraph",
+        source_text=(
+            "When someone fails to recognize a person or musical work that you would have thought "
+            "close to that person's heart and work, it is interesting and educational."
+        ),
+        source_lang="en",
+        target_lang="ko",
+        translated_text="흥미롭고 교육적이다.",
+        attempt_count=1,
+        validation_errors=[
+            {
+                "issue_type": "adequacy_review_failed",
+                "observed": "material qualifier appears distorted",
+            }
+        ],
+    )
+    config = V3Config(source_lang="en", target_lang="ko")
+    hint = v3_pipeline._failure_hint(unit, config)
+    assert "adequacy_review_failed" in hint
+    assert "[translator_v3 compression repair]" in hint
+    assert "원문에서 회복 가능한 의미를 모두 보존" in hint
+    assert "요약하지 말고" in hint
+    telemetry = unit.telemetry["compression_repair_retry"]
+    assert telemetry["classified_compression_like"] is True
+    assert telemetry["specialized_hint_used"] is True
+    assert telemetry["retry_attempt_number"] == 2
+
+    unit.attempt_count = 2
+    second_retry_hint = v3_pipeline._failure_hint(unit, config)
+    assert "[translator_v3 compression repair]" not in second_retry_hint
+
+
+@test("compression repair telemetry records accepted post-repair status")
+def _():
+    with tempfile.TemporaryDirectory() as tmp:
+        input_path = Path(tmp) / "compression.txt"
+        output_path = Path(tmp) / "compression_ko.txt"
+        input_path.write_text(
+            "When someone fails to recognize a person or piece of music that you would have thought near and dear to their heart and their practice, it is interesting and educational.\n",
+            encoding="utf-8",
+        )
+
+        class CompressionRepairBackend:
+            def __init__(self):
+                self.body_calls = 0
+
+            async def translate_unit(self, unit, failure_hint=""):
+                from translator_v3.backends.base import BackendResponse
+
+                if unit.unit_class == "heading":
+                    return BackendResponse(
+                        text="(전체 문서)",
+                        backend_name="compression-repair-test",
+                        provider_name="compression-repair-test",
+                        model_name="compression-repair-test",
+                    )
+
+                self.body_calls += 1
+                if self.body_calls == 1:
+                    assert failure_hint == ""
+                    text = "흥미롭고 교육적이다."
+                else:
+                    assert "[translator_v3 compression repair]" in failure_hint
+                    text = (
+                        "누군가가 그 사람의 마음과 작업에 매우 가깝고 소중하다고 당신이 여겼을 인물이나 음악 작품을 "
+                        "알아보지 못할 때, 그것은 흥미롭고도 교육적인 일이 된다."
+                    )
+                return BackendResponse(
+                    text=text,
+                    backend_name="compression-repair-test",
+                    provider_name="compression-repair-test",
+                    model_name="compression-repair-test",
+                )
+
+            async def review_unit_adequacy(self, unit, translated_text):
+                if "흥미롭고 교육적이다." == translated_text:
+                    return False, "material qualifier appears distorted"
+                return True, ""
+
+        original = v3_pipeline.build_backend
+        v3_pipeline.build_backend = lambda config: CompressionRepairBackend()
+        try:
+            result = asyncio.run(
+                run_pipeline(
+                    str(input_path),
+                    str(output_path),
+                    V3Config(source_lang="en", target_lang="ko", run_root=tmp, backend_name="provider_api"),
+                )
+            )
+        finally:
+            v3_pipeline.build_backend = original
+
+        assert result.status == "DELIVERABLE"
+        units = json.loads((Path(result.artifact_dir) / "translation_units.json").read_text(encoding="utf-8"))
+        body = next(unit for unit in units if unit["unit_class"] == "body_paragraph")
+        telemetry = body["telemetry"]["compression_repair_retry"]
+        assert body["attempt_count"] == 2
+        assert telemetry["classified_compression_like"] is True
+        assert telemetry["specialized_hint_used"] is True
+        assert telemetry["retry_attempt_number"] == 2
+        assert telemetry["post_repair_status"] == "ACCEPTED"
+
+
+@test("compression repair path allows one extra retry after post-repair adequacy failure")
+def _():
+    with tempfile.TemporaryDirectory() as tmp:
+        input_path = Path(tmp) / "compression.txt"
+        output_path = Path(tmp) / "compression_ko.txt"
+        input_path.write_text(
+            "When someone fails to recognize a person or piece of music that you would have thought near and dear to their heart and their practice, it is interesting and educational.\n",
+            encoding="utf-8",
+        )
+
+        class ExtraCompressionRetryBackend:
+            def __init__(self):
+                self.body_calls = 0
+                self.failure_hints = []
+
+            async def translate_unit(self, unit, failure_hint=""):
+                from translator_v3.backends.base import BackendResponse
+
+                if unit.unit_class == "heading":
+                    return BackendResponse(
+                        text="(전체 문서)",
+                        backend_name="compression-extra-retry-test",
+                        provider_name="compression-extra-retry-test",
+                        model_name="compression-extra-retry-test",
+                    )
+
+                self.body_calls += 1
+                self.failure_hints.append(failure_hint)
+                if self.body_calls == 1:
+                    assert failure_hint == ""
+                    text = "흥미롭고 교육적이다."
+                elif self.body_calls == 2:
+                    assert "[translator_v3 compression repair]" in failure_hint
+                    text = "그것은 교육적인 일이다."
+                else:
+                    assert "adequacy_review_failed" in failure_hint
+                    assert "[translator_v3 compression repair]" not in failure_hint
+                    text = (
+                        "누군가가 그 사람의 마음과 작업에 매우 가깝고 소중하다고 당신이 여겼을 인물이나 음악 작품을 "
+                        "알아보지 못할 때, 그것은 흥미롭고도 교육적인 일이 된다."
+                    )
+                return BackendResponse(
+                    text=text,
+                    backend_name="compression-extra-retry-test",
+                    provider_name="compression-extra-retry-test",
+                    model_name="compression-extra-retry-test",
+                )
+
+            async def review_unit_adequacy(self, unit, translated_text):
+                if translated_text in {"흥미롭고 교육적이다.", "그것은 교육적인 일이다."}:
+                    return False, "material qualifier still missing"
+                return True, ""
+
+        backend = ExtraCompressionRetryBackend()
+        original = v3_pipeline.build_backend
+        v3_pipeline.build_backend = lambda config: backend
+        try:
+            result = asyncio.run(
+                run_pipeline(
+                    str(input_path),
+                    str(output_path),
+                    V3Config(source_lang="en", target_lang="ko", run_root=tmp, backend_name="provider_api"),
+                )
+            )
+        finally:
+            v3_pipeline.build_backend = original
+
+        assert result.status == "DELIVERABLE"
+        units = json.loads((Path(result.artifact_dir) / "translation_units.json").read_text(encoding="utf-8"))
+        body = next(unit for unit in units if unit["unit_class"] == "body_paragraph")
+        telemetry = body["telemetry"]["compression_repair_retry"]
+        assert body["attempt_count"] == 3
+        assert backend.body_calls == 3
+        assert telemetry["classified_compression_like"] is True
+        assert telemetry["specialized_hint_used"] is True
+        assert telemetry["retry_attempt_number"] == 2
+        assert telemetry["post_repair_status"] == "ACCEPTED"
+
+
+@test("quality benchmark fixture can deterministically reach attempt 3 and recover")
+def _():
+    result = _run_quality_fixture_case(
+        "en_compression_truncated_predicate",
+        "compression_attempt3_recovered.fixture.json",
+    )
+    assert result.status == "DELIVERABLE"
+    assert result.max_body_attempt_count == 3
+    assert len(result.body_unit_outcomes) == 1
+    body = result.body_unit_outcomes[0]
+    assert body["attempt_count"] == 3
+    telemetry = body["compression_retry_telemetry"]
+    assert telemetry["classified_compression_like"] is True
+    assert telemetry["specialized_hint_used"] is True
+    assert telemetry["retry_attempt_number"] == 2
+    assert telemetry["post_repair_status"] == "ACCEPTED"
+
+
+@test("quality benchmark fixture can deterministically reach attempt 3 and still block")
+def _():
+    result = _run_quality_fixture_case(
+        "en_compression_truncated_predicate",
+        "compression_attempt3_blocked.fixture.json",
+    )
+    assert result.status == "BLOCKED"
+    assert result.max_body_attempt_count == 3
+    assert len(result.body_unit_outcomes) == 1
+    body = result.body_unit_outcomes[0]
+    assert body["attempt_count"] == 3
+    telemetry = body["compression_retry_telemetry"]
+    assert telemetry["classified_compression_like"] is True
+    assert telemetry["specialized_hint_used"] is True
+    assert telemetry["retry_attempt_number"] == 2
+    assert telemetry["post_repair_status"] == "BLOCKED"
 
 
 @test("adequacy review exceptions block the unit without crashing the run")

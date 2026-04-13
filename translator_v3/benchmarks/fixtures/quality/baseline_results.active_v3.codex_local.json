@@ -1,0 +1,166 @@
+{
+  "summary": {
+    "evaluated_at": "2026-04-13T21:53:57+09:00",
+    "manifest_path": "/home/hoonsw/dev/translator/translator_v3/benchmarks/fixtures/quality/cases.json",
+    "backend": "codex_local",
+    "model": "gpt-5.4",
+    "reasoning_effort": "high",
+    "artifact_root": "/home/hoonsw/dev/translator/runs_v3/quality_fixtures",
+    "output_root": "/home/hoonsw/dev/translator/output/quality_fixtures",
+    "case_count": 4,
+    "blocked_case_count": 2,
+    "detected_case_count": 1,
+    "detection_rate": 0.25,
+    "average_char_ratio": 0.7255,
+    "minimum_char_ratio": 0.5095,
+    "by_failure_mode": {
+      "over_compression": {
+        "case_count": 1,
+        "blocked_case_count": 1,
+        "detected_case_count": 1,
+        "detection_rate": 1.0,
+        "average_char_ratio": 0.5742
+      },
+      "silent_omission": {
+        "case_count": 1,
+        "blocked_case_count": 0,
+        "detected_case_count": 0,
+        "detection_rate": 0.0,
+        "average_char_ratio": 0.628
+      },
+      "source_language_residue": {
+        "case_count": 2,
+        "blocked_case_count": 1,
+        "detected_case_count": 0,
+        "detection_rate": 0.0,
+        "average_char_ratio": 0.8498
+      }
+    }
+  },
+  "results": [
+    {
+      "case_id": "en_residue_repeat_listens",
+      "label": "English residue on album-title-heavy paragraph",
+      "failure_mode": "source_language_residue",
+      "source_lang": "en",
+      "status": "BLOCKED",
+      "elapsed_ms": 45778,
+      "artifact_dir": "/home/hoonsw/dev/translator/runs_v3/quality_fixtures/20260413-214823-en_residue_repeat_listens",
+      "translated_output_path": "/home/hoonsw/dev/translator/runs_v3/quality_fixtures/20260413-214823-en_residue_repeat_listens/translated.blocked.txt",
+      "total_units": 2,
+      "blocked_units": 1,
+      "issue_types": [
+        "adequacy_review_failed"
+      ],
+      "expected_detection_signals": [
+        "source_residue"
+      ],
+      "expected_signals_detected": false,
+      "residue_issue_count": 0,
+      "adequacy_issue_count": 1,
+      "posthoc_residue_hits": 0,
+      "low_char_ratio": false,
+      "min_char_ratio": null,
+      "source_chars": 210,
+      "translated_chars": 107,
+      "char_ratio": 0.5095,
+      "translated_preview": "《아무것도 아니다》나 《세상의 끝 이후》 같은 앨범에서는, 반복해서 들을 때조차 종종 이 음악을 처음 듣는 듯한 느낌이 있었다.2 불협화음 같은 집단적 외침은 저마다 고유한 사건처럼 나타났다.",
+      "origin_run": "runs_v3/20260412-215734-testsample",
+      "origin_unit_id": "chapter.ch001.block.b0001.u02",
+      "notes": "Blocked because untranslated English album-title text remained in the final unit after retry."
+    },
+    {
+      "case_id": "ja_residue_valis_titles",
+      "label": "Japanese residue on title-heavy criticism paragraph",
+      "failure_mode": "source_language_residue",
+      "source_lang": "ja",
+      "status": "DELIVERABLE",
+      "elapsed_ms": 94906,
+      "artifact_dir": "/home/hoonsw/dev/translator/runs_v3/quality_fixtures/20260413-215226-ja_residue_valis_titles",
+      "translated_output_path": "/home/hoonsw/dev/translator/output/quality_fixtures/ja_residue_valis_titles_ko.txt",
+      "total_units": 2,
+      "blocked_units": 0,
+      "issue_types": [],
+      "expected_detection_signals": [
+        "source_residue"
+      ],
+      "expected_signals_detected": false,
+      "residue_issue_count": 0,
+      "adequacy_issue_count": 0,
+      "posthoc_residue_hits": 0,
+      "low_char_ratio": false,
+      "min_char_ratio": null,
+      "source_chars": 184,
+      "translated_chars": 219,
+      "char_ratio": 1.1902,
+      "translated_preview": "이 비틀림이 『발리스』를 읽는 데 결정적으로 중요하다는 점은 성립 과정에서도 확인할 수 있다. 『발리스』는 1976년에 쓰인 『알베마스』의 제2고로서 쓰였다. 당시에는 미간행 상태로 방치되었다가 작가의 사후에야 비로소 출판된 그 소설은, 이미 『발리스』와 거의 같은 구조(작가로 의제된 ",
+      "origin_run": "runs/20260413-092215-cyberspace_txt/v3_artifacts/20260413-092215-cyberspace",
+      "origin_unit_id": "chapter.ch005.block.b0010.u",
+      "notes": "Blocked because multiple Japanese-script titles and phrases leaked through in the Korean output."
+    },
+    {
+      "case_id": "en_omission_flynt_surprised",
+      "label": "Silent omission of reaction phrase in quoted sentence",
+      "failure_mode": "silent_omission",
+      "source_lang": "en",
+      "status": "DELIVERABLE",
+      "elapsed_ms": 39419,
+      "artifact_dir": "/home/hoonsw/dev/translator/runs_v3/quality_fixtures/20260413-215130-en_omission_flynt_surprised",
+      "translated_output_path": "/home/hoonsw/dev/translator/output/quality_fixtures/en_omission_flynt_surprised_ko.txt",
+      "total_units": 2,
+      "blocked_units": 0,
+      "issue_types": [],
+      "expected_detection_signals": [
+        "adequacy_review_failed",
+        "coverage_drop",
+        "severe_undertranslation"
+      ],
+      "expected_signals_detected": false,
+      "residue_issue_count": 0,
+      "adequacy_issue_count": 0,
+      "posthoc_residue_hits": 0,
+      "low_char_ratio": false,
+      "min_char_ratio": null,
+      "source_chars": 207,
+      "translated_chars": 130,
+      "char_ratio": 0.628,
+      "translated_preview": "40년이 지난 뒤인 2004년의 한 라디오 인터뷰에서, 플린트는 WFMU DJ 케네스 골드스미스가 “오늘날에는 컨트리, 블루스, 아방가르드 음악을 듣는 걸 아무도 대수롭지 않게 여기지 않죠”라고 말하자 특히 놀란 듯한 반응을 보인다.",
+      "origin_run": "runs/20260412-225815-reco_txt/v3_artifacts/20260412-225816-reco",
+      "origin_unit_id": "chapter.ch002.block.b0001.u06",
+      "notes": "Blocked because the translation dropped the phrase indicating that Flynt sounded particularly surprised."
+    },
+    {
+      "case_id": "en_compression_truncated_predicate",
+      "label": "Over-compression or truncation on a damaged clause",
+      "failure_mode": "over_compression",
+      "source_lang": "en",
+      "status": "BLOCKED",
+      "elapsed_ms": 92676,
+      "artifact_dir": "/home/hoonsw/dev/translator/runs_v3/quality_fixtures/20260413-214940-en_compression_truncated_predicate",
+      "translated_output_path": "/home/hoonsw/dev/translator/runs_v3/quality_fixtures/20260413-214940-en_compression_truncated_predicate/translated.blocked.txt",
+      "total_units": 2,
+      "blocked_units": 1,
+      "issue_types": [
+        "adequacy_review_failed"
+      ],
+      "expected_detection_signals": [
+        "adequacy_review_failed",
+        "coverage_drop",
+        "severe_undertranslation"
+      ],
+      "expected_signals_detected": true,
+      "residue_issue_count": 0,
+      "adequacy_issue_count": 1,
+      "posthoc_residue_hits": 0,
+      "low_char_ratio": false,
+      "min_char_ratio": 0.55,
+      "source_chars": 155,
+      "translated_chars": 89,
+      "char_ratio": 0.5742,
+      "translated_preview": "누군가가, 당신이라면 그 사람의 마음과 그 사람의 작업에 아주 가깝고 소중하다고 생각했을 어떤 인물이나 음악 작품을 알아보지 못할 때, 그것은 …고 교육적이다.",
+      "origin_run": "runs/20260412-225815-reco_txt/v3_artifacts/20260412-225816-reco",
+      "origin_unit_id": "chapter.ch003.block.b0213.u01",
+      "notes": "Blocked because the output collapsed into an incomplete Korean predicate and failed to recover missing meaning."
+    }
+  ]
+}

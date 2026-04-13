@@ -1,0 +1,51 @@
+{
+  "suite_name": "translator_v3_quality_fixtures",
+  "notes": "Curated from blocked translator_v3 codex_local runs to baseline residue, omission, and compression risks on the active path.",
+  "cases": [
+    {
+      "case_id": "en_residue_repeat_listens",
+      "label": "English residue on album-title-heavy paragraph",
+      "input_path": "en_residue_repeat_listens.txt",
+      "source_lang": "en",
+      "failure_mode": "source_language_residue",
+      "expected_detection_signals": ["source_residue"],
+      "origin_run": "runs_v3/20260412-215734-testsample",
+      "origin_unit_id": "chapter.ch001.block.b0001.u02",
+      "notes": "Blocked because untranslated English album-title text remained in the final unit after retry."
+    },
+    {
+      "case_id": "ja_residue_valis_titles",
+      "label": "Japanese residue on title-heavy criticism paragraph",
+      "input_path": "ja_residue_valis_titles.txt",
+      "source_lang": "ja",
+      "failure_mode": "source_language_residue",
+      "expected_detection_signals": ["source_residue"],
+      "origin_run": "runs/20260413-092215-cyberspace_txt/v3_artifacts/20260413-092215-cyberspace",
+      "origin_unit_id": "chapter.ch005.block.b0010.u",
+      "notes": "Blocked because multiple Japanese-script titles and phrases leaked through in the Korean output."
+    },
+    {
+      "case_id": "en_omission_flynt_surprised",
+      "label": "Silent omission of reaction phrase in quoted sentence",
+      "input_path": "en_omission_flynt_surprised.txt",
+      "source_lang": "en",
+      "failure_mode": "silent_omission",
+      "expected_detection_signals": ["adequacy_review_failed", "coverage_drop", "severe_undertranslation"],
+      "origin_run": "runs/20260412-225815-reco_txt/v3_artifacts/20260412-225816-reco",
+      "origin_unit_id": "chapter.ch002.block.b0001.u06",
+      "notes": "Blocked because the translation dropped the phrase indicating that Flynt sounded particularly surprised."
+    },
+    {
+      "case_id": "en_compression_truncated_predicate",
+      "label": "Over-compression or truncation on a damaged clause",
+      "input_path": "en_compression_truncated_predicate.txt",
+      "source_lang": "en",
+      "failure_mode": "over_compression",
+      "expected_detection_signals": ["adequacy_review_failed", "coverage_drop", "severe_undertranslation"],
+      "min_char_ratio": 0.55,
+      "origin_run": "runs/20260412-225815-reco_txt/v3_artifacts/20260412-225816-reco",
+      "origin_unit_id": "chapter.ch003.block.b0213.u01",
+      "notes": "Blocked because the output collapsed into an incomplete Korean predicate and failed to recover missing meaning."
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "summary": {
+    "evaluated_at": "2026-04-13T21:52:09+09:00",
+    "manifest_path": "/home/hoonsw/dev/translator/translator_v3/benchmarks/fixtures/quality/cases.json",
+    "backend": "codex_local",
+    "model": "gpt-5.4",
+    "reasoning_effort": "high",
+    "artifact_root": "/home/hoonsw/dev/translator/runs_v3/quality_fixtures",
+    "output_root": "/home/hoonsw/dev/translator/output/quality_fixtures",
+    "case_count": 1,
+    "blocked_case_count": 0,
+    "detected_case_count": 0,
+    "detection_rate": 0.0,
+    "average_char_ratio": 0.628,
+    "minimum_char_ratio": 0.628,
+    "by_failure_mode": {
+      "silent_omission": {
+        "case_count": 1,
+        "blocked_case_count": 0,
+        "detected_case_count": 0,
+        "detection_rate": 0.0,
+        "average_char_ratio": 0.628
+      }
+    }
+  },
+  "results": [
+    {
+      "case_id": "en_omission_flynt_surprised",
+      "label": "Silent omission of reaction phrase in quoted sentence",
+      "failure_mode": "silent_omission",
+      "source_lang": "en",
+      "status": "DELIVERABLE",
+      "elapsed_ms": 39419,
+      "artifact_dir": "/home/hoonsw/dev/translator/runs_v3/quality_fixtures/20260413-215130-en_omission_flynt_surprised",
+      "translated_output_path": "/home/hoonsw/dev/translator/output/quality_fixtures/en_omission_flynt_surprised_ko.txt",
+      "total_units": 2,
+      "blocked_units": 0,
+      "issue_types": [],
+      "expected_detection_signals": [
+        "adequacy_review_failed",
+        "coverage_drop",
+        "severe_undertranslation"
+      ],
+      "expected_signals_detected": false,
+      "residue_issue_count": 0,
+      "adequacy_issue_count": 0,
+      "posthoc_residue_hits": 0,
+      "low_char_ratio": false,
+      "min_char_ratio": null,
+      "source_chars": 207,
+      "translated_chars": 130,
+      "char_ratio": 0.628,
+      "translated_preview": "40년이 지난 뒤인 2004년의 한 라디오 인터뷰에서, 플린트는 WFMU DJ 케네스 골드스미스가 “오늘날에는 컨트리, 블루스, 아방가르드 음악을 듣는 걸 아무도 대수롭지 않게 여기지 않죠”라고 말하자 특히 놀란 듯한 반응을 보인다.",
+      "origin_run": "runs/20260412-225815-reco_txt/v3_artifacts/20260412-225816-reco",
+      "origin_unit_id": "chapter.ch002.block.b0001.u06",
+      "notes": "Blocked because the translation dropped the phrase indicating that Flynt sounded particularly surprised."
+    }
+  ]
+}

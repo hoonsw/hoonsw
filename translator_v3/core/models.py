@@ -25,6 +25,7 @@ class V3Config:
     provider_name: str = "openai"
     model: str = "gpt-5.2-chat-latest"
     backend_name: str = "provider_api"
+    mock_backend_fixture_path: Optional[str] = None
     reasoning_effort: str = "high"
     codex_timeout_seconds: int = 1800
     max_turns: int = 1
@@ -285,6 +286,7 @@ class TranslationUnit:
     attempt_count: int = 0
     warnings: List[str] = field(default_factory=list)
     validation_errors: List[Dict[str, Any]] = field(default_factory=list)
+    telemetry: Dict[str, Any] = field(default_factory=dict)
     backend_name: str = ""
     provider_name: str = ""
     model_name: str = ""

@@ -11,6 +11,10 @@ Documents:
   migration guardrails
 - [critical-review.md](./critical-review.md): adversarial review findings and
   the changes accepted after critique
+- [quality-path.md](./quality-path.md): active v3 runtime quality path, with
+  exact notes on shared v2 prompt and residue logic still on the live path
+- [quality-fixtures-baseline.md](./quality-fixtures-baseline.md): curated
+  milestone-2 fixture metrics and the current active-path baseline
 
 Working entrypoints:
 
