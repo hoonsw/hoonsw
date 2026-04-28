@@ -1120,129 +1120,13 @@ async def translate_file(
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Translate long-form text using configurable AI providers")
-    parser.add_argument("input", help="Input text file path")
-    parser.add_argument("-o", "--output", help="Output text file path (not required for --dry-run)")
-    parser.add_argument("--config", default="config.yaml", help="Config file path (default: config.yaml)")
-    parser.add_argument("--v2", action="store_true", help="Run translator_v2 instead of the legacy chunk pipeline")
-    parser.add_argument("--legacy", action="store_true", help="Force the legacy chunk pipeline")
-    parser.add_argument("--generation-mode", choices=("api", "codex_local"), default=None,
-                        help="Override translator_v2 generation backend")
-    parser.add_argument("--codex-worker-mode", choices=("bootstrap", "external"), default=None,
-                        help="How codex_local should source worker execution")
-    parser.add_argument("--dry-run", action="store_true", help="Show chunk analysis without translating")
-    parser.add_argument("--only-chunks", type=str, default=None,
-                        help="Retranslate only specified chunks (comma-separated, e.g. 2,5,8)")
-    parser.add_argument("--preset", type=str, default=None,
-                        help="Genre preset (ja_novel, ja_essay, ja_philosophy, en_fiction, en_nonfiction, en_philosophy)")
-    parser.add_argument("--auto-retry", action="store_true",
-                        help="Run auto-retry on problem chunks after translation")
-
-    args = parser.parse_args()
-
-    if not args.dry_run and not args.output:
-        parser.error("the following arguments are required: -o/--output (unless using --dry-run)")
-    if args.v2 and args.legacy:
-        parser.error("--v2 and --legacy cannot be used together")
-
-    if not Path(args.input).exists():
-        print(f"❌ Error: Input file not found: {args.input}")
-        exit(1)
-
-    try:
-        config = TranslationConfig(args.config, preset_override=args.preset)
-    except FileNotFoundError:
-        print(f"❌ Error: Config file not found: {args.config}")
-        exit(1)
-    except Exception as e:
-        print(f"❌ Error loading config: {e}")
-        exit(1)
-
-    if config.preset:
-        print(f"📎 Preset: {config.preset.display_name} ({config.preset.name})")
-
-    only_chunks = None
-    if args.only_chunks:
-        try:
-            only_chunks = [int(x.strip()) for x in args.only_chunks.split(",")]
-        except ValueError:
-            print(f"❌ Error: --only-chunks must be comma-separated integers (e.g. 2,5,8)")
-            exit(1)
-
-    pipeline_version = (
-        "v2" if args.v2 else
-        "legacy" if args.legacy else
-        config._raw_config.get("pipeline_version", "legacy")
+    print(
+        "translate.py CLI was retired. "
+        "Use `python3 job_runner.py <input> -o <output> --v3-backend codex_local` "
+        "or `python3 -m translator_v3.cli run <input> -o <output> --backend codex_local`."
     )
-
-    try:
-        output_path = args.output if args.output else "dummy.txt"
-
-        if pipeline_version == "v2":
-            if only_chunks or args.auto_retry:
-                if args.v2:
-                    if only_chunks:
-                        print("❌ Error: --only-chunks is not supported by translator_v2 yet")
-                    else:
-                        print("❌ Error: --auto-retry is a legacy-only option; translator_v2 already performs local repair")
-                    exit(1)
-                print("↪ Falling back to legacy translate.py because legacy-only options were requested.")
-                pipeline_version = "legacy"
-
-        if pipeline_version == "v2":
-            if only_chunks:
-                print("❌ Error: --only-chunks is not supported by translator_v2 yet")
-                exit(1)
-            if args.auto_retry:
-                print("❌ Error: --auto-retry is a legacy-only option; translator_v2 already performs local repair")
-                exit(1)
-
-            from translator_v2.orchestrate.pipeline import load_v2_config, run_pipeline as run_v2_pipeline
-
-            v2_config = load_v2_config(
-                args.config,
-                overrides={
-                    "source_lang": config.source_lang,
-                    "target_lang": config.target_lang,
-                    "provider_name": config.provider_name,
-                    "model": config.model,
-                    "generation_mode": args.generation_mode,
-                    "codex_worker_mode": args.codex_worker_mode,
-                },
-            )
-            result = asyncio.run(run_v2_pipeline(
-                input_path=args.input,
-                output_path=output_path,
-                config=v2_config,
-                dry_run=args.dry_run,
-            ))
-            print(f"\n📦 translator_v2 status: {result.status}")
-            print(f"   ledger: {result.ledger_path}")
-            print(f"   report: {result.report_path}")
-            if result.blocked_workfile:
-                print(f"   blocked_workfile: {result.blocked_workfile}")
-            return
-
-        if args.auto_retry and not args.dry_run and not only_chunks:
-            from retry_engine import translate_with_auto_retry
-            result = asyncio.run(translate_with_auto_retry(
-                args.input, output_path, config,
-                preset_name=args.preset or config._raw_config.get('preset'),
-            ))
-            if result.get('retry_result'):
-                rr = result['retry_result']
-                print(f"\n📊 Auto-retry summary: {rr['improvement_count']} improved, "
-                      f"{len(rr.get('still_problematic', []))} still need review")
-        else:
-            asyncio.run(translate_file(args.input, output_path, config, args.dry_run, only_chunks))
-    except KeyboardInterrupt:
-        print("\n\n⏸️  Translation interrupted by user")
-        print("   Run the same command again to resume from where you left off")
-        exit(0)
-    except Exception as e:
-        print(f"\n❌ Fatal error: {e}")
-        exit(1)
+    return 2
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

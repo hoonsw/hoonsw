@@ -1,12 +1,27 @@
 from __future__ import annotations
 
+import re
 from typing import Dict, List
 
 from translator_v3.core.models import TranslationUnit
 
 
+_SINGLE_SEGMENT_WRAPPER_RE = re.compile(
+    r"^\s*\[\[SEGMENT\s+[A-Za-z0-9._-]+\]\]\s*(.*?)\s*\[\[END SEGMENT\s+[A-Za-z0-9._-]+\]\]\s*$",
+    re.DOTALL,
+)
+
+
 def _sort_key(unit: TranslationUnit) -> tuple[int, int, str]:
     return (unit.node_reading_order, unit.unit_index_within_node, unit.unit_id)
+
+
+def _renderable_text(text: str) -> str:
+    stripped = text.strip()
+    match = _SINGLE_SEGMENT_WRAPPER_RE.match(stripped)
+    if match:
+        return match.group(1).strip()
+    return stripped
 
 
 def assemble_output(units: List[TranslationUnit]) -> str:
@@ -39,7 +54,7 @@ def assemble_output(units: List[TranslationUnit]) -> str:
             current_unit_class = unit.unit_class
 
         if unit.status == "ACCEPTED":
-            current_parts.append(unit.translated_text.strip())
+            current_parts.append(_renderable_text(unit.translated_text))
         elif unit.status == "BLOCKED":
             current_parts.append("[... 미해결 번역 단위 생략 ...]")
 

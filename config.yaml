@@ -1,4 +1,4 @@
-pipeline_version: "v2"   # v2 / legacy
+# Shared helper defaults for review/finalize/glossary tooling around translator_v3
 chunk_size: 2000         # Approximate characters per chunk
 overlap_sentences: 3     # Context overlap between chunks (last N sentences from previous chunk)
 source_lang: "ja"        # ja / en
@@ -31,16 +31,6 @@ providers:
   review:
     provider: openai
     model: gpt-5.2-chat-latest
-
-# translator_v2 tuning (Phase 1)
-v2:
-  max_segment_chars: 900
-  max_segment_sentences: 6
-  hard_max_segment_chars: 1200
-  local_retry_max: 2
-  split_retry_max: 1
-  max_total_repairs_per_segment: 3
-  protected_regexes: []
 
 # Parallel translation (phase 3)
 # parallel:

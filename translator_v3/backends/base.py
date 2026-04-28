@@ -13,6 +13,7 @@ from typing import Optional
 from translator_v2.adapters.providers import build_provider
 from translator_v2.codex_local.worker import build_codex_exec_command, render_codex_exec_prompt
 from translator_v2.core.models import V2Config
+from translator_v2.translate.parser import parse_segmented_response
 from translator_v2.translate.prompt_builder import build_batch_system_prompt, build_batch_user_prompt
 from translator_v3.core.models import TranslationUnit, V3Config
 
@@ -36,6 +37,16 @@ class V3Backend(ABC):
 
     async def review_unit_adequacy(self, unit: TranslationUnit, translated_text: str) -> tuple[bool, str]:
         return True, ""
+
+
+def _normalize_single_unit_response(raw_text: str, unit_id: str) -> str:
+    text = raw_text.strip()
+    if "[[SEGMENT" not in text and "[[END SEGMENT" not in text:
+        return text
+    parsed = parse_segmented_response(text, [unit_id])
+    if parsed.get("ok"):
+        return parsed["units"][unit_id].strip()
+    return text
 
 
 class EchoBackend(V3Backend):
@@ -110,7 +121,7 @@ class ProviderApiBackend(V3Backend):
         user_prompt = build_batch_user_prompt([segment])
         response = await self.provider.generate(system_prompt, user_prompt)
         return BackendResponse(
-            text=response.text.strip(),
+            text=_normalize_single_unit_response(response.text, unit.unit_id),
             backend_name="provider_api",
             provider_name=response.provider,
             model_name=response.model,
@@ -199,7 +210,7 @@ class CodexLocalBackend(V3Backend):
             if not output_file.exists():
                 raise RuntimeError("codex exec completed without output file")
             return BackendResponse(
-                text=output_file.read_text(encoding="utf-8").strip(),
+                text=_normalize_single_unit_response(output_file.read_text(encoding="utf-8"), unit.unit_id),
                 backend_name="codex_local",
                 provider_name="codex",
                 model_name=self.config.model,

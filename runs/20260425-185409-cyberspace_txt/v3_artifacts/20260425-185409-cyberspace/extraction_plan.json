@@ -1,0 +1,58 @@
+{
+  "strategy": "single_owner_per_page",
+  "planned_extractor": "text_spine",
+  "resolved_owner": "text_spine",
+  "fallback_reason": "",
+  "execution_mode": "text_spine",
+  "integration_status": "not_needed",
+  "external_execution_attempted": false,
+  "external_execution_succeeded": false,
+  "ownership_mode": "single_owner_per_page",
+  "reroute_budget_per_document": 25,
+  "reroute_budget_per_page": 1,
+  "cache_key": "71e9f7e0fc209eb9cde3c207e45c18a67640c18f437d982a875e183fd635c631",
+  "preprocessors": [],
+  "candidates": [
+    {
+      "name": "text_spine",
+      "role": "fallback",
+      "available": true,
+      "selected": true,
+      "reason": "always_available_baseline",
+      "score": 0.99
+    }
+  ],
+  "probes": [
+    {
+      "name": "ocrmypdf",
+      "kind": "preprocessor",
+      "available": false,
+      "module_path": null,
+      "cli_path": null,
+      "detail": "not_installed"
+    },
+    {
+      "name": "marker",
+      "kind": "extractor",
+      "available": true,
+      "module_path": null,
+      "cli_path": "/home/hoonsw/.local/bin/marker",
+      "detail": "module_or_cli_available"
+    },
+    {
+      "name": "docling",
+      "kind": "extractor",
+      "available": true,
+      "module_path": "/home/hoonsw/.local/lib/python3.10/site-packages/docling/__init__.py",
+      "cli_path": "/home/hoonsw/.local/bin/docling",
+      "detail": "module_or_cli_available"
+    }
+  ],
+  "page_owners": {
+    "page.p0001": "text_spine"
+  },
+  "notes": [
+    "no supported external extractor executed; using text_spine",
+    "no supported external extractor executed; using text_spine"
+  ]
+}

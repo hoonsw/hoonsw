@@ -1,0 +1,18 @@
+{
+  "run_id": "20260427-190246-reco",
+  "status": "BLOCKED",
+  "input_path": "/home/hoonsw/dev/translator/input/reco.txt",
+  "output_path": "/home/hoonsw/dev/translator/output/reco_fresh_ko.txt",
+  "artifact_dir": "/home/hoonsw/dev/translator/runs/20260427-190245-reco_txt/v3_artifacts/20260427-190246-reco",
+  "accepted_units": 3828,
+  "blocked_units": 808,
+  "total_units": 4636,
+  "preview_path": "/home/hoonsw/dev/translator/runs/20260427-190245-reco_txt/v3_artifacts/20260427-190246-reco/translated.preview.txt",
+  "review_bundle_path": "/home/hoonsw/dev/translator/runs/20260427-190245-reco_txt/v3_artifacts/20260427-190246-reco/review_bundle.json",
+  "translated_output_path": "/home/hoonsw/dev/translator/runs/20260427-190245-reco_txt/v3_artifacts/20260427-190246-reco/translated.blocked.txt",
+  "final_output_written": false,
+  "warnings": [
+    "Auto-corrected source_lang from ja to en based on input script dominance.",
+    "Detected PDF-like layout artifacts in .txt input; applied PDF-text normalization."
+  ]
+}

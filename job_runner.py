@@ -3,7 +3,7 @@
 Reliable foreground job runner for the translation workbench.
 
 Purpose:
-- Wrap run_pipeline.py in a stateful runner
+- Wrap translator_v3.cli in a stateful runner
 - Persist live job state to runs/<job>/job_status.json
 - Persist final summary to runs/<job>/job_result.json
 - Make long-running work observable even when chat-side completion reporting is flaky
@@ -30,7 +30,6 @@ BASE_DIR = Path(__file__).parent
 RUNS_DIR = BASE_DIR / "runs"
 RUNS_DIR.mkdir(exist_ok=True)
 DEFAULT_DELIVERY_DIR = Path("/mnt/z/home/01. 책/translator-delivery")
-EXTERNAL_WORKER_IDLE_SECONDS = 1800.0
 
 
 def now_iso() -> str:
@@ -92,41 +91,6 @@ def detect_phase(line: str) -> Optional[str]:
     if "Finalized:" in line:
         return "finalize"
     return None
-
-
-def extract_quality_status(line: str) -> Optional[str]:
-    for key in ("DELIVERABLE", "REVIEWED", "DRAFT"):
-        if key in line:
-            return key.lower()
-    return None
-
-
-def extract_v2_artifact(line: str) -> tuple[Optional[str], Optional[str]]:
-    stripped = line.strip()
-    prefix_map = {
-        "Ledger:": "ledger_path",
-        "Report:": "report_path",
-        "Blocked workfile:": "blocked_workfile",
-        "Finalized:": "finalize_run_id",
-        "Delivered to:": "delivery_dir",
-        "DELIVERY BLOCKED:": "delivery_block_reason",
-    }
-    for prefix, key in prefix_map.items():
-        if stripped.startswith(prefix):
-            value = stripped.split(":", 1)[1].strip()
-            return key, value or None
-    return None, None
-
-
-def extract_external_worker_run_dir(line: str) -> Optional[Path]:
-    prefix = "[codex_local] waiting for an external worker. Run dir:"
-    stripped = line.strip()
-    if not stripped.startswith(prefix):
-        return None
-    value = stripped.split("Run dir:", 1)[1].strip()
-    if not value:
-        return None
-    return Path(value).resolve()
 
 
 def extract_v3_result(stdout_log: Path) -> Optional[dict]:
@@ -225,53 +189,29 @@ def extract_v3_live_state(v3_run_root: Path) -> dict[str, str]:
 
 
 def build_pipeline_command(args: argparse.Namespace, extra: list[str], run_dir: Path) -> list[str]:
-    if args.v3:
-        v3_run_root = run_dir / "v3_artifacts"
-        cmd = [
-            sys.executable,
-            "-u",
-            "-m",
-            "translator_v3.cli",
-            "run",
-            args.input,
-            "-o",
-            args.output,
-            "--backend",
-            args.v3_backend,
-            "--model",
-            args.codex_model or "gpt-5.4",
-            "--reasoning-effort",
-            args.codex_reasoning_effort or "high",
-            "--run-root",
-            str(v3_run_root),
-        ]
-        if args.preset:
-            cmd += ["--preset", args.preset]
-        if args.v3_backend == "provider_api":
-            cmd += ["--provider", "openai"]
-        cmd += extra
-        return cmd
-    cmd = [sys.executable, "-u", "run_pipeline.py", args.input, "-o", args.output]
-    if args.v2:
-        cmd.append("--v2")
-    if args.legacy:
-        cmd.append("--legacy")
-    if args.generation_mode:
-        cmd += ["--generation-mode", args.generation_mode]
-    if args.codex_worker_mode:
-        cmd += ["--codex-worker-mode", args.codex_worker_mode]
-    if args.preset and not args.v2:
+    v3_run_root = run_dir / "v3_artifacts"
+    cmd = [
+        sys.executable,
+        "-u",
+        "-m",
+        "translator_v3.cli",
+        "run",
+        args.input,
+        "-o",
+        args.output,
+        "--backend",
+        args.v3_backend,
+        "--model",
+        args.codex_model or "gpt-5.4",
+        "--reasoning-effort",
+        args.codex_reasoning_effort or "high",
+        "--run-root",
+        str(v3_run_root),
+    ]
+    if args.preset:
         cmd += ["--preset", args.preset]
-    if args.ai_review and not args.v2:
-        cmd.append("--ai-review")
-    if args.report and not args.v2:
-        cmd.append("--report")
-    if args.finalize and not args.v2:
-        cmd.append("--finalize")
-    if args.notify and not args.v2:
-        cmd.append("--notify")
-    if args.parallel and not args.v2:
-        cmd += ["--parallel", str(args.parallel)]
+    if args.v3_backend == "provider_api":
+        cmd += ["--provider", "openai"]
     cmd += extra
     return cmd
 
@@ -395,24 +335,13 @@ def maybe_create_synology_share(result: dict[str, str]) -> Optional[dict[str, st
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Stable job runner for translator pipeline")
+    parser = argparse.ArgumentParser(description="Stable job runner for translator_v3")
     parser.add_argument("input", help="Input file path")
     parser.add_argument("-o", "--output", required=True, help="Output file path")
-    parser.add_argument("--v2", action="store_true", help="Force translator_v2 in run_pipeline.py")
-    parser.add_argument("--v3", action="store_true", help="Run translator_v3 instead of legacy/v2 pipeline")
-    parser.add_argument("--legacy", action="store_true", help="Force legacy run_pipeline.py")
     parser.add_argument("--v3-backend", choices=("provider_api", "codex_local"), default="codex_local")
-    parser.add_argument("--generation-mode", choices=("api", "codex_local"), default=None)
-    parser.add_argument("--codex-worker-mode", choices=("bootstrap", "external"), default=None)
     parser.add_argument("--codex-model", default=None, help="Model override for codex exec worker")
     parser.add_argument("--codex-reasoning-effort", default=None, help="Reasoning effort override for codex exec worker")
-    parser.add_argument("--codex-worker-id", default=None, help="Worker id label for codex exec worker")
     parser.add_argument("--preset", default=None, help="Preset name")
-    parser.add_argument("--ai-review", action="store_true")
-    parser.add_argument("--report", action="store_true")
-    parser.add_argument("--finalize", action="store_true")
-    parser.add_argument("--notify", action="store_true")
-    parser.add_argument("--parallel", type=int, default=0)
     parser.add_argument("--deliver-to", default=None)
     parser.add_argument("--label", default=None, help="Optional run label")
     args, extra = parser.parse_known_args()
@@ -426,7 +355,6 @@ def main() -> int:
     status_path = run_dir / "job_status.json"
     result_path = run_dir / "job_result.json"
     stdout_log = run_dir / "job_stdout.log"
-    worker_log = run_dir / "codex_worker.log"
 
     cmd = build_pipeline_command(args, extra, run_dir)
 
@@ -446,9 +374,7 @@ def main() -> int:
 
     env = os.environ.copy()
     env.pop("ANTHROPIC_API_KEY", None)
-    worker_proc = None
-    worker_logf = None
-    v3_run_root = run_dir / "v3_artifacts" if args.v3 else None
+    v3_run_root = run_dir / "v3_artifacts"
 
     with stdout_log.open("w", encoding="utf-8") as logf:
         proc = subprocess.Popen(
@@ -468,7 +394,7 @@ def main() -> int:
         while True:
             events = selector.select(timeout=1.0)
             if not events:
-                if args.v3 and v3_run_root is not None:
+                if v3_run_root is not None:
                     live = extract_v3_live_state(v3_run_root)
                     changed = False
                     for key, value in live.items():
@@ -493,60 +419,10 @@ def main() -> int:
             logf.write(raw)
             logf.flush()
 
-            if (
-                worker_proc is None
-                and not args.v3
-                and args.generation_mode == "codex_local"
-                and args.codex_worker_mode == "external"
-            ):
-                worker_run_dir = extract_external_worker_run_dir(line)
-                if worker_run_dir is not None:
-                    worker_cmd = [
-                        sys.executable,
-                        "translator_v2/codex_local/worker.py",
-                        "exec-loop",
-                        "--run-dir",
-                        str(worker_run_dir),
-                        "--worker-id",
-                        args.codex_worker_id or f"codex-{run_id}",
-                        "--cd",
-                        str(BASE_DIR),
-                        "--max-idle-seconds",
-                        str(EXTERNAL_WORKER_IDLE_SECONDS),
-                    ]
-                    if args.codex_model:
-                        worker_cmd += ["--model", args.codex_model]
-                    if args.codex_reasoning_effort:
-                        worker_cmd += ["--reasoning-effort", args.codex_reasoning_effort]
-                    worker_logf = worker_log.open("w", encoding="utf-8")
-                    worker_proc = subprocess.Popen(
-                        worker_cmd,
-                        cwd=str(BASE_DIR),
-                        stdout=worker_logf,
-                        stderr=subprocess.STDOUT,
-                        text=True,
-                        env=env,
-                    )
-                    state["codex_worker"] = {
-                        "command": worker_cmd,
-                        "log": str(worker_log),
-                        "run_dir": str(worker_run_dir),
-                        "state": "running",
-                    }
-                    write_json(status_path, state)
-
             phase = detect_phase(line)
-            quality_status = extract_quality_status(line)
-            artifact_key, artifact_value = extract_v2_artifact(line)
             changed = False
             if phase:
                 state["phase"] = phase
-                changed = True
-            if quality_status:
-                state["quality_status"] = quality_status
-                changed = True
-            if artifact_key and artifact_value:
-                state[artifact_key] = artifact_value
                 changed = True
             if changed or (time.time() - last_update >= 30):
                 state["updated_at"] = now_iso()
@@ -554,21 +430,6 @@ def main() -> int:
                 last_update = time.time()
         selector.unregister(proc.stdout)
         code = proc.wait()
-
-    if worker_proc is not None:
-        try:
-            worker_proc.wait(timeout=30)
-        except subprocess.TimeoutExpired:
-            worker_proc.terminate()
-            try:
-                worker_proc.wait(timeout=10)
-            except subprocess.TimeoutExpired:
-                worker_proc.kill()
-                worker_proc.wait(timeout=10)
-        state["codex_worker"]["state"] = "finished"
-        state["codex_worker"]["exit_code"] = worker_proc.returncode
-    if worker_logf is not None:
-        worker_logf.close()
 
     state["updated_at"] = now_iso()
     state["finished_at"] = now_iso()
@@ -589,11 +450,10 @@ def main() -> int:
         "finished_at": state["finished_at"],
     }
     v3_result = None
-    if args.v3:
-        v3_result = extract_v3_result(stdout_log)
-        if v3_result:
-            apply_v3_result_state(state, result, v3_result)
-            write_json(status_path, state)
+    v3_result = extract_v3_result(stdout_log)
+    if v3_result:
+        apply_v3_result_state(state, result, v3_result)
+        write_json(status_path, state)
     final_exit_code = code
     if result.get("state") == "blocked":
         final_exit_code = 3
@@ -601,17 +461,12 @@ def main() -> int:
         result["exit_code"] = final_exit_code
         write_json(status_path, state)
     failure_summary = summarize_failure(stdout_log) if state["state"] == "failed" else None
-    if args.v3 and v3_result and v3_result.get("status") == "BLOCKED":
+    if v3_result and v3_result.get("status") == "BLOCKED":
         blocked = v3_result.get("blocked_units")
         total = v3_result.get("total_units")
         failure_summary = f"translator_v3 blocked run: blocked_units={blocked}/{total}"
     if failure_summary:
         result["failure_summary"] = failure_summary
-    if worker_proc is not None:
-        result["codex_worker"] = state.get("codex_worker")
-    for key in ("ledger_path", "report_path", "blocked_workfile"):
-        if state.get(key):
-            result[key] = state[key]
     if state["state"] == "succeeded":
         try:
             attachment_path = build_attachment_path(state["output"], run_dir)
@@ -622,13 +477,9 @@ def main() -> int:
                 result["attachment_path"] = attachment_path
         delivery_dir = resolve_delivery_dir(args.deliver_to)
         if delivery_dir:
-            extra_files = [
-                state.get("ledger_path") or "",
-                state.get("report_path") or "",
-                state.get("blocked_workfile") or "",
-            ]
+            extra_files: list[str] = []
             extra_dirs: list[str] = []
-            if args.v3 and v3_result:
+            if v3_result:
                 extra_files.extend(
                     [
                         result.get("preview_path") or "",
@@ -674,12 +525,6 @@ def main() -> int:
     print(f"[JOB] result_file={result_path}")
     if result.get("failure_summary"):
         print(f"[JOB] failure_summary={result['failure_summary']}")
-    if result.get("ledger_path"):
-        print(f"[JOB] ledger_path={result['ledger_path']}")
-    if result.get("report_path"):
-        print(f"[JOB] report_path={result['report_path']}")
-    if result.get("blocked_workfile"):
-        print(f"[JOB] blocked_workfile={result['blocked_workfile']}")
     if result.get("attachment_path"):
         print(f"[JOB] attachment_path={result['attachment_path']}")
     if result.get("delivery_dir"):

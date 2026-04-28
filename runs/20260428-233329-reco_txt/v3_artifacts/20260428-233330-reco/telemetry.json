@@ -1,0 +1,17 @@
+{
+  "phase": "translating",
+  "progress_mode": "snapshot_artifacts",
+  "pages_total": 248,
+  "pages_processed": 0,
+  "chapters_total": 56,
+  "blocks_total": 626,
+  "unresolved_blocks": 4636,
+  "blocked_blocks": 0,
+  "low_confidence_pages": 248,
+  "warnings_count": 1,
+  "reroute_count": 0,
+  "ocr_repair_count": 0,
+  "adequacy_review_status": "not_run",
+  "preview_path": "/home/hoonsw/dev/translator/runs/20260428-233329-reco_txt/v3_artifacts/20260428-233330-reco/translated.preview.txt",
+  "last_activity_at": "2026-04-28T23:33:32+09:00"
+}

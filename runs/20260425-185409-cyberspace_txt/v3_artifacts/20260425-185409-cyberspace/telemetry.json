@@ -1,0 +1,17 @@
+{
+  "phase": "blocked",
+  "progress_mode": "snapshot_artifacts",
+  "pages_total": 1,
+  "pages_processed": 1,
+  "chapters_total": 13,
+  "blocks_total": 1755,
+  "unresolved_blocks": 33,
+  "blocked_blocks": 33,
+  "low_confidence_pages": 0,
+  "warnings_count": 0,
+  "reroute_count": 0,
+  "ocr_repair_count": 0,
+  "adequacy_review_status": "selective_model_review",
+  "preview_path": "/home/hoonsw/dev/translator/runs/20260425-185409-cyberspace_txt/v3_artifacts/20260425-185409-cyberspace/translated.preview.txt",
+  "last_activity_at": "2026-04-26T01:58:05+09:00"
+}

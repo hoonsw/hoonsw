@@ -1,0 +1,15 @@
+{
+  "run_id": "20260425-185409-cyberspace",
+  "status": "DELIVERABLE",
+  "input_path": "/home/hoonsw/dev/translator/input/cyberspace.txt",
+  "output_path": "/home/hoonsw/dev/translator/output/cyberspace_ko.txt",
+  "artifact_dir": "/home/hoonsw/dev/translator/runs/20260425-185409-cyberspace_txt/v3_artifacts/20260425-185409-cyberspace",
+  "accepted_units": 1855,
+  "blocked_units": 0,
+  "total_units": 1855,
+  "preview_path": "/home/hoonsw/dev/translator/runs/20260425-185409-cyberspace_txt/v3_artifacts/20260425-185409-cyberspace/translated.preview.txt",
+  "review_bundle_path": "/home/hoonsw/dev/translator/runs/20260425-185409-cyberspace_txt/v3_artifacts/20260425-185409-cyberspace/review_bundle.json",
+  "translated_output_path": "/home/hoonsw/dev/translator/output/cyberspace_ko.txt",
+  "final_output_written": true,
+  "warnings": []
+}

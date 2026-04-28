@@ -5,7 +5,7 @@ BASE_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$BASE_DIR"
 
 if [ "$#" -lt 2 ]; then
-  echo "Usage: $0 <input> <output> [run_pipeline options...]" >&2
+  echo "Usage: $0 <input> <output> [job_runner options...]" >&2
   exit 2
 fi
 

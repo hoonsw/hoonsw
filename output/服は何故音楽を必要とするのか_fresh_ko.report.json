@@ -1,0 +1,1424 @@
+{
+  "input_path": "/mnt/c/Users/hoon/Desktop/02_번역/服は何故音楽を必要とするのか.txt",
+  "output_path": "/home/hoonsw/dev/translator/output/服は何故音楽を必要とするのか_fresh_ko.txt",
+  "generated_at": "2026-03-22T02:01:40",
+  "preset": "ja_essay",
+  "overview": {
+    "total_chunks": 108,
+    "source_sentences": 3866,
+    "target_sentences": 3765,
+    "source_chars": 202281,
+    "target_chars": 215323
+  },
+  "chunk_details": [
+    {
+      "chunk_num": 1,
+      "source_sentences": 21,
+      "target_sentences": 23,
+      "sentence_diff": 2,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "服は何故音楽を必要とするのか？\n\n「ウォーキング・ミュージック」という存在しないジャンルに召還された音楽たちについての考察\n\n菊地成孔\n\n「ランバンやニナ リッチがどれだけカワイイか。に入る前に」\n\n...",
+      "target_preview": "옷은 왜 음악을 필요로 하는가?\n\n\"워킹 뮤직\"이라는 존재하지 않는 장르에 소환된 음악들에 대한 고찰\n\n기쿠치 나루요시\n\n\"랑방과 니나 리치가 얼마나 귀여운지. 들어가기 전에\"\n\n..."
+    },
+    {
+      "chunk_num": 2,
+      "source_sentences": 37,
+      "target_sentences": 41,
+      "sentence_diff": 4,
+      "quality_score": 0.6,
+      "is_problem": true,
+      "problems": [
+        "under_translate"
+      ],
+      "source_preview": "再び、ややこしい話はスルーしますが、きわめて簡単に言うと、近代的な音楽理論を形成している基盤である自然物理学の法則（の内の、「音響物理」における、ほんのいくつかの原理）が、映像の側にも存在／適応する。...",
+      "target_preview": "다시 한번, 복잡한 이야기는 넘어가겠습니다만, 아주 간단히 말하자면, 근대적 음악 이론을 형성하는 기반인 자연물리학 법칙(그 중 '음향물리'에 속하는 몇 가지 원리)이 영상 쪽에도..."
+    },
+    {
+      "chunk_num": 3,
+      "source_sentences": 51,
+      "target_sentences": 53,
+      "sentence_diff": 2,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "最初にお断りしておきますが、この本にギャルファッションの話は、このまえがき以外出てきません。この本に出てくるのは、ハイモード、しかもパリ、ミラノ、東京という三つの都市だけです。しかし、ある国で起こって...",
+      "target_preview": "먼저 밝혀두겠지만, 이 책에 갸루 패션 이야기는 이 머리말 이외에 나오지 않는다. 이 책에 등장하는 것은 하이 모드, 그것도 파리, 밀라노, 도쿄라는 세 도시뿐이다. 하지만 어느 ..."
+    },
+    {
+      "chunk_num": 4,
+      "source_sentences": 41,
+      "target_sentences": 35,
+      "sentence_diff": -6,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "ある種の諦めに似た気持ちで我々が共有している「映像と音楽の統一理論による〈完璧なシンクロの方法〉なんてありえないんだ。そして、その方が良いのだ。だからこそ面白いのである」といった感覚。映画やＴＶ番組を...",
+      "target_preview": "諦めに似た気持ちで我々が共有하고 있는 감각——\"영상과 음악의 통일이론에 의한 〈완벽한 싱크로 방법〉 같은 건 있을 수 없다. 그리고, 그 편이 낫다. 그렇기에 재미있는 것이다\"라는 ..."
+    },
+    {
+      "chunk_num": 5,
+      "source_sentences": 48,
+      "target_sentences": 50,
+      "sentence_diff": 2,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "初めてのパリコレ　そしてヴィクター＆ロルフの惜敗\n\n日本が世界で最初だった話　そして東京コレクション\n\nモデルたちは無視する　そして二度目の東京コレクション\n\n『人間の証明』　そして三度目の東京コレク...",
+      "target_preview": "처음 파리 컬렉션　그리고 빅터&롤프의 아쉬운 패배\n\n일본이 세계 최초였던 이야기　그리고 도쿄 컬렉션\n\n모델들은 무시한다　그리고 두 번째 도쿄 컬렉션\n\n<인간의 증명>　그리고 세 번..."
+    },
+    {
+      "chunk_num": 6,
+      "source_sentences": 30,
+      "target_sentences": 29,
+      "sentence_diff": -1,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "「そうですの。今回はパリコレの時期でしたのでわたくしも拝見させていただきまして、もうとっても素敵でございましたの」という兼高さんの山の手言葉によってもたらされたスイート＆エレガント・トラウマ以来、あら...",
+      "target_preview": "가네타카 씨의 야마노테 말씨로 전해진 스위트 & 엘레건트 트라우마—\"어머, 이번에는 파리 컬렉션 시즌이라 저도 참관했답니다, 정말이지 너무나 멋졌어요\"—이래로 온갖 위대한 패션지를..."
+    },
+    {
+      "chunk_num": 7,
+      "source_sentences": 31,
+      "target_sentences": 31,
+      "sentence_diff": 0,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "二〇〇四年春夏シーズンは各ブランドこぞって色復活を宣言したかのようなピンクやブルーが、パステルでもネオンでも大活躍。といった印象ですが、アレッサンドロ デラクアの「Billie Jean」（マイケル・...",
+      "target_preview": "2004년 봄·여름 시즌은 각 브랜드가 너나 할 것 없이 색채 부활을 선언이라도 한 듯, 파스텔이든 네온이든 핑크와 블루가 대활약했다는 인상이다. 알레산드로 델라쿠아의 <Billi..."
+    },
+    {
+      "chunk_num": 8,
+      "source_sentences": 36,
+      "target_sentences": 31,
+      "sentence_diff": -5,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "『ファッション・ニュース』読者の皆様。再びお会いしました。さて「ファッション・ショーで使われた音楽と、そのメゾンの服についての関係を考察する」この連載ですが、二回目にして早くもパリコレクションを扱うこ...",
+      "target_preview": "<Fashion News> 독자 여러분, 다시 만났습니다. 자, \"패션쇼에 사용된 음악과 해당 메종의 옷의 관계를 고찰한다\"는 이 연재인데, 두 번째 회에 벌써 파리 컬렉션을 다루..."
+    },
+    {
+      "chunk_num": 9,
+      "source_sentences": 18,
+      "target_sentences": 17,
+      "sentence_diff": -1,
+      "quality_score": 0.5,
+      "is_problem": true,
+      "problems": [
+        "under_translate"
+      ],
+      "source_preview": "〈世界で最初にリリースされたハウスのレコードは一九八四年、アメリカはシカゴの、ジェシー・サンダース＆ヴィンス・ローレンスによる「On & On」である。それは七〇年代中盤に起こったハウスの前身としての...",
+      "target_preview": "〈세계 최초로 발매된 하우스 레코드는 1984년, 미국 시카고 출신의 제시 샌더스 & 빈스 로렌스가 발표한 \"On & On\"이다. 이는 1970년대 중반에 일어난 하우스의 전신인 ..."
+    },
+    {
+      "chunk_num": 10,
+      "source_sentences": 26,
+      "target_sentences": 29,
+      "sentence_diff": 3,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "さて最後に、デザートとして、冒頭で力強いコメントを残している、今コレクションの注目ブランドの一つでもあるヴィクター＆ロルフですが、ボディ・コンシャスネスの流れの逆を行くボリューム感をメインにしており、...",
+      "target_preview": "さて最後に、デザートとして、冒頭에서 힘 있는 코멘트를 남긴, 이번 컬렉션의 주목 브랜드 중 하나인 빅터&롤프 얘기를 해보겠습니다. 보디 컨셔스니스의 흐름을 거스르는 볼륨감을 주요 테..."
+    },
+    {
+      "chunk_num": 11,
+      "source_sentences": 29,
+      "target_sentences": 28,
+      "sentence_diff": -1,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "私の愛を込めたオマージュとは別に、現在、日々制作、選曲されている現代のウォーキング・ミュージックについて考えるためにも。連載初回で申し上げたのは、市民社会の成立後におけるオペラに、「衣装と音楽の饗宴」...",
+      "target_preview": "내 애정 어린 오마주와는 별개로, 지금 이 순간에도 날마다 제작되고 선곡되고 있는 현대의 워킹 뮤직에 대해 생각하기 위해서도. 연재 첫 회에서 말씀드린 것은, 시민사회 성립 이후의..."
+    },
+    {
+      "chunk_num": 12,
+      "source_sentences": 41,
+      "target_sentences": 44,
+      "sentence_diff": 3,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "さて、こうして話はプルミエ・サロンから近代プレタポルテの歴史に入ってゆくわけですが、面白くなったところでまた次回に。という恒例に従い、今回、柏木先生の同掲書からの引用は、驚愕的な一節をご紹介して終わり...",
+      "target_preview": "さて、こうして話はプルミエ・サロンから近대 프레타포르테의 역사로 넘어가는 것인데, 재미있어지려는 찰나에 또 다음 회로. 라는 관례에 따라, 이번에는 가시와기 선생의 같은 책에서 인용하..."
+    },
+    {
+      "chunk_num": 13,
+      "source_sentences": 36,
+      "target_sentences": 32,
+      "sentence_diff": -4,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "親愛なる読者の皆様、そして編集部の皆様からご支持をいただき、連載執筆者として選んでいただいた光栄をエレガンスの神の託宣として（ジュヌヴィエーヴ・アントワーヌ・ダリオー女史の名著『エレガンスの事典』（一...",
+      "target_preview": "친애하는 독자 여러분, 그리고 편집부 여러분의 성원에 힘입어, 연재 필자로 선택받은 영예를 엘레강스의 신이 내린 탁선으로 여기며（쥐느비에브 앙투아네트 달리오 여사의 명저 <엘레강스..."
+    },
+    {
+      "chunk_num": 14,
+      "source_sentences": 24,
+      "target_sentences": 25,
+      "sentence_diff": 1,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "ここに日仏文化友好的な形で「強律動的な音楽（ダンス・ミュージック）に対し、マネキンが無表情で優雅に歩く」という、「ウォーキング・ミュージック」の原型があるのではないか？　と再仮説したところで、ウォーキ...",
+      "target_preview": "여기에 일불(日佛) 문화 우호적인 형태로, \"강한 율동의 음악(댄스 뮤직)에 대해 마네킹이 무표정하게 우아하게 걷는다\"는 \"워킹 뮤직\"의 원형이 있는 게 아닐까? 라고 재가설을 세..."
+    },
+    {
+      "chunk_num": 15,
+      "source_sentences": 36,
+      "target_sentences": 37,
+      "sentence_diff": 1,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "その八九号から合流させていただき、栄えある一〇〇号を我が帝都は東京の空の下、こうして迎えることの幸運そしてその意義を嚙みしめるに、光栄の至りは言うまでもなく、音楽と服飾を結び付ける愛。その分析と批評実...",
+      "target_preview": "89호부터 합류하여, 영예로운 100호를 우리 제도(帝都) 도쿄의 하늘 아래 이렇게 맞이하는 행운과 그 의미를 되새기노라니, 광영스럽기 그지없거니와, 음악과 복식을 잇는 사랑. 그..."
+    },
+    {
+      "chunk_num": 16,
+      "source_sentences": 37,
+      "target_sentences": 32,
+      "sentence_diff": -5,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "とはいえ劇中の登場人物たちが着る衣装は素晴らしいものでした。冒頭のショーのシーンのみがトラウマシックだったのです。それに感受性は千種万様。あの映画を観た日本人の内でわずかに私一人だけが「日本のモード界...",
+      "target_preview": "그러나 극 중 등장인물들이 입는 의상은 훌륭했습니다. 트라우마틱했던 것은 오프닝 쇼 장면뿐이었습니다. 게다가 감수성은 천차만별. 그 영화를 본 일본인 중에서 오직 나 혼자만이 \"일..."
+    },
+    {
+      "chunk_num": 17,
+      "source_sentences": 34,
+      "target_sentences": 31,
+      "sentence_diff": -3,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "親愛なる『ファッション・ニュース』読者の皆様。「ファッション・ショーに召還された音楽」を「ウォーキング・ミュージック」と仮称し、各メゾンの服とショーの演出との関係を分析しつつ、なぜ服飾には音楽が必要と...",
+      "target_preview": "친애하는 『패션 뉴스』 독자 여러분. \"패션쇼에 소환된 음악\"을 \"워킹 뮤직\"이라 가칭하고, 각 메종의 옷과 쇼 연출의 관계를 분석하면서 왜 복식에는 음악이 필요한가？를 탐구하는,..."
+    },
+    {
+      "chunk_num": 18,
+      "source_sentences": 41,
+      "target_sentences": 35,
+      "sentence_diff": -6,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "図らずも呈することとなった「Ｄ＆Ｇ対ディオール オム／バンド・バトル」の構図は、ゲイセンスへの到達線が片やマッチョ経由、片やアンドロジナス経由、バンドの登場タイミングが片や冒頭（バンドの演奏によってシ...",
+      "target_preview": "뜻밖에도 펼쳐진 'D&G 대 디오르 옴 / 밴드 배틀'의 구도는, 게이 센스로의 도달선이 한쪽은 마초 경유, 한쪽은 앤드로지너스 경유, 밴드의 등장 타이밍이 한쪽은 모두(밴드 연주..."
+    },
+    {
+      "chunk_num": 19,
+      "source_sentences": 25,
+      "target_sentences": 25,
+      "sentence_diff": 0,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "これまで当連載は「編集部が撮影／選択したスナップ写真、および、ショー会場でオンエアを実況録音した（したがって、プレス席の人々の生々しい話し声なども録音された）音源だけを頼りにショー批評、服と音楽の相性...",
+      "target_preview": "これまで당 연재는 \"편집부가 촬영·선택한 스냅 사진, 그리고 쇼 회장에서 온에어를 실황 녹음한(따라서 프레스석 사람들의 생생한 대화 소리 등도 녹음된) 음원만을 의지해 쇼 비평, ..."
+    },
+    {
+      "chunk_num": 20,
+      "source_sentences": 22,
+      "target_sentences": 20,
+      "sentence_diff": -2,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "ただ、服の強度だけでもエルメスのショーは成功を見せ、観客のアプローズは熱狂的なものがありました。それだけに惜しいものがあります（ただし「レコード掛け替えの唐突さ＝不器用な脱臼感」はゴダール等にも通じる...",
+      "target_preview": "다만, 의상의 완성도만으로도 에르메스의 쇼는 성공을 거뒀고, 관객의 박수는 열광적이었습니다. 그만큼 아쉬움도 있습니다(단, '레코드를 바꿔 거는 듯한 급작스러움 = 어설픈 탈구 감..."
+    },
+    {
+      "chunk_num": 21,
+      "source_sentences": 43,
+      "target_sentences": 42,
+      "sentence_diff": -1,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "ランバンの「ファッション・ショーとしての完成美」は、ノー・コンセプトの極北が最強であることを悠々たる身振りで示しています（ヴァレンティノも同じ流れの中にあり、引けを取らぬ成果を見せています）。フェミニ...",
+      "target_preview": "랑방의 \"패션쇼로서의 완성미\"는, 노 컨셉의 극북이 최강임을 유유한 몸짓으로 보여줍니다(발렌티노 역시 같은 흐름 속에 있으며, 뒤지지 않는 성과를 보여줍니다). 페미닌한 고품질의 ..."
+    },
+    {
+      "chunk_num": 22,
+      "source_sentences": 23,
+      "target_sentences": 22,
+      "sentence_diff": -1,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "前置きなくいきなり一曲目に突入するスマートさが席巻した今季のコレクションの中で、唯一大仰なイントロダクションを構え（暗転にイタリア・オペラの世界的名曲「Cavalleria Rusticana〈前奏曲...",
+      "target_preview": "이번 시즌 컬렉션을 석권한 것은, 전주 없이 곧바로 첫 번째 곡으로 돌입하는 스마트함이었다. 그 가운데 유일하게 거창한 인트로덕션을 갖춘 것이 이 쇼였다. (암전 속에 이탈리아 오..."
+    },
+    {
+      "chunk_num": 23,
+      "source_sentences": 16,
+      "target_sentences": 13,
+      "sentence_diff": -3,
+      "quality_score": 0.9,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "「スペース・エレガンス」「魔術的リラックス」「火星の英国紳士」といったコピーが次々に湧いてきそうな、非常に奇妙で非常に美しいその服は、既視感と未視感、服飾芸術性とリアルクローズ性、反ヒステリー／鬱的な...",
+      "target_preview": "'스페이스 엘레강스', '마술적 릴랙스', '화성의 영국 신사' 같은 카피가 줄줄이 떠오를 것 같은, 매우 기묘하고 매우 아름다운 그 옷들은, 기시감과 미시감, 복식 예술성과 리얼..."
+    },
+    {
+      "chunk_num": 24,
+      "source_sentences": 34,
+      "target_sentences": 29,
+      "sentence_diff": -5,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "字数も大幅に超過してまいりましたので「我が道を行く面々」の今季をまとめて。アレキサンダー・マックィーンはまたしても「誰も着られない服」に戻り、とはいえプレスからは大いなる評価とアプローズを受けていまし...",
+      "target_preview": "자수도 크게 초과해버렸으니 \"제 갈 길을 가는 면면들\"의 이번 시즌을 모아서. 알렉산더 맥퀸은 또다시 \"아무도 입을 수 없는 옷\"으로 돌아갔는데, 그럼에도 프레스로부터 높은 평가와..."
+    },
+    {
+      "chunk_num": 25,
+      "source_sentences": 20,
+      "target_sentences": 18,
+      "sentence_diff": -2,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "これこのとおり、「ファッション・ショーの現場」こそは私にとって最後の聖域なのです。パリはオペラ座の舞台裏を、ロンドンのクラブのＤＪブースを、ミラノのリストランテの厨房を、ベルリンのライヴ会場のバックヤ...",
+      "target_preview": "바로 이렇듯, <패션 쇼 현장>이야말로 내게 있어 마지막 성역이다. 파리 오페라 극장의 무대 뒤를, 런던 클럽의 DJ 부스를, 밀라노 리스토란테의 주방을, 베를린 라이브 공연장의 ..."
+    },
+    {
+      "chunk_num": 26,
+      "source_sentences": 18,
+      "target_sentences": 16,
+      "sentence_diff": -2,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "化粧品の商品カタログのようなインヴィテーション・カードに大きく「南方憧憬～サバンナへのオマージュ～」と書かれ、その下に並ぶ文章も八〇年代の広告コピーのリストアリング（「パリの詩人が詩を捨てて入るア・フ...",
+      "target_preview": "화장품 상품 카탈로그 같은 초대장에 크게 「남방 동경 〜사바나에의 오마주〜」라고 쓰여 있고, 그 아래 늘어선 문장들도 80년대 광고 카피의 리스토링(「파리의 시인이 시를 버리고 들..."
+    },
+    {
+      "chunk_num": 27,
+      "source_sentences": 28,
+      "target_sentences": 27,
+      "sentence_diff": -1,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "私の事務所から徒歩五分にある、大久保通り沿い「淀橋教会」は、普段はこの地域に棲まうアジア系の人々のキリスト教会として佇立していますが、トリプティックはこの日三十分間のみ、自分たちの儀式のためにこの教会...",
+      "target_preview": "제 사무소에서 도보 5분 거리, 오쿠보 도리 沿い의 <요도바시 교회>는 평소 이 지역에 사는 아시아계 사람들의 기독교 교회로 佇立해 있지만, 트립티크는 이날 단 30분간, 자신들의..."
+    },
+    {
+      "chunk_num": 28,
+      "source_sentences": 28,
+      "target_sentences": 27,
+      "sentence_diff": -1,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "新年の祝賀を持たぬイスラム教国では、カウントダウンもなく、港もホテルのラウンジも噓のように閑散としています。そして、イスラムは飲酒も禁じておりますので、新年にシャンパーニュの抜栓もなく、アツァイという...",
+      "target_preview": "새해 축하의 풍습이 없는 이슬람 국가에서는 카운트다운도 없고, 항구도 호텔 라운지도 거짓말처럼 한산합니다. 이슬람은 음주도 금하고 있으니 새해에 샴페인을 터뜨리는 일도 없이, 아차..."
+    },
+    {
+      "chunk_num": 29,
+      "source_sentences": 17,
+      "target_sentences": 19,
+      "sentence_diff": 2,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "ベルンハルト ウィルヘルム（そして、ジョン・ガリアーノ等も含め）が生涯を賭けて追求している「ある種の（誠実で高級な）悪趣味」を、はたして実験と呼んで良いものかどうか、ゲルマン的なキッチュ（「Kitsc...",
+      "target_preview": "베른하르트 빌헬름(그리고 존 갈리아노 등도 포함해)이 생애를 걸고 추구하는 \"일종의 (성실하고 고급스러운) 나쁜 취향\"을 과연 실험이라 불러도 좋을지, 게르만적 키치(\"Kitsch..."
+    },
+    {
+      "chunk_num": 30,
+      "source_sentences": 20,
+      "target_sentences": 20,
+      "sentence_diff": 0,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "一方、前者と後者の枠組みを超越するような動きもあります。クリスチャン ディオールがアラブ的なパーカッションだけで音楽を構成し、マット気味のメイクにザラッとした質感のヘアで統一し「砂漠の軍楽」をイメージ...",
+      "target_preview": "한편, 전자와 후자의 틀을 초월하는 움직임도 있다. 크리스챤 디올이 아랍풍 타악기만으로 음악을 구성하고, 매트한 메이크업에 거칠한 질감의 헤어로 통일해 '사막의 군악'을 연상시킴으..."
+    },
+    {
+      "chunk_num": 31,
+      "source_sentences": 31,
+      "target_sentences": 30,
+      "sentence_diff": -1,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "馬具商であったことを示すために馬具の金具の音と馬のいななきを鳴らすという説明的な効果音でショーを台無しにしてしまうのが恒例になってきたエルメス／フレデリック・サンチェスのチームですが、イメージはリヴィ...",
+      "target_preview": "마구상이었음을 드러내기 위해 마구 철물 소리와 말 울음소리를 넣는 설명적인 효과음으로 쇼를 망치는 것이 어느새 관례가 되어버린 에르메스/프레데릭 상체스 팀이지만, 이미지는 리비에라..."
+    },
+    {
+      "chunk_num": 32,
+      "source_sentences": 43,
+      "target_sentences": 39,
+      "sentence_diff": -4,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "そしてアレキサンダー・マックィーンの奇妙な歌舞伎\n\n2006-07 A/W MEN'S\n\nご挨拶\n\n親愛なる『ファッション・ニュース』読者の皆様こんにちは。満を持してグランド・オープンした表参道ヒルズ...",
+      "target_preview": "そしてアレクサンダー・マックィーンの奇妙な가부키\n\n2006-07 A/W MEN'S\n\n인사말\n\n친애하는 <패션 뉴스> 독자 여러분, 안녕하세요. 마침내 그랜드 오픈한 오모테산도 힐즈를 ..."
+    },
+    {
+      "chunk_num": 33,
+      "source_sentences": 36,
+      "target_sentences": 31,
+      "sentence_diff": -5,
+      "quality_score": 0.5,
+      "is_problem": true,
+      "problems": [
+        "under_translate"
+      ],
+      "source_preview": "「いや。それだったらクラブのバーテンダーもヘアサロンのスタイリストも一日中ダンス・ミュージックを聴いてるじゃない」と言われるかもしれません。しかし彼らは、「音楽とまったく無関係な、細かく特殊な動き」を...",
+      "target_preview": "「아니, 그렇다면 클럽 바텐더도 헤어살롱 스타일리스트도 하루 종일 댄스 뮤직을 듣잖아」라는 반론이 나올지도 모릅니다. 하지만 그들의 일은 '음악과는 전혀 무관한, 섬세하고 특수한 ..."
+    },
+    {
+      "chunk_num": 34,
+      "source_sentences": 23,
+      "target_sentences": 18,
+      "sentence_diff": -5,
+      "quality_score": 0.9,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "何せこの関係は、ある種の伝統や様式であって、一切の作為や計画を持ちません。私の推測では、音楽と歩調の微妙なズレが生じさせるさまざまな効果（どっちがどの程度速いか／遅いかによって、驚くほどメッセージの意...",
+      "target_preview": "この関係はある種の伝統や様식이라서, 일체의 작위나 계획이 없다. 내 추측으로는, 음악과 걸음걸이의 미묘한 어긋남이 만들어내는 다양한 효과(어느 쪽이 어느 정도 빠른지/느린지에 따라 ..."
+    },
+    {
+      "chunk_num": 35,
+      "source_sentences": 28,
+      "target_sentences": 25,
+      "sentence_diff": -3,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "英国国歌を高らかに鳴らした後、行進曲メドレー（！）、そしてソプラノ歌手のコロラチュラを乗せたハウスに繫げ、貴族調を戯画化したディースクエアードの「正調ゲイ美学」の気品と悪意に満ちたかわいさ、Ｄ＆Ｇでは...",
+      "target_preview": "영국 국가가 우렁차게 울린 후, 행진곡 메들리(!)로, 그리고 소프라노 가수의 콜로라투라를 얹은 하우스로 이어지며, 귀족풍을 희화화한 디스퀘어드의 '정조(正調) 게이 미학'이 풍기..."
+    },
+    {
+      "chunk_num": 36,
+      "source_sentences": 37,
+      "target_sentences": 33,
+      "sentence_diff": -4,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "我々は真夏に秋冬物のショーを観ます。そして、そうした時差は、あまねくすべての業界に存在します。「今、まさに、この瞬間」というのは、基本的には産業化が不可能なのですから（ブログというメディアは今後さらに...",
+      "target_preview": "우리는 한여름에 가을·겨울 컬렉션 쇼를 본다. 그리고 그런 시차는 모든 업계에 존재한다. \"지금, 바로, 이 순간\"이란 기본적으로 산업화가 불가능하기 때문이다(블로그라는 미디어는 ..."
+    },
+    {
+      "chunk_num": 37,
+      "source_sentences": 32,
+      "target_sentences": 31,
+      "sentence_diff": -1,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "しかし、ランバンにはもう一つの秘密があります。「小さな時差」に関して、およそ他のブランドと比べ、ランバンは「意識的にやっているのではないか」と思わせるほど（私が着目する「小さな時差」は、その性質上、意...",
+      "target_preview": "하지만 랑방에는 또 하나의 비밀이 있습니다. 「작은 시차」에 관해, 다른 브랜드와 비교했을 때 랑방은 「의식적으로 하는 것이 아닐까」 싶을 만큼(내가 주목하는 「작은 시차」는 그 ..."
+    },
+    {
+      "chunk_num": 38,
+      "source_sentences": 20,
+      "target_sentences": 19,
+      "sentence_diff": -1,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "音楽と無関係に歩く（動く）ことが生々しさ総体を表現するとして、そのエレガンスとストイシズムの極限をアントニオ・マラスとするならば、反対の極、生々しさが生む悪趣味としてのデカダンやゴージャス、下品なやり...",
+      "target_preview": "음악과 무관하게 걷는(움직이는) 것이 생생함의 총체를 표현한다고 할 때, 그 엘레강스와 스토이시즘의 극한을 안토니오 마라스로 본다면, 반대의 극—생생함이 낳는 악취미로서의 데카당스..."
+    },
+    {
+      "chunk_num": 39,
+      "source_sentences": 23,
+      "target_sentences": 21,
+      "sentence_diff": -2,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "今、いみじくも「学芸会」と書きましたが、これは皮肉や、ましてや誹謗ではありません。音楽、特にレコードが、違うメディア（創成期は主にテープやフィルムでしたが）に録音でき、すなわち編集が行なえる。というこ...",
+      "target_preview": "지금 '학예회'라고 썼지만, 이는 비꼬는 말도, 하물며 비방도 아닙니다. 음악, 특히 레코드를 다른 미디어(초창기에는 주로 테이프나 필름이었지만)에 녹음할 수 있다는 것, 즉 편집..."
+    },
+    {
+      "chunk_num": 40,
+      "source_sentences": 24,
+      "target_sentences": 19,
+      "sentence_diff": -5,
+      "quality_score": 0.9,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "それまではサイエンス・フィクションやメタ・フューチュアルを感じさせる「時代観の超越そして奇妙な郷愁」といった選曲で唸らされてきましたが、今回は「満を持してとうとう八〇年代のロマンティック・ポップを切っ...",
+      "target_preview": "그전까지는 사이언스 픽션이나 메타 퓨처럴한 느낌을 주는 \"시대관의 초월과 기묘한 향수\"를 자극하는 선곡으로 감탄을 자아냈는데, 이번에는 \"마침내 때를 기다려 80년대의 로맨틱 팝을..."
+    },
+    {
+      "chunk_num": 41,
+      "source_sentences": 16,
+      "target_sentences": 17,
+      "sentence_diff": 1,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "両者とも「ビート」に対する衝動、その動きとの連動において非常に意識的なメゾンですが、経由する音楽と思想は正反対なれども、「少年性」が「ナチズム」と不可分であることを表現しているという点で一致しています...",
+      "target_preview": "두 메종 모두 「비트」에 대한 충동, 그 움직임과의 연동에 있어 매우 의식적이지만, 경유하는 음악과 사상은 정반대임에도 불구하고, 「소년성」이 「나치즘」과 불가분하다는 것을 표현한..."
+    },
+    {
+      "chunk_num": 42,
+      "source_sentences": 36,
+      "target_sentences": 32,
+      "sentence_diff": -4,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "ジバンシィは、ルイ・アームストロングの「What a Wonderful World」でスタートし、クロージングはそのリミックスヴァージョンでしたが、なぜルイ・アームストロングなのか？　オズワルト・ボ...",
+      "target_preview": "ジバンシィは 루이 암스트롱의 <What a Wonderful World>로 시작해, 클로징도 그 리믹스 버전으로 마무리했다. 왜 루이 암스트롱인가? 오즈왈드 보아텡이 흑인이고, 거..."
+    },
+    {
+      "chunk_num": 43,
+      "source_sentences": 28,
+      "target_sentences": 23,
+      "sentence_diff": -5,
+      "quality_score": 0.9,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "先ほどの仮説を進めれば、私の専門である音楽界において、この「奇妙なインターナショナル感」は既に一部では定着的なものなのだ。という前提があります。それはＤＪ／クラブ・カルチャーです。パリ─ニューヨーク─...",
+      "target_preview": "앞선 가설을 이어가면, 내 전문 분야인 음악계에서 이 \"기묘한 인터내셔널 감각\"은 이미 일부에서 정착된 것이다—라는 전제가 있다. 그것은 DJ/클럽 컬처다. 파리—뉴욕—런던—베를린..."
+    },
+    {
+      "chunk_num": 44,
+      "source_sentences": 28,
+      "target_sentences": 25,
+      "sentence_diff": -3,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "この両義性を前提に、ボクシング文化（を含む、ほとんどの格闘技文化）がいまだインターナショナリズムを獲得せず、強ドメスティズムを持ったままである。という事実が絶妙に絡み合って、表層（モデルの顔立ちや服自...",
+      "target_preview": "이 양의성을 전제로, 복싱 문화(를 포함한 대부분의 격투기 문화)가 아직도 인터내셔널리즘을 획득하지 못한 채 강한 도메스티즘을 유지하고 있다는 사실이 절묘하게 얽혀들어, 표층(모델..."
+    },
+    {
+      "chunk_num": 45,
+      "source_sentences": 31,
+      "target_sentences": 29,
+      "sentence_diff": -2,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "親愛なる『ファッション・ニュース』読者の皆様、明けましておめでとうございます（一月四日脱稿）。当連載は今回より四年目に入りました。これも偏ひとえに読者の皆様の、長きにわたるご愛顧のおかげであります。ア...",
+      "target_preview": "친애하는 『패션 뉴스』 독자 여러분, 새해 복 많이 받으세요(1월 4일 탈고). 이 연재는 이번 호부터 4년째에 접어들었습니다. 이것도 오로지 독자 여러분의 오랜 애독 덕분입니다...."
+    },
+    {
+      "chunk_num": 46,
+      "source_sentences": 28,
+      "target_sentences": 20,
+      "sentence_diff": -8,
+      "quality_score": 0.7,
+      "is_problem": true,
+      "problems": [
+        "structure_mismatch"
+      ],
+      "source_preview": "白バックに重いパステル。という色彩感によって「二一世紀のシャネル」感をとうとう完成させたラガーフェルド氏ですが、どこか常に「女たちをコキ使い倒す／女たちもそれに誇りを持って、戦闘的にプライドを持ってい...",
+      "target_preview": "흰 배경에 무거운 파스텔. 이 색채감으로 '21세기의 샤넬'을 마침내 완성시킨 라거펠트 씨이지만, 어딘가 늘 \"여자들을 혹독하게 부려먹는다 / 여자들 역시 그에 자부심을 갖고 전투..."
+    },
+    {
+      "chunk_num": 47,
+      "source_sentences": 20,
+      "target_sentences": 19,
+      "sentence_diff": -1,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "ジバンシィの「Visage」（これも八〇年代エレポップ・クラシック）使いもしっくり来ませんでした。前述のバーバリー／ＯＭＤもそうなのですが、「八〇年代エレポップ・クラシック」の多くは、イメージされてい...",
+      "target_preview": "ジバンシィの 「Visage」(이것도 80년대 일렉트로팝 클래식)를 사용한 것도 잘 맞지 않았습니다. 앞서 언급한 버버리/OMD도 그렇지만, \"80년대 일렉트로팝 클래식\"의 상당수는..."
+    },
+    {
+      "chunk_num": 48,
+      "source_sentences": 33,
+      "target_sentences": 27,
+      "sentence_diff": -6,
+      "quality_score": 0.9,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "そこに現出される光景は、一見古典的で自然のようでいて、完全に狂っています。「舞曲なのに誰も踊らず、歩いている」からです。「リアルクローズとはそもそも何なのか？　プレタとクチュールとは？　貴族と平民とは...",
+      "target_preview": "そこ에 펼쳐지는 광경은 언뜻 고전적이고 자연스러운 듯하면서도, 완전히 미쳐 있습니다. \"무곡인데 아무도 춤추지 않고, 그저 걷고 있기\" 때문입니다. \"리얼 클로즈란 애초에 무엇인가..."
+    },
+    {
+      "chunk_num": 49,
+      "source_sentences": 28,
+      "target_sentences": 22,
+      "sentence_diff": -6,
+      "quality_score": 0.9,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "ＮＨＫ制作の番組で、ジャズメンのマイルス・デイヴィスの一生を描くという内容なのですが、私がナヴィゲーターを務めさせていただくことになりまして、私の提案で「マイルス晩年（八六～九一）の衣装を作っていた男...",
+      "target_preview": "NHK 제작 프로그램으로, 재즈 뮤지션 마일스 데이비스의 일생을 그리는 내용인데, 제가 내비게이터를 맡게 되어 저의 제안으로 \"마일스 말년(86~91)의 의상을 만들었던 남자\"인 ..."
+    },
+    {
+      "chunk_num": 50,
+      "source_sentences": 32,
+      "target_sentences": 32,
+      "sentence_diff": 0,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "リミ フゥを、我が国の文学界であるならばとっくにジャンルとして独立している「ファザコン芸術」という視点から語ることはタブーなのでしょうか。森茉莉、幸田文といった先人に始まり、現在では俗化して浸透／定着...",
+      "target_preview": "リミ フゥを, 우리나라 문학계라면 진즉에 장르로 독립했을 '파더콤플렉스 예술'이라는 시각에서 이야기하는 것은 금기일까. 모리 마리, 고다 아야 같은 선인들에서 시작해 현재는 세속화..."
+    },
+    {
+      "chunk_num": 51,
+      "source_sentences": 34,
+      "target_sentences": 33,
+      "sentence_diff": -1,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "イメージアイコンやキーワードが極端に多く、読解して書き出していたらキリがない。というフラグメントの過剰がシアタープロダクツのスタイルですが、嵐のようなギミックをかいくぐれば、それが一様に「八〇年代の」...",
+      "target_preview": "이미지 아이콘과 키워드가 극단적으로 많아, 해독해서 적어나가다 보면 끝이 없다. 이런 파편의 과잉이 시어터프로덕츠의 스타일이지만, 폭풍 같은 기믹을 헤쳐나가면, 그것이 한결같이 \"..."
+    },
+    {
+      "chunk_num": 52,
+      "source_sentences": 28,
+      "target_sentences": 26,
+      "sentence_diff": -2,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "もし八〇年代が本当にリヴァイヴァルするならば我々の天下だ。という声が聞こえてきそうなジャンポール・ゴルチエのポスト・モダニズムと、そのパロディのようなディースクエアードの攻撃的なフェティシズム（未来の...",
+      "target_preview": "만약 80년대가 정말로 리바이벌된다면 우리 세상이다. 그런 목소리가 들려올 것만 같은 장 폴 고티에의 포스트모더니즘과, 그 패러디처럼 보이는 디스퀘어드의 공격적인 페티시즘(미래의 ..."
+    },
+    {
+      "chunk_num": 53,
+      "source_sentences": 28,
+      "target_sentences": 22,
+      "sentence_diff": -6,
+      "quality_score": 0.9,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "私はアンダーカバーがこの「怖さ（「Ｊホラー的」と言ってしまっても、この際良いと思います）」を、現代日本→現代東京の土着的感覚として、かなり執着的に扱っていると感じますが、その部分をパリがどう評価してい...",
+      "target_preview": "나는 언더커버가 이 \"두려움('J호러적'이라고 해도 이번만큼은 괜찮다고 생각합니다)\"을 현대 일본→현대 도쿄의 토착적 감각으로서 꽤 집요하게 다루고 있다고 느끼지만, 그 부분을 파..."
+    },
+    {
+      "chunk_num": 54,
+      "source_sentences": 28,
+      "target_sentences": 26,
+      "sentence_diff": -2,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "ハイヒールで足早に歩くことが可能になった現代における最後のスロー・エレガンスは、我が国の歌舞伎や能すら思わせますが、おそらくそのことは指摘されないでしょう。カソリックの宮廷的／教会的なエレガンスにきち...",
+      "target_preview": "ハイヒールで足早に歩くことが現대에 가능해진 지금, 마지막 슬로 엘레강스는 우리나라의 가부키나 노를 떠올리게도 하지만, 아마 그 점은 지적되지 않을 것이다. 가톨릭의 궁정적/교회적 엘..."
+    },
+    {
+      "chunk_num": 55,
+      "source_sentences": 28,
+      "target_sentences": 26,
+      "sentence_diff": -2,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "スリマンのネクストに抜擢され、本人自身もモデルのような美形。といったスター性において、漠然としたスリマンとのダブルイメージを抱かれやすいヴァン・アッシュですが、七六年生まれですからマーク・ジェイコブス...",
+      "target_preview": "スリマンの後임으로 발탁되고, 본인 자신도 모델 같은 미모를 지닌 스타성에서, 막연하게 스리마노와의 이중 이미지를 품기 쉬운 반 아쉬이지만, 76년생이니 마크 제이콥스(그리고 나와 ..."
+    },
+    {
+      "chunk_num": 56,
+      "source_sentences": 27,
+      "target_sentences": 24,
+      "sentence_diff": -3,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "「残念」な例として次々名をあげつらうのは気後れしますが、まずは肝心要のニュー・ディオール＆クリス・ヴァン・アッシュですけれども、ブランドイメージとして服のデザインを最優先しなければいけない。という重責...",
+      "target_preview": "굳이 \"아쉬운\" 사례들을 차례로 열거하기가 망설여지지만, 우선 가장 중요한 뉴 디올 & 크리스 반 아쉬부터 말하자면, 브랜드 이미지로서 옷의 디자인을 최우선시해야 한다는 막중한 임..."
+    },
+    {
+      "chunk_num": 57,
+      "source_sentences": 23,
+      "target_sentences": 28,
+      "sentence_diff": 5,
+      "quality_score": 0.9,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "今季最大の、というより、ミラノモード界最大の事件が起こりました。と書けば、いささかヒステリックかつセンセーショナルに過ぎるようですが、事実です。Ｄ＆Ｇはハイモード界で初めて「ラップの入ったブラック・ミ...",
+      "target_preview": "이번 시즌 최대의, 아니 밀라노 모드계 최대의 사건이 일어났다. 이렇게 쓰면 다소 히스테릭하고 선정적으로 들릴 수 있지만, 사실이다. D&G는 하이 모드계에서 처음으로 '랩이 들어..."
+    },
+    {
+      "chunk_num": 58,
+      "source_sentences": 41,
+      "target_sentences": 42,
+      "sentence_diff": 1,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "「あくまで音楽的に」と強調させていただきますが、スランプ組はまだ脱出できません。アレキサンダー・マックィーンは実物のプールサイド（しかも競泳用の、巨大で古臭いもの）でリーゼントのモデルがアロハシャツ風...",
+      "target_preview": "「어디까지나 음악적으로」라고 강조해두겠지만, 슬럼프 그룹은 아직 탈출하지 못했다. 알렉산더 맥퀸은 실제 풀사이드(그것도 경영용의, 거대하고 고색창연한)에서 리젠트 헤어의 모델이 알..."
+    },
+    {
+      "chunk_num": 59,
+      "source_sentences": 47,
+      "target_sentences": 45,
+      "sentence_diff": -2,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "「ダメもとでオファーだけでもしてみてください」と頼んでおいたインタビュー・リスト（ショーの音楽監督／ＤＪ）の、何と全員からＯＫの知らせが届く。本間さんは「菊地さんのＣＤをすべて送っておいたので、それが...",
+      "target_preview": "「에라 모르겠다 제안이라도 해보세요」라고 부탁해두었던 인터뷰 리스트(쇼의 음악감독/DJ)에서, 놀랍게도 전원으로부터 OK 연락이 온다. 혼마 씨는 「기쿠치 씨의 CD를 전부 보내두..."
+    },
+    {
+      "chunk_num": 60,
+      "source_sentences": 45,
+      "target_sentences": 39,
+      "sentence_diff": -6,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "服は、とても良い意味で吞気というか、パリで何かを表現するぞ。という鋭い才気よりも、当方すっかりこっちの一員であります。といった定着／安心感が強い。音楽は、インターコンチネンタルに限らず、パリにおけるグ...",
+      "target_preview": "옷은 아주 좋은 의미에서 느긋하다고 할까, 파리에서 무언가를 표현하겠다는 예리한 재기보다, 저는 이쪽 일원이 된 지 오래입니다, 라는 정착감/안도감이 강하다. 음악은, 인터컨티넨탈..."
+    },
+    {
+      "chunk_num": 61,
+      "source_sentences": 37,
+      "target_sentences": 39,
+      "sentence_diff": 2,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "初日の最後はエリーゼ・モンマルトル（古いライヴハウス。日本でいえば渋谷クアトロ＋新宿ロフト）にて「ジェレミー・スコット」。清水君（在パリのモード関係者。この後コレクション中に何度も会うが、いつも湯上が...",
+      "target_preview": "첫날 마지막은 엘리제 몽마르트르(오래된 라이브 하우스. 일본으로 치면 시부야 쿼트로+신주쿠 로프트)에서 「제레미 스콧」. 시미즈 군(파리 거주 모드 관계자. 이후 컬렉션 기간 중에..."
+    },
+    {
+      "chunk_num": 62,
+      "source_sentences": 48,
+      "target_sentences": 49,
+      "sentence_diff": 1,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "グランパレのマネージュ（馬の調教場）に移動し、「ドリス ヴァン ノッテン」。向さんと隣席になり、あの人がフレンチ・ヴォーグの誰それで、あの人がニューヨークの……といった、業界人の説明や、パリコレのイロ...",
+      "target_preview": "グラン・パレのマネージュ（馬술 조련장）로 이동해 「드리스 반 노튼」. 무카이 씨와 옆자리가 되어, 저 사람이 프렌치 보그의 누구누구고, 저 사람이 뉴욕의 누구라는 식으로, 업계인 소..."
+    },
+    {
+      "chunk_num": 63,
+      "source_sentences": 34,
+      "target_sentences": 34,
+      "sentence_diff": 0,
+      "quality_score": 0.6,
+      "is_problem": true,
+      "problems": [
+        "under_translate"
+      ],
+      "source_preview": "二日目終了。とはいえ最後に観たジバンシィのショーがあまりに強烈だったのですっかり興奮してしまい、寝付けずにマドレーヌ～オペラ周辺を歩き回り、プランタンまで行ってしまう（もちろん閉まっている）。近所の中...",
+      "target_preview": "이틀째 종료. 다만 마지막에 본 지방시 쇼가 너무나 강렬했던 탓에 완전히 흥분해버려, 잠을 이루지 못하고 마들렌~오페라 주변을 걷다 프랭탕까지 가버렸다(물론 문은 닫혀 있었다). ..."
+    },
+    {
+      "chunk_num": 64,
+      "source_sentences": 40,
+      "target_sentences": 40,
+      "sentence_diff": 0,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "ランウェイを挟んで目の前にいたので、ショー終了後のブラウン運動時にササッと近づいて、「ミスター・ウェスト、50セントとのビーフ（けんか）は楽勝だったな。おめでとう。我々は日本のモードマグだ。ムラカミと...",
+      "target_preview": "런웨이를 사이에 두고 바로 눈앞에 있었기 때문에, 쇼가 끝난 후의 브라운 운동(혼잡한 이동) 때 슬쩍 다가가서 \"미스터 웨스트, 50센트와의 비프(싸움)는 완승이었군. 축하해. 우..."
+    },
+    {
+      "chunk_num": 65,
+      "source_sentences": 50,
+      "target_sentences": 55,
+      "sentence_diff": 5,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "〈どうしてシャネルのショーは我々を魅了して止まないのか？　前日の夜一〇時まで行なわれたイヴ・サンローランのショーからぴったり十二時間後、翌日の朝一〇時から同じグランパレで行なわれたシャネルのショーは、...",
+      "target_preview": "〈왜 샤넬의 쇼는 우리를 끊임없이 매혹하는가? 전날 밤 열 시까지 진행된 이브 생 로랑의 쇼로부터 정확히 열두 시간 후, 다음 날 아침 열 시부터 같은 그랑팔레에서 열린 샤넬의 쇼..."
+    },
+    {
+      "chunk_num": 66,
+      "source_sentences": 51,
+      "target_sentences": 54,
+      "sentence_diff": 3,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "「あなたの音楽に一貫している〈揺らぎ〉と〈多層時間〉に関して、ご自分でどう思われますか？」「僕のバックボーンはモロッコのユダヤ人であることだ。その宗教には十二の〈モード／音階〉がある。それは十二であり...",
+      "target_preview": "「당신의 음악에 일관된 <유동>과 <다층 시간>에 대해 스스로 어떻게 생각하십니까?」「나의 배경은 모로코 유대인이라는 것이다. 그 종교에는 열두 가지 <모드/음계>가 있다. 열두이..."
+    },
+    {
+      "chunk_num": 67,
+      "source_sentences": 41,
+      "target_sentences": 40,
+      "sentence_diff": -1,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "太鼓腹を抱えたまま、エスパス・エフェメール・チュイルリーで「クロエ」。フィービーから引き継いだデザイナーの二回目のショーだったので刮目して見たが、ロングヘアにチャイルド的（ドーリーとも違う、ゾクっとく...",
+      "target_preview": "배불뚝이 배를 안은 채, 에스파스 에페메르 튈르리에서 <클로에>. 피비에게서 이어받은 디자이너의 두 번째 쇼였기에 눈을 크게 뜨고 지켜보았는데, 긴 머리에 차일드적(돌리와도 다른,..."
+    },
+    {
+      "chunk_num": 68,
+      "source_sentences": 56,
+      "target_sentences": 56,
+      "sentence_diff": 0,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "〈今季最大のアップセット。会場中央にはメリーゴーラウンドが設置され、「星はすべてを知っている」と書いてある。ひとことディズニーランドのアトラクションである。プレス全員が「またいつもの、オモチャの国の、...",
+      "target_preview": "〈이번 시즌 최대의 이변. 회장 중앙에는 메리고라운드가 설치되어 있고, \"별은 모든 것을 알고 있다\"고 적혀 있다. 한마디로 디즈니랜드 어트랙션이다. 프레스 전원이 \"또 늘 하던 ..."
+    },
+    {
+      "chunk_num": 69,
+      "source_sentences": 39,
+      "target_sentences": 45,
+      "sentence_diff": 6,
+      "quality_score": 0.9,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "さて「ランバン」については、敢えて何も書かない方が良いかもしれない。僕がパリで最後に観るショーがランバンになったことは、誰が仕組んだわけでもない偶然だ。アリエルの招待によって僕らは全員ショーを観ること...",
+      "target_preview": "さて<ランバン>については、あえて何も書かない方が良いかもしれない。僕がパリで最後に観るショーがランバンになったことは、誰が仕組んだわけでもない偶然이다。アリエルの招待によって僕らは全員ショーを観るこ..."
+    },
+    {
+      "chunk_num": 70,
+      "source_sentences": 51,
+      "target_sentences": 51,
+      "sentence_diff": 0,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "ヴェロニク・ブランキーノ（以下、ＶＢ）　私にとってはとても珍しいことなんです。素早く引っ込んだので、誰も見てないと思ったんだけど……（笑）。何だか私が登場したのがとても印象的だったらしく、たくさんの人...",
+      "target_preview": "베로니크 브랑키노(이하 VB) 저한테는 정말 드문 일이에요. 얼른 들어가버려서 아무도 못 봤을 거라고 생각했는데……(웃음). 왠지 제가 등장한 게 꽤 인상적이었나봐요, 많은 분들한..."
+    },
+    {
+      "chunk_num": 71,
+      "source_sentences": 59,
+      "target_sentences": 59,
+      "sentence_diff": 0,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "菊地　カラフルな服だというだけで、普段のあなたのコレクションから見たらコントラストがありますもんね。今、いみじくも「おとぎ話」とおっしゃいましたが、あなたの作品世界は「森とおとぎ話」という、ある種のオ...",
+      "target_preview": "菊지　화려한 옷이라는 것만으로도, 평소 당신의 컬렉션에서 보자면 대비가 있군요. 지금 절묘하게도 '동화'라고 하셨는데, 당신의 작품 세계에는 '숲과 동화'라는 일종의 집착이 늘 느..."
+    },
+    {
+      "chunk_num": 72,
+      "source_sentences": 60,
+      "target_sentences": 60,
+      "sentence_diff": 0,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "同じパンキッシュな１インチの髪、同じボタンダウンの無地のシャツ、同じジーンズ、同じバギーなパンツ、同じ猫背、同じ出身地、同じ出身校、同じパリのイギリス人。アレキサンダー・マックィーンの懐刀であり、マブ...",
+      "target_preview": "같은 펑키시한 1인치 머리카락, 같은 버튼다운 무지 셔츠, 같은 진, 같은 배기 팬츠, 같은 구부정한 등, 같은 출신지, 같은 출신 학교, 같은 파리의 영국인. 알렉산더 맥퀸의 심..."
+    },
+    {
+      "chunk_num": 73,
+      "source_sentences": 72,
+      "target_sentences": 71,
+      "sentence_diff": -1,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "その点マックィーンは対照的だよ。奴とは深く理解し合っている。奴は俺のことを信頼して、俺に判断を任せてくれる。俺にエレメンツを渡して、「あとは好きにクリエイトしてくれ」って言うんだ。ただトラックを並べる...",
+      "target_preview": "맥퀸은 그 점에서 대조적이야. 그 친구와는 깊이 이해하는 사이거든. 나를 신뢰하고, 판단을 맡겨줘. 엘리멘츠를 넘기면서 \"나머지는 맘대로 크리에이트해줘\"라고 하는 거야. 트랙을 늘..."
+    },
+    {
+      "chunk_num": 74,
+      "source_sentences": 59,
+      "target_sentences": 61,
+      "sentence_diff": 2,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "菊地　ヴァージョン13で終わるように祈っているよ（笑）。さてこの号では、何人ものショーのミュージックのクリエイターにインタビューするんで、みんなに同じ質問をするんだけど、さっき作曲の前に服は見るって言...",
+      "target_preview": "기쿠치　버전 13에서 끝나기를 바라고 있어（웃음）. 자, 이번 호에서는 여러 쇼의 뮤직 크리에이터들을 인터뷰하는데, 모두에게 같은 질문을 하려고 해. 아까 작곡 전에 옷을 본다고 ..."
+    },
+    {
+      "chunk_num": 75,
+      "source_sentences": 76,
+      "target_sentences": 73,
+      "sentence_diff": -3,
+      "quality_score": 0.4,
+      "is_problem": true,
+      "problems": [
+        "under_translate"
+      ],
+      "source_preview": "ＪＧ　そうか（笑）!!。モデルたちが踊りまくるのは俺も知ってるぞ（笑）。ジョークはともかくビートがキャットウォークに合わないっていうのはたしかにそうだ。時々、あまりにヘヴィでやり過ぎなダンス・ミュージ...",
+      "target_preview": "JG　그렇군（웃음）!! 모델들이 미친 듯이 춤을 춘다는 건 나도 알아（웃음）. 농담은 그렇다 치고, 비트가 캣워크에 안 맞는다는 건 확실히 그래. 가끔 쇼에 너무 헤비하고 과한 댄..."
+    },
+    {
+      "chunk_num": 76,
+      "source_sentences": 91,
+      "target_sentences": 93,
+      "sentence_diff": 2,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "ＪＧ　ディス・イズ・ヒップホップって感じだろ？　カニエのことは残念だよ。彼はインテリジェンスのあるヒップホップ・ミュージシャンと言われているのに、それでもなお、女の子に銃に、といった従来のヒップホップ...",
+      "target_preview": "JG 이게 바로 힙합이라는 느낌이잖아? 카니에는 안타깝다. 인텔리전스 있는 힙합 뮤지션이라는 말을 듣는데, 그러면서도 여자에 총이니 하는 기존의 힙합 스타 같은 행동을 하고 있어...."
+    },
+    {
+      "chunk_num": 77,
+      "source_sentences": 50,
+      "target_sentences": 50,
+      "sentence_diff": 0,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "Ariel Wizman　一九六二年、モロッコ・カサブランカ生まれ。ＤＪ、ジャーナリスト、ラジオ、テレビの司会者。日本では無名だが、フランスでは圧倒的な知名度を誇る。気さくで、強い光を放つ黒く大きい瞳...",
+      "target_preview": "アリエル・ウィ즈먼. 1962년, 모로코 카사블랑카 출생. DJ, 저널리스트, 라디오·텔레비전 진행자. 일본에서는 무명이지만 프랑스에서는 압도적인 인지도를 자랑한다. 털털하고, 강한..."
+    },
+    {
+      "chunk_num": 78,
+      "source_sentences": 53,
+      "target_sentences": 53,
+      "sentence_diff": 0,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "菊地　同い年ですね。とはいえ、同い年だからこそ。ですが、経歴の違いというものは際立つものですよね。私は日本、あなたはモロッコですが、一九六〇年代初期に生まれて、自分がいつ頃から音楽家を志したと思われま...",
+      "target_preview": "菊地　동갑이군요. 그렇기는 해도, 동갑이기 때문에 더욱. 그런데 경력의 차이라는 것은 역시 두드러지는 법이죠. 저는 일본, 당신은 모로코입니다만, 1960년대 초에 태어나서 언제쯤..."
+    },
+    {
+      "chunk_num": 79,
+      "source_sentences": 51,
+      "target_sentences": 50,
+      "sentence_diff": -1,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "ＡＷ　そして、私はいつだってファンキーなものが好きでしたが、一方で、ファンキーではないもの、つまりクラシック音楽なども好きで、どちらか片方になったことがないんです。\n\n菊地　そこはスパークスにも通じる...",
+      "target_preview": "AW　저는 언제나 펑키한 것을 좋아했지만, 한편으로는 펑키하지 않은 것, 즉 클래식 음악 같은 것도 좋아해서, 어느 한쪽만 된 적이 없어요.\n\n菊地　그 점은 스파크스에도 통하는 양..."
+    },
+    {
+      "chunk_num": 80,
+      "source_sentences": 51,
+      "target_sentences": 48,
+      "sentence_diff": -3,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "菊地　素晴らしい。凡庸なショーでは、今言ったような様式が、ともすればエレガンスばかりを見せてしまう。シンプルなリズムに、たくさんの、いろんな歩き方をするモデルがいるので、全員がちょっとずつズレている。...",
+      "target_preview": "기쿠치　훌륭합니다. 평범한 쇼에서는, 방금 말한 것과 같은 양식이 자칫 엘레강스만을 드러내버립니다. 단순한 리듬에 걷는 방식이 저마다 다른 모델이 많다 보니, 전원이 조금씩 어긋나..."
+    },
+    {
+      "chunk_num": 81,
+      "source_sentences": 63,
+      "target_sentences": 62,
+      "sentence_diff": -1,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "菊地　解りました。さて、では派生的に、デザイナーであるアルベールとの関係について、いつ知り合い、どういう形でコラボレートするようになったか教えてください。\n\nＡＷ　我々の出会いはまったく偶然です。アル...",
+      "target_preview": "기쿠치　알겠습니다. 그럼 파생적으로, 디자이너 알베르와의 관계에 대해—언제 알게 됐고, 어떤 형태로 협업하게 됐는지 말씀해 주세요.\n\nAW　우리의 만남은 완전히 우연입니다. 알베르..."
+    },
+    {
+      "chunk_num": 82,
+      "source_sentences": 55,
+      "target_sentences": 58,
+      "sentence_diff": 3,
+      "quality_score": 0.5,
+      "is_problem": true,
+      "problems": [
+        "under_translate"
+      ],
+      "source_preview": "ＡＷ　アルベールは、きわめて才能豊かなのはもちろん、非常にナチュラルです。ナチュラルというのは、無理して仕事をしていない。彼はモードそれ自体の内部に自然に入り込み、その中に息づいている、そういう人です...",
+      "target_preview": "AW　알베르는 매우 재능이 풍부한 것은 물론이고, 지극히 자연스럽습니다. 자연스럽다는 건, 억지로 일하지 않는다는 뜻입니다. 그는 모드 그 자체의 내부로 자연스럽게 들어가, 그 안..."
+    },
+    {
+      "chunk_num": 83,
+      "source_sentences": 36,
+      "target_sentences": 37,
+      "sentence_diff": 1,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "Frédéric Sanchez　一九六六年、フランスのパリに生まれる。穏やかな話しぶりで、「自分は音楽家ではない」と断言する。八八年、メゾン マルタン マルジェラの音楽を手掛けて以来、今日までウォー...",
+      "target_preview": "フ레데리크 상셰\n\n1966년 프랑스 파리 출생. 온화한 말투로 \"나는 음악가가 아니다\"라고 단언한다. 1988년 메종 마르탱 마르지엘라의 음악을 담당한 이래, 오늘날까지 워킹 뮤직..."
+    },
+    {
+      "chunk_num": 84,
+      "source_sentences": 54,
+      "target_sentences": 53,
+      "sentence_diff": -1,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "菊地　現在のエイティーズ・リヴァイヴァル・ムーヴメントからしてみたら神々の名前が並びますね。ピーター・サヴィルはファクトリーレーベルのニュー・オーダーや、メジャーのロキシー・ミュージック、ウルトラ・ヴ...",
+      "target_preview": "기쿠치　현재의 에이티즈 리바이벌 무브먼트 관점에서 보면 신들의 이름이 늘어서 있군요. 피터 사빌은 팩토리 레이블의 뉴 오더, 그리고 메이저의 록시 뮤직, 울트라복스, 왬!의 아트 ..."
+    },
+    {
+      "chunk_num": 85,
+      "source_sentences": 44,
+      "target_sentences": 41,
+      "sentence_diff": -3,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "菊地　なるほど。私があなたにこれを言うのは釈迦に説法ですが、フランスという国はミュージック・コンクレート（具体音楽／テープの切り貼りやレコード盤の加工等によって創作される実験音楽）の本場ですね。ピエー...",
+      "target_preview": "기쿠치　그렇군요. 이런 말씀을 드리는 건 부처님 앞에서 설법하는 격이지만, 프랑스는 뮈지크 콩크레트(구체음악 / 테이프의 컷 앤 페이스트나 레코드판 가공 등으로 창작하는 실험음악)..."
+    },
+    {
+      "chunk_num": 86,
+      "source_sentences": 61,
+      "target_sentences": 58,
+      "sentence_diff": -3,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "菊地　本当です（笑）。そういう子たちのためにも、少々具体的なことをうかがいたいのですが、今先ほど、常にコンピューターを使っているとおっしゃいましたが、使用機材に関してうかがってよろしいでしょうか？\n\n...",
+      "target_preview": "菊지　정말입니다(웃음). 그런 친구들을 위해서라도 좀 더 구체적인 이야기를 듣고 싶은데요, 아까 항상 컴퓨터를 사용하신다고 하셨는데, 사용 장비에 대해 여쭤봐도 될까요?\n\nFS　물..."
+    },
+    {
+      "chunk_num": 87,
+      "source_sentences": 61,
+      "target_sentences": 55,
+      "sentence_diff": -6,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "菊地　ありがとうございます。強いショーが多いですね。今回のインタビューで全員に聞いたことなんですけれども、ショー・ミュージックってのは絶対にキャットウォークがあるという制限がありますね。つまり音と映像...",
+      "target_preview": "기쿠치　감사합니다. 강렬한 쇼가 많군요. 이번 인터뷰에서 모든 분께 여쭤본 내용인데요, 쇼 뮤직에는 반드시 캣워크가 있다는 제약이 있잖아요. 즉, 음악과 영상의 싱크라는 측면에서 ..."
+    },
+    {
+      "chunk_num": 88,
+      "source_sentences": 61,
+      "target_sentences": 63,
+      "sentence_diff": 2,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "菊地　すごいチェックぶりだな（笑）。あのー、今までショー・ミュージックには、ブラック・ミュージック、特にＲ＆Ｂ、ヒップホップがあまり使われないできました。Ｄ＆Ｇが先シーズン、ティンバランドとやることで...",
+      "target_preview": "기쿠치　정말 꼼꼼히 체크했네요(웃음). 저, 지금까지 쇼 음악에는 블랙 뮤직, 특히 R&B나 힙합이 별로 쓰이지 않았습니다. D&G가 지난 시즌 팀발랜드와 함께함으로써 선편을 쳤다..."
+    },
+    {
+      "chunk_num": 89,
+      "source_sentences": 24,
+      "target_sentences": 28,
+      "sentence_diff": 4,
+      "quality_score": 0.9,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "今頃はパリではカニエ・ウェストについて「あいつずーっといたね（笑）誰なの？」と噂している頃ではないでしょうか。そして一方、我が国のA BATHING APEのみならず、ルイ・ヴィトンとの繫がりもがっち...",
+      "target_preview": "지금쯤 파리에서는 카니예 웨스트에 대해 \"걔 진짜 계속 있었네(웃음) 대체 누구야?\"라고 수군대고 있을 때가 아닐까. 한편 우리나라의 A BATHING APE는 물론 루이 비통과의..."
+    },
+    {
+      "chunk_num": 90,
+      "source_sentences": 28,
+      "target_sentences": 27,
+      "sentence_diff": -1,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "なぜ今までそこに気が付かなかったのか？　音色と音質、和声の流れやメロディラインといった要素に対して、音楽家よりも鋭敏な耳を持つのではないかと目されるクリストファー・ベイリーは（だからこそ。でしょう）リ...",
+      "target_preview": "왜 지금껏 거기에 눈치채지 못했던 것일까? 음색과 음질, 화성의 흐름이나 멜로디 라인 같은 요소에 대해 음악가보다 예리한 귀를 지닌 것이 아닐까 여겨지는 크리스토퍼 베일리는(그렇기..."
+    },
+    {
+      "chunk_num": 91,
+      "source_sentences": 37,
+      "target_sentences": 36,
+      "sentence_diff": -1,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "「これもう、音楽ジョン（・ゴスリング）じゃないんじゃないの？」と思わずにいられなかったのがアレキサンダー・マックィーンです。対ロシアでありながらヒマラヤ文化（シェルパ服や牧童風など）を中心に据えるとい...",
+      "target_preview": "「이건 이제, 음악이 존(·고슬링)이 아닌 거 아냐?」라고 생각하지 않을 수 없었던 것이 알렉산더 맥퀸이다. 러시아를 대척점에 두면서도 히말라야 문화(셰르파 복장이나 목동풍 등)를..."
+    },
+    {
+      "chunk_num": 92,
+      "source_sentences": 17,
+      "target_sentences": 16,
+      "sentence_diff": -1,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "ジャンフランコ・フェレ氏に続き、こうしてミラノからもパリからも訃報が届き、二一世紀モード世界の激変は加速されている感がありますが、しかし先人たちの遺志は力強く受け継がれているようです。ステファノ・ピラ...",
+      "target_preview": "ジャンフランコ・フェレ에 이어, 이렇게 밀라노에서도 파리에서도 부고가 전해지며 21세기 모드 세계의 격변은 가속되는 느낌이지만, 선인들의 유지는 힘차게 이어지고 있는 듯합니다. 스테..."
+    },
+    {
+      "chunk_num": 93,
+      "source_sentences": 25,
+      "target_sentences": 25,
+      "sentence_diff": 0,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "それは「度を超えて若く見せる」という、ある種の極端さです。二一世紀の人類にとって、古来から失われていない不老とか長寿とかいった漠然とした夢は、露骨に手酷い、逼ひつ迫ぱくした問題になってしまいました。「...",
+      "target_preview": "それは「도를 넘어 젊어 보이려 한다」는, 일종의 극단성이다. 21세기 인류에게 예로부터 사라지지 않은 불로나 장수 같은 막연한 꿈은, 노골적으로 가혹하고 절박한 문제가 되어버렸다...."
+    },
+    {
+      "chunk_num": 94,
+      "source_sentences": 27,
+      "target_sentences": 27,
+      "sentence_diff": 0,
+      "quality_score": 0.6,
+      "is_problem": true,
+      "problems": [
+        "under_translate"
+      ],
+      "source_preview": "残り字数も少なくなったので加速します。ドルチェ＆ガッバーナとＤ＆Ｇは同じＤＪコールマンの音楽ですが、服の大変化に対して両極端な手段を採りました、さほど変わらぬ効果を挙げています。前者は服のマレーネ・デ...",
+      "target_preview": "남은 글자 수도 얼마 없으니 속도를 내겠습니다. 돌체&가바나와 D&G는 동일한 DJ 콜먼의 음악을 쓰지만, 옷의 대변화에 대해 양극단의 수단을 취했음에도 비슷한 효과를 거두고 있습..."
+    },
+    {
+      "chunk_num": 95,
+      "source_sentences": 35,
+      "target_sentences": 44,
+      "sentence_diff": 9,
+      "quality_score": 0.9,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "最後に、単行本（おかげさまで好調な売れ行きとご高評を頂戴しております。ありがとうございます）読者の皆様対応のトピックを。「ブラック・ミュージックとハイモードの接近」という拙著の重要なテーマは、急激かつ...",
+      "target_preview": "마지막으로, 단행본(덕분에 판매가 순조로우며 좋은 평가를 받고 있습니다. 감사합니다) 독자 여러분을 위한 이야기를. \"블랙 뮤직과 하이 모드의 접근\"이라는 졸저의 중요한 테마는 급..."
+    },
+    {
+      "chunk_num": 96,
+      "source_sentences": 28,
+      "target_sentences": 27,
+      "sentence_diff": -1,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "当連載が開始以来ずっと裏テーマにしてきた、そして単行本においてはメインテーマに昇格した「ブラック・ミュージック／カルチャーとパリモードの接近、仲を取り持つジャパニーズ・ヲタクカルチャー」という構図です...",
+      "target_preview": "이번 연재가 시작 이래 줄곧 이면의 주제로 삼아왔고, 단행본에서는 메인 테마로 격상된 '블랙 뮤직/컬처와 파리 모드의 접근, 그 사이를 잇는 재패니즈 오타쿠 컬처'라는 구도에 대해..."
+    },
+    {
+      "chunk_num": 97,
+      "source_sentences": 23,
+      "target_sentences": 28,
+      "sentence_diff": 5,
+      "quality_score": 0.9,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "ワタシの答えはウイです。しかしそれは、眼前の二人だけを相手にした話ではありません。「アメトラ」はアイヴィーの息子であるプレッピーを原形に持つスタイルとして、基本的には白人ファッションだと認識されること...",
+      "target_preview": "제 대답은 '위(Oui)'입니다. 하지만 그것은 눈앞의 두 사람만을 상대로 한 이야기가 아닙니다. '아메트라'는 아이비의 아들인 프레피를 원형으로 하는 스타일로서, 기본적으로는 백..."
+    },
+    {
+      "chunk_num": 98,
+      "source_sentences": 25,
+      "target_sentences": 22,
+      "sentence_diff": -3,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "「アンチ・ブラック・テクノ／ニューウェーヴ・アメトラ」の最右翼となったジル・サンダーはジ・オーブのザラついた無機質なインダストリアル・ハウスを使い、「八〇年代のモノを使わないで醸し出す八〇年代感」を手...",
+      "target_preview": "'앤티-블랙 테크노/뉴웨이브 아메트라'의 최우익이 된 질 샌더는 디 오브의 거칠고 무기질한 인더스트리얼 하우스를 사용해, '80년대 것을 쓰지 않고 자아내는 80년대 감각'을 착실..."
+    },
+    {
+      "chunk_num": 99,
+      "source_sentences": 21,
+      "target_sentences": 18,
+      "sentence_diff": -3,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "半ズボンにロイド眼鏡、リュックサックに坊っちゃん刈り。と、敢えて昭和の、敢えて最も通俗的な呼称で書きましたが、今年顕在化したアメトラというトレンドは、世界中の全メゾンを覆い尽くす。というほどではありま...",
+      "target_preview": "반바지에 로이드 안경, 배낭에 도련님 커트. 일부러 쇼와 시대의, 일부러 가장 통속적인 호칭으로 써봤습니다만, 올해 가시화된 아메트라라는 트렌드는 전 세계 모든 메종을 뒤덮는다, ..."
+    },
+    {
+      "chunk_num": 100,
+      "source_sentences": 23,
+      "target_sentences": 25,
+      "sentence_diff": 2,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "〈やり過ぎじゃないか？系〉としては、ファクトタムとＮ・ハリウッドが挙げられます。どちらも「アメリカの少年の夏」を表現しようと、虫の声を使っているという共通点があるのですが、フィフティーズの癒し系ロック...",
+      "target_preview": "<やり過ぎじゃないか？系>로는 팩토텀과 N. 헐리우드가 꼽힙니다. 둘 다 \"미국 소년의 여름\"을 표현하고자 벌레 소리를 사용했다는 공통점이 있는데, 50년대의 힐링계 로큰롤이나 록 ..."
+    },
+    {
+      "chunk_num": 101,
+      "source_sentences": 30,
+      "target_sentences": 25,
+      "sentence_diff": -5,
+      "quality_score": 0.9,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "トレンドなんて知るもんか、とにかく少女性／処女性というテーマは永遠だよ。といった風潮は、トウキョウに限らず、そしてまたファッション界に限らない普遍性を持っていますが、「幼児退行、処女性への固着」にかけ...",
+      "target_preview": "트렌드 같은 건 알 바 없어, 어쨌든 소녀성/처녀성이라는 테마는 영원하다는 식의 풍조는 도쿄에 한정되지 않고, 또 패션계에 한정되지 않는 보편성을 지니고 있습니다. 그러나 \"유아 ..."
+    },
+    {
+      "chunk_num": 102,
+      "source_sentences": 31,
+      "target_sentences": 28,
+      "sentence_diff": -3,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "そんな中、今回最も強さと意味を感じたブランドはグリーンとジーヴィージーヴィーです。ともに、限りなくリアルに近いレディスですが、ともに「幼児性の価値が肥大したおかげで、分不相応にもてはやされる日本」とい...",
+      "target_preview": "そんな中、今回最も強さと意味を感じたブランドはグリーンとジーヴィージーヴィーです。\n\n그 가운데, 이번에 가장 강인함과 의미를 느낀 브랜드는 그린과 GV GV다. 둘 다 한없이 리얼에 가까..."
+    },
+    {
+      "chunk_num": 103,
+      "source_sentences": 22,
+      "target_sentences": 21,
+      "sentence_diff": -1,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "お読みいただいたとおり、この連載は「批評実験」でありながらにして、「単なるファッション・ショー・マニアだった音楽家が、やがてパリコレの取材を経験するに至る」という、ちょっとした（コレ、書くのがものすご...",
+      "target_preview": "읽어보셨겠지만, 이 연재는 '비평 실험'이면서도, '단순한 패션쇼 마니아였던 음악가가 결국 파리 컬렉션 취재를 경험하기에 이른다'는, 다소 (이건 쓰기가 너무나 부끄럽지만) '모드..."
+    },
+    {
+      "chunk_num": 104,
+      "source_sentences": 22,
+      "target_sentences": 22,
+      "sentence_diff": 0,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "ヴィトンもヒップホップ・ファッションも平等に着こなすベストドレッサーでもあるファレルは、東海岸のヒップホップ・カルチャーにおけるパリモード／スーツルックの導入（例えば〇七年のティンバランドは、ほとんど...",
+      "target_preview": "뤼통도 힙합 패션도 능숙하게 소화하는 베스트 드레서인 파렐은, 동부 힙합 컬처에서 파리 모드/수트 룩의 도입(예컨대 07년의 팀발랜드는 거의 수트 차림이었다)을 견인했습니다. 그러..."
+    },
+    {
+      "chunk_num": 105,
+      "source_sentences": 39,
+      "target_sentences": 42,
+      "sentence_diff": 3,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "とはいえ、出来の悪い子ほどかわいい、とは言ったもので、本書は、著者本人として最も愛着のある作品であり、親バカならぬ著者バカとでも言いましょうか、読み返すたびに「ああ、なんて良い本なんだろう。先見性と独...",
+      "target_preview": "그렇지만 못난 자식이 더 귀엽다는 말도 있듯이, 이 책은 저자 본인으로서 가장 애착이 가는 작품이다. 저자 바보라고나 할까, 읽을 때마다 \"아, 이 얼마나 좋은 책인가. 선견성도 ..."
+    },
+    {
+      "chunk_num": 106,
+      "source_sentences": 24,
+      "target_sentences": 28,
+      "sentence_diff": 4,
+      "quality_score": 0.9,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "しかし、13 S/S、つまりこのあとがき執筆中最新のコレクション（このあとがきは、ＷＷＤジャパン紙へ 13 S/S MEN'S PARIS MILAN の原稿を送ってからすぐに執筆されています）ではエ...",
+      "target_preview": "그러나 13 S/S, 즉 이 후기 집필 중 가장 최신의 컬렉션(이 후기는 WWD재팬에 13 S/S MEN'S PARIS MILAN 원고를 보내고 나서 바로 집필되었다)에서는 에디 ..."
+    },
+    {
+      "chunk_num": 107,
+      "source_sentences": 34,
+      "target_sentences": 34,
+      "sentence_diff": 0,
+      "quality_score": 1.0,
+      "is_problem": false,
+      "problems": [],
+      "source_preview": "重要なのはそこに複雑な抑圧のメカニズムがはめ込まれているということだ。ファッションショーにはダンスのために作られた音楽が二次使用され、しかもその音楽をモデルたちはほとんど無視しようとする。ファッション...",
+      "target_preview": "중요한 것은 거기에 복잡한 억압의 메커니즘이 내재되어 있다는 점이다. 패션쇼에는 춤을 위해 만들어진 음악이 2차 사용되고, 게다가 그 음악을 모델들은 거의 무시하려 한다. 패션쇼에..."
+    },
+    {
+      "chunk_num": 108,
+      "source_sentences": 30,
+      "target_sentences": 30,
+      "sentence_diff": 0,
+      "quality_score": 0.6,
+      "is_problem": true,
+      "problems": [
+        "under_translate"
+      ],
+      "source_preview": "エイゼンシュテインは「動く映像」には倍音が生じているという独自の視点に立ち、映画のモンタージュをドビュッシーらの上方倍音を利用した作曲になぞらえ、さらに音楽を映画の下方倍音とみなし、映像と音楽という二...",
+      "target_preview": "에이젠슈테인은 '움직이는 영상'에는 배음이 발생한다는 독자적인 관점에 서서, 영화의 몽타주를 드뷔시 등이 상방 배음을 활용한 작곡에 빗대고, 나아가 음악을 영화의 하방 배음으로 간..."
+    }
+  ],
+  "problem_chunks": [
+    {
+      "chunk_num": 2,
+      "severity": "LOW",
+      "quality_score": 0.6,
+      "problems": [
+        "under_translate"
+      ],
+      "number_issues": [
+        "Number '１０９' in source not found in translation"
+      ],
+      "meta_issues": [],
+      "source_preview": "再び、ややこしい話はスルーしますが、きわめて簡単に言うと、近代的な音楽理論を形成している基盤である自然物理学の法則（の内の、「音響物理」における、ほんのいくつかの原理）が、映像の側にも存在／適応する。という仮説に基づき、それによってその、同じ物理法則が、映像と音楽の両者を統一的に支配する。とエイゼンシュテインは考えました。解りやすく具体例を引けば、それは映画に関する理論なのに「和声」「リズム」「ド",
+      "target_preview": "다시 한번, 복잡한 이야기는 넘어가겠습니다만, 아주 간단히 말하자면, 근대적 음악 이론을 형성하는 기반인 자연물리학 법칙(그 중 '음향물리'에 속하는 몇 가지 원리)이 영상 쪽에도 존재·적용된다. 는 가설에 근거하여, 동일한 물리 법칙이 영상과 음악 양쪽을 통일적으로 지배한다. 고 에이젠슈테인은 생각했습니다. 알기 쉬운 구체적 예를 들면, 그것은 영화에 관"
+    },
+    {
+      "chunk_num": 9,
+      "severity": "MEDIUM",
+      "quality_score": 0.5,
+      "problems": [
+        "under_translate"
+      ],
+      "number_issues": [
+        "Number '１４０' in source not found in translation",
+        "Number '１１０' in source not found in translation"
+      ],
+      "meta_issues": [],
+      "source_preview": "〈世界で最初にリリースされたハウスのレコードは一九八四年、アメリカはシカゴの、ジェシー・サンダース＆ヴィンス・ローレンスによる「On & On」である。それは七〇年代中盤に起こったハウスの前身としての「ディスコ・ブーム」の極端な快楽主義が、八一年から顕著になるエイズ禍によって神の鉄槌を受けた後に、地下に潜伏し、さらに濃密に強化されて、主にゲイ・ピープルの刹那的な快楽主義の復権として蘇ったもので、安",
+      "target_preview": "〈세계 최초로 발매된 하우스 레코드는 1984년, 미국 시카고 출신의 제시 샌더스 & 빈스 로렌스가 발표한 \"On & On\"이다. 이는 1970년대 중반에 일어난 하우스의 전신인 '디스코 붐'의 극단적인 쾌락주의가, 1981년부터 두드러지기 시작한 에이즈의 재앙으로 신의 철퇴를 맞은 후 지하로 잠복하여 더욱 짙게 강화된 끝에, 주로 게이들의 찰나적 쾌락주의"
+    },
+    {
+      "chunk_num": 33,
+      "severity": "MEDIUM",
+      "quality_score": 0.5,
+      "problems": [
+        "under_translate"
+      ],
+      "number_issues": [
+        "Number '１４０' in source not found in translation",
+        "Number '１１０' in source not found in translation"
+      ],
+      "meta_issues": [],
+      "source_preview": "「いや。それだったらクラブのバーテンダーもヘアサロンのスタイリストも一日中ダンス・ミュージックを聴いてるじゃない」と言われるかもしれません。しかし彼らは、「音楽とまったく無関係な、細かく特殊な動き」を持つ仕事ですし、逆に言えば、それがゆえに「ちょっと音楽にノッたりしながら（＝軽く踊りながら）仕事ができる」のです。軽く腰を振ったりリズミカルにステップを刻んだりしながらハサミは操れますし、シェーカーは",
+      "target_preview": "「아니, 그렇다면 클럽 바텐더도 헤어살롱 스타일리스트도 하루 종일 댄스 뮤직을 듣잖아」라는 반론이 나올지도 모릅니다. 하지만 그들의 일은 '음악과는 전혀 무관한, 섬세하고 특수한 동작'을 수반하며, 역으로 말하면 바로 그렇기 때문에 '음악에 살짝 몸을 맡기면서(=가볍게 춤추면서) 일할 수 있습니다'. 허리를 가볍게 흔들거나 리드미컬하게 스텝을 밟으면서도 가"
+    },
+    {
+      "chunk_num": 46,
+      "severity": "LOW",
+      "quality_score": 0.7,
+      "problems": [
+        "structure_mismatch"
+      ],
+      "number_issues": [],
+      "meta_issues": [],
+      "source_preview": "白バックに重いパステル。という色彩感によって「二一世紀のシャネル」感をとうとう完成させたラガーフェルド氏ですが、どこか常に「女たちをコキ使い倒す／女たちもそれに誇りを持って、戦闘的にプライドを持っている」といった、女衒ぜげん（芸者のスポンサーのことです）感が漂い、そのムードも含めて「二一世紀のシャネル」感を醸成しているのでしょう（ラガーフェルド氏は世代的にＭＧＭミュージカル等「何百人もの女性ダンサ",
+      "target_preview": "흰 배경에 무거운 파스텔. 이 색채감으로 '21세기의 샤넬'을 마침내 완성시킨 라거펠트 씨이지만, 어딘가 늘 \"여자들을 혹독하게 부려먹는다 / 여자들 역시 그에 자부심을 갖고 전투적으로 프라이드를 지킨다\"는 여쟁이게이샤 스폰서를 뜻합니다) 같은 느낌이 감돌며, 그 무드를 포함해 '21세기의 샤넬'감을 빚어내고 있는 것이겠지요(라거펠트 씨는 세대적으로 MGM"
+    },
+    {
+      "chunk_num": 63,
+      "severity": "LOW",
+      "quality_score": 0.6,
+      "problems": [
+        "under_translate"
+      ],
+      "number_issues": [
+        "Number '１１０' in source not found in translation"
+      ],
+      "meta_issues": [],
+      "source_preview": "二日目終了。とはいえ最後に観たジバンシィのショーがあまりに強烈だったのですっかり興奮してしまい、寝付けずにマドレーヌ～オペラ周辺を歩き回り、プランタンまで行ってしまう（もちろん閉まっている）。近所の中華料理店で青梗菜と椎茸、キャラメリゼした鴨、ワンタンメン（すべてそこそこ旨い）をかっこみ、ロワールの赤を三杯ほど飲み、部屋に戻ってシャワーを浴び、窓を開けて冷たい外気を吸い、整体で骨盤を緩めている間に",
+      "target_preview": "이틀째 종료. 다만 마지막에 본 지방시 쇼가 너무나 강렬했던 탓에 완전히 흥분해버려, 잠을 이루지 못하고 마들렌~오페라 주변을 걷다 프랭탕까지 가버렸다(물론 문은 닫혀 있었다). 근처 중화요리점에서 청경채와 표고버섯, 캐러멜라이즈한 오리고기, 완탕면(전부 그럭저럭 맛있었다)을 허겁지겁 먹고, 루아르 레드와인을 세 잔쯤 마시고, 방으로 돌아와 샤워를 하고, "
+    },
+    {
+      "chunk_num": 75,
+      "severity": "HIGH",
+      "quality_score": 0.4,
+      "problems": [
+        "under_translate"
+      ],
+      "number_issues": [
+        "Number '２００' in source not found in translation",
+        "Number '１００' in source not found in translation",
+        "Number '１０００' in source not found in translation"
+      ],
+      "meta_issues": [],
+      "source_preview": "ＪＧ　そうか（笑）!!。モデルたちが踊りまくるのは俺も知ってるぞ（笑）。ジョークはともかくビートがキャットウォークに合わないっていうのはたしかにそうだ。時々、あまりにヘヴィでやり過ぎなダンス・ミュージックがショーに使われているだろ。十五分間ずっとBoom! Boom!って。思うにスージー・メンケス（インターナショナル・ヘラルド・トリビューンの名物記者）は耐えられない（笑）。たしか、マックィーンのシ",
+      "target_preview": "JG　그렇군（웃음）!! 모델들이 미친 듯이 춤을 춘다는 건 나도 알아（웃음）. 농담은 그렇다 치고, 비트가 캣워크에 안 맞는다는 건 확실히 그래. 가끔 쇼에 너무 헤비하고 과한 댄스 뮤직이 쓰이잖아. 십오 분 내내 Boom! Boom! 하고. 아마 수지 멘케스（<인터내셔널 헤럴드 트리뷴>의 유명 기자）는 못 버틸걸（웃음）. 분명 맥퀸 쇼에서 한 번, 그녀가"
+    },
+    {
+      "chunk_num": 82,
+      "severity": "MEDIUM",
+      "quality_score": 0.5,
+      "problems": [
+        "under_translate"
+      ],
+      "number_issues": [
+        "Number '１０４' in source not found in translation",
+        "Number '１００' in source not found in translation"
+      ],
+      "meta_issues": [],
+      "source_preview": "ＡＷ　アルベールは、きわめて才能豊かなのはもちろん、非常にナチュラルです。ナチュラルというのは、無理して仕事をしていない。彼はモードそれ自体の内部に自然に入り込み、その中に息づいている、そういう人です。また、豊かなパーソナリティの持ち主ですね。それを服を通じて表現しています。彼にとって服は、自分の考えを表現するための一つの手段に過ぎない。でも実際、彼はそれ以外の手段を持ち合わせていない。だから、ラ",
+      "target_preview": "AW　알베르는 매우 재능이 풍부한 것은 물론이고, 지극히 자연스럽습니다. 자연스럽다는 건, 억지로 일하지 않는다는 뜻입니다. 그는 모드 그 자체의 내부로 자연스럽게 들어가, 그 안에서 숨 쉬는 사람입니다. 또한 풍부한 개성의 소유자이기도 하죠. 그것을 옷을 통해 표현합니다. 그에게 옷은, 자신의 생각을 표현하기 위한 하나의 수단에 불과합니다. 하지만 실제로"
+    },
+    {
+      "chunk_num": 94,
+      "severity": "LOW",
+      "quality_score": 0.6,
+      "problems": [
+        "under_translate"
+      ],
+      "number_issues": [
+        "Number '６２６７' in source not found in translation"
+      ],
+      "meta_issues": [],
+      "source_preview": "残り字数も少なくなったので加速します。ドルチェ＆ガッバーナとＤ＆Ｇは同じＤＪコールマンの音楽ですが、服の大変化に対して両極端な手段を採りました、さほど変わらぬ効果を挙げています。前者は服のマレーネ・ディートリッヒ化に対し、以前と変わらぬアゲアゲのハウス、後者は服の英国化に対し、服に合わせてブリットポップ。しかし効果は同じ「ここここれってどうなの？　新しいということはイヤというほど伝わるが（判断保留",
+      "target_preview": "남은 글자 수도 얼마 없으니 속도를 내겠습니다. 돌체&가바나와 D&G는 동일한 DJ 콜먼의 음악을 쓰지만, 옷의 대변화에 대해 양극단의 수단을 취했음에도 비슷한 효과를 거두고 있습니다. 전자는 옷의 마를레네 디트리히화에 대해 이전과 다름없는 흥겨운 하우스를, 후자는 옷의 영국화에 대해 옷에 맞춰 브릿팝을 사용했습니다. 그러나 효과는 똑같이 \"이, 이, 이게"
+    },
+    {
+      "chunk_num": 108,
+      "severity": "LOW",
+      "quality_score": 0.6,
+      "problems": [
+        "under_translate"
+      ],
+      "number_issues": [
+        "Number '１９６３' in source not found in translation"
+      ],
+      "meta_issues": [],
+      "source_preview": "エイゼンシュテインは「動く映像」には倍音が生じているという独自の視点に立ち、映画のモンタージュをドビュッシーらの上方倍音を利用した作曲になぞらえ、さらに音楽を映画の下方倍音とみなし、映像と音楽という二つのメディアを同一システムで統合しようとした。\n\n下方倍音理論は近代和声学（クラシック音楽）からは見捨てられた理論だった。クラシック音楽の調性は上方倍音のみに基づく世界であり、下方倍音の特性である多調",
+      "target_preview": "에이젠슈테인은 '움직이는 영상'에는 배음이 발생한다는 독자적인 관점에 서서, 영화의 몽타주를 드뷔시 등이 상방 배음을 활용한 작곡에 빗대고, 나아가 음악을 영화의 하방 배음으로 간주하여 영상과 음악이라는 두 미디어를 동일한 시스템으로 통합하려 했다.\n\n하방 배음 이론은 근대 화성학(클래식 음악)에서 버려진 이론이었다. 클래식 음악의 조성은 상방 배음만에 기"
+    }
+  ],
+  "priority_review_points": [
+    "HIGH priority: 1 chunks need immediate review: 75",
+    "MEDIUM priority: 3 chunks should be checked: 9, 33, 82",
+    "Overall sentence count drift: -101 (source: 3866, target: 3765)"
+  ],
+  "glossary_consistency": [],
+  "style_notes": [
+    "Genre preset: 일본어 에세이",
+    "Style rule: 에세이 번역: 저자의 개인적 목소리를 살리는 것이 최우선."
+  ],
+  "pipeline_summary": {
+    "total_chunks": 108,
+    "initial_problems": [
+      2,
+      3,
+      9,
+      33,
+      46,
+      63,
+      75,
+      82,
+      94,
+      108
+    ],
+    "retry_result": {
+      "retried": [
+        3,
+        9,
+        33,
+        46,
+        75,
+        82
+      ],
+      "improved": [
+        3,
+        46
+      ],
+      "split_retried": [],
+      "still_problematic": [
+        9,
+        33,
+        75,
+        82
+      ],
+      "scores_before": {
+        "2": 0.6,
+        "3": 0.14999999999999997,
+        "9": 0.49999999999999994,
+        "33": 0.49999999999999994,
+        "46": 0.3,
+        "63": 0.6,
+        "75": 0.3999999999999999,
+        "82": 0.49999999999999994,
+        "94": 0.6,
+        "108": 0.6
+      },
+      "scores_after": {
+        "2": 0.6,
+        "3": 1.0,
+        "9": 0.49999999999999994,
+        "33": 0.49999999999999994,
+        "46": 0.7,
+        "63": 0.6,
+        "75": 0.3999999999999999,
+        "82": 0.49999999999999994,
+        "94": 0.6,
+        "108": 0.6
+      },
+      "improvement_count": 2
+    },
+    "parallel": true
+  }
+}

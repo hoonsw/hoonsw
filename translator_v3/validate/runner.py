@@ -12,6 +12,9 @@ from translator_v2.validate.residue import validate_source_residue
 from translator_v3.core.models import TranslationUnit, UnitValidationResult, V3Config
 
 
+_UNEXPECTED_FOREIGN_SCRIPT_RE = re.compile(r"[\u0530-\u058F\u0590-\u05FF]+")
+
+
 def _to_issue_dict(issue) -> Dict[str, Any]:
     return {
         "issue_type": issue.issue_type,
@@ -21,6 +24,58 @@ def _to_issue_dict(issue) -> Dict[str, Any]:
         "observed": issue.observed,
         "action": issue.action,
     }
+
+
+def _validate_wrapper_leak(unit: TranslationUnit, translated_text: str) -> List[Dict[str, Any]]:
+    text = translated_text.strip()
+    if "[[SEGMENT" not in text and "[[END SEGMENT" not in text:
+        return []
+    return [
+        {
+            "issue_type": "wrapper_leak",
+            "severity": IssueSeverity.CRITICAL.value,
+            "segment_id": unit.unit_id,
+            "expected": "plain translated text only",
+            "observed": "segment wrapper markers leaked into translated text",
+            "action": "retry_unit",
+        }
+    ]
+
+
+def _is_reference_like_body_line(unit: TranslationUnit) -> bool:
+    if unit.unit_class != "body_paragraph":
+        return False
+    source = unit.source_text.strip()
+    if "\n" in source:
+        return False
+    if not re.search(r"[A-Za-z]", source):
+        return False
+    if not re.search(r"(?:\(\d+\)|（[０-９\d]+）|, .*?, \d{4}|(?:^|[ ,])(?:p|pp|ch)\.\d)", source):
+        return False
+    return True
+
+
+def _soften_reference_number_issues(
+    unit: TranslationUnit,
+    translated_text: str,
+    number_issues: List[Dict[str, Any]],
+) -> List[Dict[str, Any]]:
+    if not _is_reference_like_body_line(unit):
+        return number_issues
+    softened: List[Dict[str, Any]] = []
+    for payload in number_issues:
+        if (
+            payload["issue_type"] == "missing_number"
+            and payload["severity"] == IssueSeverity.CRITICAL.value
+            and re.fullmatch(r"\d+\.", payload["expected"])
+        ):
+            digits = re.sub(r"\D", "", payload["expected"])
+            if digits and digits in translated_text:
+                payload = dict(payload)
+                payload["severity"] = IssueSeverity.WARNING.value
+                payload["action"] = "review_only"
+        softened.append(payload)
+    return softened
 
 
 def _sentence_count(text: str, lang: str) -> int:
@@ -137,6 +192,24 @@ def _validate_heading_numbers(unit: TranslationUnit, translated_text: str) -> Li
     ]
 
 
+def _validate_unexpected_foreign_script(unit: TranslationUnit, translated_text: str) -> List[Dict[str, Any]]:
+    if unit.target_lang != "ko":
+        return []
+    hits = sorted(set(_UNEXPECTED_FOREIGN_SCRIPT_RE.findall(translated_text)))
+    if not hits:
+        return []
+    return [
+        {
+            "issue_type": "unexpected_foreign_script",
+            "severity": IssueSeverity.REPAIR_TRIGGER.value,
+            "segment_id": unit.unit_id,
+            "expected": "natural Korean output without stray Armenian/Hebrew script fragments",
+            "observed": f"unexpected foreign-script fragment(s): {', '.join(hits[:3])}",
+            "action": "retry_unit",
+        }
+    ]
+
+
 def validate_unit_output(unit: TranslationUnit, translated_text: str, config: V3Config) -> UnitValidationResult:
     if not translated_text.strip():
         return UnitValidationResult(
@@ -168,23 +241,27 @@ def validate_unit_output(unit: TranslationUnit, translated_text: str, config: V3
 
     v2_config = V2Config(source_lang=unit.source_lang, target_lang=unit.target_lang)
     issues = []
+    issues.extend(_validate_wrapper_leak(unit, translated_text))
     issues.extend(_to_issue_dict(item) for item in validate_exact_copy(unit.unit_id, unit.source_text, translated_text))
 
     number_issues = validate_numbers(unit.unit_id, unit.source_text, translated_text)
+    number_issues = [_to_issue_dict(item) for item in number_issues]
+    number_issues = _soften_reference_number_issues(unit, translated_text, number_issues)
     if unit.unit_class in {"footnote", "bibliography_or_catalog"}:
         softened = []
         for item in number_issues:
-            payload = _to_issue_dict(item)
+            payload = dict(item)
             if payload["severity"] == IssueSeverity.CRITICAL.value:
                 payload["severity"] = IssueSeverity.WARNING.value
                 payload["action"] = "review_only"
             softened.append(payload)
         issues.extend(softened)
     else:
-        issues.extend(_to_issue_dict(item) for item in number_issues)
+        issues.extend(number_issues)
 
     issues.extend(_validate_completeness(unit, translated_text, config))
     issues.extend(_validate_heading_numbers(unit, translated_text))
+    issues.extend(_validate_unexpected_foreign_script(unit, translated_text))
 
     residue_issues, residue_warnings = validate_source_residue(
         segment_id=unit.unit_id,

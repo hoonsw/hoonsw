@@ -55,6 +55,18 @@ Explain why long-book translation still shows source-language residue, silent om
   and the deterministic validator `scripts/translator_critic.py`.
 - Added wrapper-based enforcement for that critic loop:
   `scripts/run_codex_with_translator_critic.sh`.
+- Added a tiny repo-local soak runner for the existing quality fixture
+  workflow:
+  `translator_v3/benchmarks/quality_soak.py`.
+- Added v3-only persisted await heartbeat markers in
+  `translator_v3/orchestrate/pipeline.py`
+  at `TranslationUnit.telemetry.await_heartbeat`
+  around
+  `await backend.translate_unit(...)`
+  and
+  `await reviewer(...)`.
+- Added focused regression coverage for those persisted await heartbeat
+  markers in `test_translator_v3.py`.
 - Why this changed:
   the compression fixture was the only reliably reproducible active-path
   failure, and milestone 3 ranked a v3-only prompt addendum as the smallest
@@ -232,6 +244,438 @@ Observed results after the extra post-repair retry addition and five repeated ru
   At this stage the live branch was not observed outside focused tests.
 - `python3 test_translator_v3.py`: passed
 - `python3 test_readability_gate.py`: passed
+
+## Milestone 4 Live 20-Run Compression Soak
+
+No translation logic changed for this soak step.
+This was a docs-and-measurement-only follow-up on the active `translator_v3`
+path.
+
+Exact commands run on 2026-04-14 for the live soak:
+
+```bash
+python3 -m translator_v3.benchmarks.quality_eval \
+  --manifest translator_v3/benchmarks/fixtures/quality/cases.json \
+  --case-id en_compression_truncated_predicate \
+  --backend codex_local \
+  --model gpt-5.4 \
+  --reasoning-effort high \
+  --artifact-root runs_v3/quality_fixtures \
+  --output-root output/quality_fixtures \
+  --report-path /tmp/compression_soak_20260414_live20/reports/run01.json
+
+# repeated with the same arguments and report paths
+# /tmp/compression_soak_20260414_live20/reports/run02.json
+# through
+# /tmp/compression_soak_20260414_live20/reports/run20.json
+```
+
+Observed live 20-run distribution from
+`/tmp/compression_soak_20260414_live20/summary.json`:
+
+- Final status counts:
+  `17/20` `DELIVERABLE`,
+  `3/20` `BLOCKED`.
+- Success shape counts:
+  `6/20` succeeded on attempt 1,
+  `10/20` succeeded after the first specialized repair retry,
+  `1/20` reached and succeeded on attempt 3,
+  `3/20` remained blocked after reaching attempt 3.
+- Attempt-count distribution:
+  `6/20` finished at attempt 1,
+  `10/20` finished at attempt 2,
+  `4/20` reached attempt 3.
+- Attempt-3 classification:
+  `rare safety net`.
+  It produced only one additional live acceptance in twenty runs, while three
+  of the four attempt-3 reaches still finished `BLOCKED`.
+
+Per-run classification:
+
+| Run | Final status | Attempt 1 success | Specialized retry success | Attempt 3 success | Remained blocked |
+| --- | --- | --- | --- | --- | --- |
+| 01 | `DELIVERABLE` | yes | no | no | no |
+| 02 | `DELIVERABLE` | yes | no | no | no |
+| 03 | `DELIVERABLE` | no | yes | no | no |
+| 04 | `DELIVERABLE` | no | yes | no | no |
+| 05 | `DELIVERABLE` | no | yes | no | no |
+| 06 | `DELIVERABLE` | no | no | yes | no |
+| 07 | `DELIVERABLE` | yes | no | no | no |
+| 08 | `DELIVERABLE` | no | yes | no | no |
+| 09 | `BLOCKED` | no | no | no | yes |
+| 10 | `DELIVERABLE` | no | yes | no | no |
+| 11 | `DELIVERABLE` | yes | no | no | no |
+| 12 | `DELIVERABLE` | no | yes | no | no |
+| 13 | `DELIVERABLE` | no | yes | no | no |
+| 14 | `DELIVERABLE` | no | yes | no | no |
+| 15 | `BLOCKED` | no | no | no | yes |
+| 16 | `BLOCKED` | no | no | no | yes |
+| 17 | `DELIVERABLE` | yes | no | no | no |
+| 18 | `DELIVERABLE` | no | yes | no | no |
+| 19 | `DELIVERABLE` | no | yes | no | no |
+| 20 | `DELIVERABLE` | yes | no | no | no |
+
+Representative live attempt-3 outcomes from this 20-run sample:
+
+- `runs_v3/quality_fixtures/20260414-003057-en_compression_truncated_predicate`:
+  accepted on attempt 3 with
+  `classified_compression_like=true`,
+  `specialized_hint_used=true`,
+  `retry_attempt_number=2`,
+  `post_repair_status=ACCEPTED`.
+- `runs_v3/quality_fixtures/20260414-003444-en_compression_truncated_predicate`:
+  blocked on attempt 3 with
+  `classified_compression_like=true`,
+  `specialized_hint_used=true`,
+  `retry_attempt_number=2`,
+  `post_repair_status=BLOCKED`.
+
+Interpretation and caveat:
+
+- This live sample is strong enough to say the active path now reaches
+  attempt 3 in real runs, not only in the deterministic benchmark.
+- It is not strong enough to call attempt 3 a meaningful or even regular
+  contributor.
+  In this 20-run sample, almost all successful recoveries still came from
+  attempt 1 or the first specialized repair retry.
+- The live branch is therefore better described as a fallback path that
+  occasionally saves a run, not as a primary source of the fixture's improved
+  acceptance rate.
+
+## Milestone 4 Omission Track Attempted Live 20-Run Soak
+
+No translation logic changed for this omission-track step.
+This was measurement-only work on the active `translator_v3` path.
+
+The repo-local soak runner behavior:
+
+- It wraps the existing
+  `python3 -m translator_v3.benchmarks.quality_eval ...` workflow only.
+- Each repeated run gets its own artifact root, output root, and report path.
+- Each run is capped by a per-run timeout.
+- Each run appends one status record to
+  `/tmp/omission_soak_20260414_live20_runner/status.jsonl`
+  and also lands in
+  `/tmp/omission_soak_20260414_live20_runner/summary.json`.
+- Final run status is classified as exactly one of:
+  `completed_deliverable`,
+  `completed_blocked`,
+  `timed_out`,
+  `stalled_before_adequacy_review`.
+- `stalled_before_adequacy_review` means no report or final pipeline status was
+  written before the timeout, and the latest artifact still showed
+  `telemetry.phase=translating` with
+  `telemetry.adequacy_review_status=not_run`.
+
+Exact live omission soak command run on 2026-04-14:
+
+```bash
+python3 -m translator_v3.benchmarks.quality_soak \
+  --manifest translator_v3/benchmarks/fixtures/quality/cases.json \
+  --case-id en_omission_flynt_surprised \
+  --backend codex_local \
+  --model gpt-5.4 \
+  --reasoning-effort high \
+  --run-root /tmp/omission_soak_20260414_live20_runner \
+  --run-count 20 \
+  --timeout-seconds 90
+```
+
+Observed live 20-run omission distribution:
+
+- `0/20` `completed_deliverable`
+- `0/20` `completed_blocked`
+- `0/20` `timed_out`
+- `20/20` `stalled_before_adequacy_review`
+
+Representative stalled artifact evidence from the 20-run soak:
+
+- `run01`:
+  `/tmp/omission_soak_20260414_live20_runner/artifacts/run01/20260414-235342-en_omission_flynt_surprised`
+- `run10`:
+  `/tmp/omission_soak_20260414_live20_runner/artifacts/run10/20260415-000635-en_omission_flynt_surprised`
+- `run20`:
+  `/tmp/omission_soak_20260414_live20_runner/artifacts/run20/20260415-002054-en_omission_flynt_surprised`
+- In all 20 runs, the latest artifact state matched the same pre-review stall:
+  `telemetry.phase=translating`,
+  `telemetry.adequacy_review_status=not_run`,
+  and no `run_result.json` or per-run report was written before timeout.
+
+Why this does not reproduce omission itself:
+
+- The runner now measures the omission fixture honestly, but none of the 20
+  live runs reached first translation output, adequacy review, or final
+  deliverable/block verdict.
+- That means this sample reproduced a workflow stall on the omission fixture,
+  not a semantic omission outcome.
+- The historical omission failure still exists for comparison at
+  `runs/20260412-225815-reco_txt/v3_artifacts/20260412-225816-reco`,
+  where the unit was blocked for dropping the `particularly surprised`
+  meaning.
+- This new 20-run sample does not add any fresh completed omission or
+  non-omission outputs, because classification never reached that stage.
+
+Historical omission failure still available for comparison:
+
+- Origin failure artifact from the fixture metadata:
+  `runs/20260412-225815-reco_txt/v3_artifacts/20260412-225816-reco`
+  at unit `chapter.ch002.block.b0001.u06`
+- Final status: `BLOCKED`
+- Omission-like signals appeared: yes
+- `adequacy_review_failed`: yes
+- `coverage_drop` or `severe_undertranslation`: no
+- Fluent-but-omissive: yes
+  The Korean sentence remained readable but dropped the material meaning that
+  Flynt sounded particularly surprised.
+
+One success versus one failure:
+
+- Success:
+  `/tmp/omission_probe_20260414/artifacts/20260414-233448-en_omission_flynt_surprised`
+  says that Flynt reacted with `특히 놀란 듯한 반응`, so the reaction nuance is
+  preserved and the unit stays `ACCEPTED` on attempt 1.
+- Failure:
+  `runs/20260412-225815-reco_txt/v3_artifacts/20260412-225816-reco`
+  keeps the quotation content but omits the `particularly surprised` frame,
+  so the sentence still reads fluently while losing recoverable meaning.
+  That unit was correctly blocked by `adequacy_review_failed` after 2 attempts.
+
+Omission reproducibility judgment:
+
+- Classification:
+  `not reproducible`.
+- Why:
+  the fresh 20-run measurement produced no completed omission outcomes at all.
+  Every run stalled before adequacy review, so there is still no repeated live
+  evidence that omission itself recurs on demand.
+- Decision:
+  this is not yet reproducible enough for a targeted omission fix on the
+  active path.
+
+Exactly one smallest next change:
+
+- Debug one representative `stalled_before_adequacy_review` artifact from
+  `/tmp/omission_soak_20260414_live20_runner` against a known completed live
+  omission run to explain why repeated `codex_local` fixture runs stop before
+  attempt 1 starts.
+
+### Omission Stall Root-Cause Comparison
+
+Representative stalled runner artifact versus completed omission run:
+
+- Stalled runner artifact:
+  `/tmp/omission_soak_20260414_live20_runner/artifacts/run01/20260414-235342-en_omission_flynt_surprised`
+- Completed omission run:
+  `/tmp/omission_probe_20260414b/artifacts/20260414-234132-en_omission_flynt_surprised`
+  with report
+  `/tmp/omission_probe_20260414b/reports/run01.json`
+
+What is the same before the divergence:
+
+- Same fixture case:
+  `en_omission_flynt_surprised`
+- Same active-path runtime shape:
+  `translator_v3` via `quality_eval` on `codex_local`
+  with model `gpt-5.4` and reasoning effort `high`
+- Same planned work:
+  both artifacts were built into the same two units,
+  `chapter.ch001.title` and `chapter.ch001.block.b0001.u`
+- Same initial artifact snapshot shape:
+  `document_graph.json`,
+  `translation_units.json`,
+  `review_bundle.json`,
+  `telemetry.json`,
+  and `translated.preview.txt`
+  all exist immediately after the pipeline enters
+  `telemetry.phase=translating`
+
+First observable divergence:
+
+- The stalled runner artifact never records any persisted post-start progress.
+  Its `translation_units.json` still shows both units `PENDING` with
+  `attempt_count=0`,
+  blank backend/provider/model fields,
+  and empty `translated_text`.
+- The same stalled artifact also has
+  `translated.preview.txt` size `0`,
+  no `translated.txt`,
+  no `translated.blocked.txt`,
+  no `run_result.json`,
+  and `telemetry.json` remains at
+  `phase=translating` and `adequacy_review_status=not_run`.
+- The completed omission run diverges by reaching final persistence:
+  both units are `ACCEPTED` with `attempt_count=1`,
+  `translated.preview.txt` and `translated.txt` are populated,
+  `run_result.json` exists with `status=DELIVERABLE`,
+  and the report finished in `50485 ms`.
+
+First code-path divergence:
+
+- The shared path clearly reaches the initial snapshot write in
+  `translator_v3/orchestrate/pipeline.py`
+  before unit processing begins.
+- The first meaningful divergence is after that initial snapshot and inside
+  `await asyncio.gather(*(_process_unit(unit) for unit in units))`,
+  before the run reaches a persisted post-unit snapshot or final result.
+- In this two-unit fixture, that distinction matters:
+  `snapshot_interval` follows `batch_size=3`,
+  so completing only one unit does not flush a new artifact snapshot.
+  That means the frozen stalled artifact proves
+  `no persisted progress after startup`,
+  not strictly
+  `no unit ever returned`.
+- Even with that caveat, the stalled path still never reaches any persisted
+  state after the initial write, while the completed path reaches final
+  persistence within about `50 s`.
+
+Most likely cause classification:
+
+- `1) backend execution not completing`: most likely.
+  Evidence:
+  every runner run stops at about `900xx ms`,
+  the same frozen pre-review artifact shape also appears in non-runner
+  directories such as
+  `/tmp/omission_soak_20260414_live20`,
+  `/tmp/omission_soak_20260414_live20_seq`,
+  and
+  `/tmp/omission_soak_20260414_live20_rerun`,
+  while separate direct omission probes completed in
+  `22279 ms` and `50485 ms`.
+  That pattern fits an intermittent `codex_local` call that sometimes fails to
+  return before the soak timeout, not a deterministic planner or validator
+  bug.
+- `2) artifact polling / status detection`: unlikely.
+  The runner is not inventing a stall out of a completed run:
+  there is no report,
+  no `run_result.json`,
+  and the same frozen artifact shape exists outside the runner.
+- `3) translation unit scheduling / orchestration`: less likely.
+  The fixture is planned into the expected two units on both paths, and
+  completed omission runs use the same orchestration code successfully.
+  The current evidence points to the run getting stuck while waiting on
+  backend work, not while building or scheduling units.
+- `4) run harness behavior`: unlikely.
+  The wrapper around repeated runs only exposes the problem by killing the
+  child process at `90 s`.
+  The same omission fixture also stalled outside the soak runner.
+
+Implemented smallest omission-stall instrumentation change:
+
+- Added a lightweight persisted await heartbeat in
+  `translator_v3/orchestrate/pipeline.py`
+  immediately before and after
+  `await backend.translate_unit(...)`
+  and
+  `await reviewer(...)`.
+- The heartbeat is stored at
+  `TranslationUnit.telemetry.await_heartbeat`
+  so future stalled artifacts show the last reached await boundary without
+  changing translation logic, retry policy, or validation thresholds.
+
+### Omission Await Heartbeat Instrumentation
+
+No translation logic changed for this step.
+This was a minimal active-path-only instrumentation change in
+`translator_v3/orchestrate/pipeline.py` plus one focused regression test in
+`test_translator_v3.py`.
+
+What changed:
+
+- Added unit-level persisted heartbeat markers under
+  `TranslationUnit.telemetry.await_heartbeat`.
+- The heartbeat is flushed to `translation_units.json` immediately before and
+  after:
+  `await backend.translate_unit(...)`
+  and
+  `await reviewer(...)`.
+- Heartbeat fields now persisted on body units:
+  `unit_id`,
+  `call_name`,
+  `stage`,
+  `attempt_number`,
+  `started_at`,
+  `completed_at`,
+  `outcome`.
+
+Stage meanings:
+
+- `before_translate_unit`: the unit reached the first translation await and is
+  now waiting for the backend call to return.
+- `after_translate_unit`: the translation await returned, with
+  `outcome=completed` or `outcome=exception`.
+- `before_reviewer`: the unit passed validation and is now waiting on the
+  adequacy reviewer await.
+- `after_reviewer`: the reviewer await returned, with
+  `outcome=completed` or `outcome=exception`.
+
+Exact commands run on 2026-04-15:
+
+```bash
+python3 test_translator_v3.py
+
+python3 -m translator_v3.benchmarks.quality_soak \
+  --manifest translator_v3/benchmarks/fixtures/quality/cases.json \
+  --case-id en_omission_flynt_surprised \
+  --backend codex_local \
+  --model gpt-5.4 \
+  --reasoning-effort high \
+  --run-root /tmp/omission_soak_20260415_live3_heartbeat \
+  --run-count 3 \
+  --timeout-seconds 90
+```
+
+Validation results:
+
+- `python3 test_translator_v3.py`: passed
+- 3-run omission soak sample:
+  `0/3` `completed_deliverable`,
+  `0/3` `completed_blocked`,
+  `3/3` `stalled_before_adequacy_review`,
+  `0/3` `timed_out`
+
+Per-run last persisted heartbeat stage:
+
+| Run | Final status | Last reached before `translate_unit` | Last reached after `translate_unit` | Last reached before reviewer | Last reached after reviewer |
+| --- | --- | --- | --- | --- | --- |
+| 01 | `stalled_before_adequacy_review` | yes | no | no | no |
+| 02 | `stalled_before_adequacy_review` | yes | no | no | no |
+| 03 | `stalled_before_adequacy_review` | yes | no | no | no |
+
+Artifact roots for those 3 runs:
+
+- `run01`:
+  `/tmp/omission_soak_20260415_live3_heartbeat/artifacts/run01/20260415-004403-en_omission_flynt_surprised`
+- `run02`:
+  `/tmp/omission_soak_20260415_live3_heartbeat/artifacts/run02/20260415-004528-en_omission_flynt_surprised`
+- `run03`:
+  `/tmp/omission_soak_20260415_live3_heartbeat/artifacts/run03/20260415-004654-en_omission_flynt_surprised`
+
+Representative persisted heartbeat from all three stalled runs:
+
+- `call_name=translate_unit`
+- `stage=before_translate_unit`
+- `attempt_number=1`
+- `outcome=in_progress`
+- `completed_at=""`
+
+Conclusion:
+
+- This instrumentation resolves the ambiguity from the earlier omission soak.
+- In the fresh 3-run sample, the active path did not stall somewhere vague
+  inside `translating`; it stalled before the first body
+  `translate_unit` await ever returned.
+- None of the three runs reached
+  `after_translate_unit`,
+  `before_reviewer`,
+  or
+  `after_reviewer`.
+- No completed run appeared in this 3-run sample, so the new heartbeat does
+  not add fresh semantic-adequacy evidence; it only narrows the stall
+  location.
+- That strengthens the earlier root-cause judgment:
+  the omission-soak instability is most consistent with the first
+  `codex_local` body translation call not completing, not with adequacy review
+  or soak-runner classification.
 
 ## Milestone 4 Deterministic Attempt-3 Benchmark
 
@@ -464,7 +908,7 @@ python3 -m translator_v3.benchmarks.quality_eval \
 ## 1) Active Execution Path
 
 - Primary runtime: `job_runner.py`
-- Current default command: `python3 job_runner.py input.txt -o output.txt --v3 --v3-backend codex_local`
+- Current default command: `python3 job_runner.py input.txt -o output.txt --v3-backend codex_local`
 - Command path:
   `job_runner.py`
   -> `translator_v3.cli`

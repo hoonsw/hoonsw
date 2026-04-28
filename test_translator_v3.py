@@ -3,6 +3,7 @@
 import asyncio
 import json
 import os
+import subprocess
 import sys
 import tempfile
 from pathlib import Path
@@ -12,6 +13,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 
 from translator_v3.benchmarks import default_manifest_path, load_cases, run_benchmark_suite
 import translator_v3.benchmarks.quality_eval as quality_eval
+import translator_v3.benchmarks.quality_soak as quality_soak
 from translator_v3.core.io import load_graph, write_graph_bundle
 from translator_v3.core.models import ClassifiedInput, TranslationUnit, V3Config
 from translator_v3.extractors.adapters import available_capabilities
@@ -20,6 +22,7 @@ from translator_v3.extractors.execution import ExtractionExecutionResult
 from translator_v3.ingest.classifier import classify_input
 from translator_v3.ingest.spine import build_document_graph
 import translator_v3.ingest.spine as v3_spine
+from translator_v3.assemble import assemble_output
 from translator_v3.orchestrate import run_pipeline
 import translator_v3.orchestrate.pipeline as v3_pipeline
 from translator_v3.plan import build_translation_units
@@ -345,6 +348,105 @@ def _():
     assert validation.ok is False
     issue_types = {issue["issue_type"] for issue in validation.issues}
     assert "coverage_drop" in issue_types
+
+
+@test("wrapper markers are stripped from assembled output")
+def _():
+    units = [
+        TranslationUnit(
+            unit_id="u1",
+            node_id="block.001",
+            chapter_id="chapter.001",
+            source_order_index=1,
+            node_reading_order=1,
+            unit_index_within_node=1,
+            unit_class="body_paragraph",
+            source_text="Source paragraph.",
+            source_lang="en",
+            target_lang="ko",
+            status="ACCEPTED",
+            translated_text="[[SEGMENT u1]]\n정리된 번역문\n[[END SEGMENT u1]]",
+        )
+    ]
+    rendered = assemble_output(units)
+    assert "[[SEGMENT" not in rendered
+    assert "[[END SEGMENT" not in rendered
+    assert rendered.strip() == "정리된 번역문"
+
+
+@test("wrapper markers in translated text are rejected by validator")
+def _():
+    unit = TranslationUnit(
+        unit_id="u1",
+        node_id="block.001",
+        chapter_id="chapter.001",
+        source_order_index=1,
+        node_reading_order=1,
+        unit_index_within_node=1,
+        unit_class="body_paragraph",
+        source_text="Source paragraph.",
+        source_lang="en",
+        target_lang="ko",
+    )
+    validation = validate_unit_output(
+        unit,
+        "[[SEGMENT u1]]\n정리된 번역문\n[[END SEGMENT u1]]",
+        V3Config(source_lang="en", target_lang="ko"),
+    )
+    assert validation.ok is False
+    issue_types = {issue["issue_type"] for issue in validation.issues}
+    assert "wrapper_leak" in issue_types
+
+
+@test("reference-style page citation does not block when digits are preserved in Korean form")
+def _():
+    unit = TranslationUnit(
+        unit_id="chapter.ch001.block.b0050.u01",
+        node_id="chapter.ch001.block.b0050",
+        chapter_id="chapter.ch001",
+        source_order_index=52,
+        node_reading_order=52,
+        unit_index_within_node=1,
+        unit_class="body_paragraph",
+        source_text="（17）William Gibson, Neuromancer, Harper Collins Publishers, 1995, p.12.",
+        source_lang="ja",
+        target_lang="ko",
+    )
+    validation = validate_unit_output(
+        unit,
+        "(17) 윌리엄 깁슨, 『뉴로맨서』, 하퍼 콜린스 출판사, 1995년, 12쪽.",
+        V3Config(source_lang="ja", target_lang="ko", backend_name="provider_api"),
+    )
+    assert validation.ok is True
+    critical_types = {
+        issue["issue_type"] for issue in validation.issues if issue["severity"] in {"critical", "repair-trigger"}
+    }
+    assert "missing_number" not in critical_types
+    assert any(issue["issue_type"] == "missing_number" for issue in validation.issues)
+
+
+@test("unexpected Armenian or Hebrew leakage in Korean output triggers retry")
+def _():
+    unit = TranslationUnit(
+        unit_id="chapter.ch001.block.b0030.u",
+        node_id="chapter.ch001.block.b0030",
+        chapter_id="chapter.ch001",
+        source_order_index=32,
+        node_reading_order=32,
+        unit_index_within_node=1,
+        unit_class="body_paragraph",
+        source_text="ではそこでは、なにがどのように「悪魔祓い」されていたのか。",
+        source_lang="ja",
+        target_lang="ko",
+    )
+    validation = validate_unit_output(
+        unit,
+        "그렇다면 այնտեղ에서는 무엇이 어떻게 ‘악마 퇴치’되고 있었던 것일까.",
+        V3Config(source_lang="ja", target_lang="ko", backend_name="provider_api"),
+    )
+    assert validation.ok is False
+    issue_types = {issue["issue_type"] for issue in validation.issues}
+    assert "unexpected_foreign_script" in issue_types
 
 
 @test("two-sentence collapse with severe shrinkage is blocked")
@@ -773,6 +875,244 @@ def _():
     assert telemetry["specialized_hint_used"] is True
     assert telemetry["retry_attempt_number"] == 2
     assert telemetry["post_repair_status"] == "BLOCKED"
+
+
+@test("quality soak runner logs deliverable blocked stalled and timed-out runs")
+def _():
+    with tempfile.TemporaryDirectory() as tmp:
+        run_root = Path(tmp) / "soak"
+        original_run = quality_soak.subprocess.run
+
+        class FakeCompletedProcess:
+            def __init__(self, returncode=0):
+                self.returncode = returncode
+
+        call_count = 0
+
+        def fake_run(cmd, cwd, check, capture_output, text, timeout):
+            nonlocal call_count
+            call_count += 1
+            report_path = Path(cmd[cmd.index("--report-path") + 1])
+            artifact_root = Path(cmd[cmd.index("--artifact-root") + 1])
+            artifact_dir = artifact_root / f"artifact-{call_count:02d}"
+            artifact_dir.mkdir(parents=True, exist_ok=True)
+
+            if call_count == 1:
+                report_path.parent.mkdir(parents=True, exist_ok=True)
+                report_path.write_text(
+                    json.dumps(
+                        {
+                            "results": [
+                                {
+                                    "status": "DELIVERABLE",
+                                    "artifact_dir": str(artifact_dir),
+                                }
+                            ]
+                        }
+                    ),
+                    encoding="utf-8",
+                )
+                return FakeCompletedProcess()
+
+            if call_count == 2:
+                (artifact_dir / "run_result.json").write_text(
+                    json.dumps({"status": "BLOCKED"}),
+                    encoding="utf-8",
+                )
+                return FakeCompletedProcess(returncode=1)
+
+            if call_count == 3:
+                (artifact_dir / "telemetry.json").write_text(
+                    json.dumps({"phase": "translating", "adequacy_review_status": "not_run"}),
+                    encoding="utf-8",
+                )
+                raise subprocess.TimeoutExpired(cmd=cmd, timeout=timeout)
+
+            (artifact_dir / "telemetry.json").write_text(
+                json.dumps({"phase": "translating", "adequacy_review_status": "selective_model_review"}),
+                encoding="utf-8",
+            )
+            raise subprocess.TimeoutExpired(cmd=cmd, timeout=timeout)
+
+        quality_soak.subprocess.run = fake_run
+        try:
+            summary = quality_soak.run_soak(
+                manifest="translator_v3/benchmarks/fixtures/quality/cases.json",
+                case_id="en_omission_flynt_surprised",
+                backend="codex_local",
+                mock_backend_fixture="",
+                model="gpt-5.4",
+                reasoning_effort="high",
+                run_root=str(run_root),
+                run_count=4,
+                timeout_seconds=1,
+            )
+        finally:
+            quality_soak.subprocess.run = original_run
+
+        counts = summary["status_counts"]
+        assert counts["completed_deliverable"] == 1
+        assert counts["completed_blocked"] == 1
+        assert counts["stalled_before_adequacy_review"] == 1
+        assert counts["timed_out"] == 1
+
+        status_lines = (run_root / "status.jsonl").read_text(encoding="utf-8").strip().splitlines()
+        assert len(status_lines) == 4
+        statuses = [json.loads(line)["status"] for line in status_lines]
+        assert statuses == [
+            "completed_deliverable",
+            "completed_blocked",
+            "stalled_before_adequacy_review",
+            "timed_out",
+        ]
+
+
+@test("pipeline persists await heartbeat markers around translate and reviewer calls")
+def _():
+    async def wait_for_heartbeat(search_root: Path, expected_stage: str, unit_class: str | None = "body_paragraph") -> dict:
+        deadline = asyncio.get_running_loop().time() + 5
+        while asyncio.get_running_loop().time() < deadline:
+            for units_path in search_root.rglob("translation_units.json"):
+                try:
+                    units = json.loads(units_path.read_text(encoding="utf-8"))
+                except json.JSONDecodeError:
+                    continue
+                for unit in units:
+                    if unit_class is not None and unit["unit_class"] != unit_class:
+                        continue
+                    heartbeat = unit.get("telemetry", {}).get("await_heartbeat", {})
+                    if heartbeat.get("stage") == expected_stage:
+                        return heartbeat
+            await asyncio.sleep(0.05)
+        raise AssertionError(f"timed out waiting for heartbeat stage {expected_stage}")
+
+    async def run_translate_probe(tmp: str) -> None:
+        input_path = Path(tmp) / "translate_only.txt"
+        output_path = Path(tmp) / "translate_only_ko.txt"
+        input_path.write_text("This paragraph tests translate heartbeat persistence.\n", encoding="utf-8")
+
+        class BlockingTranslateBackend:
+            def __init__(self):
+                self.release_translate = asyncio.Event()
+
+            async def translate_unit(self, unit, failure_hint=""):
+                from translator_v3.backends.base import BackendResponse
+
+                if unit.unit_class != "body_paragraph":
+                    return BackendResponse(
+                        text="(전체 문서)",
+                        backend_name="blocking-translate",
+                        provider_name="blocking-translate",
+                        model_name="blocking-translate",
+                    )
+                await self.release_translate.wait()
+                return BackendResponse(
+                    text="번역 대기 상태를 기록하는 테스트 문장이다.",
+                    backend_name="blocking-translate",
+                    provider_name="blocking-translate",
+                    model_name="blocking-translate",
+                )
+
+        backend = BlockingTranslateBackend()
+        original = v3_pipeline.build_backend
+        v3_pipeline.build_backend = lambda config: backend
+        try:
+            task = asyncio.create_task(
+                run_pipeline(
+                    str(input_path),
+                    str(output_path),
+                    V3Config(
+                        source_lang="en",
+                        target_lang="ko",
+                        run_root=tmp,
+                        backend_name="echo",
+                        adequacy_review_mode="off",
+                    ),
+                )
+            )
+            before = await wait_for_heartbeat(Path(tmp), "before_translate_unit", unit_class=None)
+            assert before["call_name"] == "translate_unit"
+            assert before["outcome"] == "in_progress"
+            assert before["completed_at"] == ""
+            backend.release_translate.set()
+            result = await task
+        finally:
+            v3_pipeline.build_backend = original
+
+        units = json.loads(Path(result.artifact_dir, "translation_units.json").read_text(encoding="utf-8"))
+        body = next(unit for unit in units if unit["unit_class"] == "body_paragraph")
+        heartbeat = body["telemetry"]["await_heartbeat"]
+        assert heartbeat["stage"] == "after_translate_unit"
+        assert heartbeat["call_name"] == "translate_unit"
+        assert heartbeat["outcome"] == "completed"
+        assert heartbeat["started_at"]
+        assert heartbeat["completed_at"]
+
+    async def run_review_probe(tmp: str) -> None:
+        input_path = Path(tmp) / "review_only.txt"
+        output_path = Path(tmp) / "review_only_ko.txt"
+        input_path.write_text(
+            (
+                "This paragraph is intentionally long enough to trigger adequacy review and verify that "
+                "the reviewer heartbeat is flushed before the awaited reviewer call returns.\n"
+            ),
+            encoding="utf-8",
+        )
+
+        class BlockingReviewBackend:
+            def __init__(self):
+                self.release_review = asyncio.Event()
+
+            async def translate_unit(self, unit, failure_hint=""):
+                from translator_v3.backends.base import BackendResponse
+
+                return BackendResponse(
+                    text=(
+                        "이 문장은 적절성 검토 하트비트가 검토 호출 전후에 기록되는지 확인하기 위해 "
+                        "충분한 길이로 작성된 테스트 번역문이다."
+                    ),
+                    backend_name="blocking-review",
+                    provider_name="blocking-review",
+                    model_name="blocking-review",
+                )
+
+            async def review_unit_adequacy(self, unit, translated_text):
+                await self.release_review.wait()
+                return True, ""
+
+        backend = BlockingReviewBackend()
+        original = v3_pipeline.build_backend
+        v3_pipeline.build_backend = lambda config: backend
+        try:
+            task = asyncio.create_task(
+                run_pipeline(
+                    str(input_path),
+                    str(output_path),
+                    V3Config(source_lang="en", target_lang="ko", run_root=tmp, backend_name="provider_api"),
+                )
+            )
+            before = await wait_for_heartbeat(Path(tmp), "before_reviewer")
+            assert before["call_name"] == "review_unit_adequacy"
+            assert before["outcome"] == "in_progress"
+            assert before["completed_at"] == ""
+            backend.release_review.set()
+            result = await task
+        finally:
+            v3_pipeline.build_backend = original
+
+        units = json.loads(Path(result.artifact_dir, "translation_units.json").read_text(encoding="utf-8"))
+        body = next(unit for unit in units if unit["unit_class"] == "body_paragraph")
+        heartbeat = body["telemetry"]["await_heartbeat"]
+        assert heartbeat["stage"] == "after_reviewer"
+        assert heartbeat["call_name"] == "review_unit_adequacy"
+        assert heartbeat["outcome"] == "completed"
+        assert heartbeat["started_at"]
+        assert heartbeat["completed_at"]
+
+    with tempfile.TemporaryDirectory() as translate_tmp:
+        asyncio.run(run_translate_probe(translate_tmp))
+    with tempfile.TemporaryDirectory() as review_tmp:
+        asyncio.run(run_review_probe(review_tmp))
 
 
 @test("adequacy review exceptions block the unit without crashing the run")

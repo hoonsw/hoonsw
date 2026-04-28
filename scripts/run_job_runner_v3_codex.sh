@@ -66,7 +66,6 @@ done
 
 CMD=(
   python3 job_runner.py "$INPUT" -o "$OUTPUT"
-  --v3
   --v3-backend codex_local
 )
 

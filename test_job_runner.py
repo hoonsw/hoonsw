@@ -11,7 +11,6 @@ from job_runner import (
     build_pipeline_command,
     build_attachment_path,
     deliver_job_artifacts,
-    extract_v2_artifact,
     resolve_delivery_dir,
 )
 
@@ -20,21 +19,10 @@ def make_args(**overrides):
     base = {
         "input": "input/sample.txt",
         "output": "/tmp/sample_ko.txt",
-        "v2": True,
-        "v3": False,
-        "legacy": False,
         "v3_backend": "codex_local",
-        "generation_mode": "codex_local",
-        "codex_worker_mode": "external",
         "codex_model": "gpt-5.4",
         "codex_reasoning_effort": "high",
-        "codex_worker_id": "codex-test",
         "preset": None,
-        "ai_review": False,
-        "report": False,
-        "finalize": False,
-        "notify": False,
-        "parallel": 0,
         "deliver_to": None,
         "label": None,
     }
@@ -47,64 +35,14 @@ def test_pipeline_command_excludes_worker_only_flags():
     with tempfile.TemporaryDirectory() as tmpdir:
         cmd = build_pipeline_command(args, ["--dry-run"], Path(tmpdir))
     joined = " ".join(cmd)
-    assert "--codex-model" not in joined
-    assert "--codex-reasoning-effort" not in joined
-    assert "--v2" in cmd
-    assert "--generation-mode" in cmd
-    assert "--codex-worker-mode" in cmd
-
-
-def test_pipeline_command_omits_legacy_only_flags_for_v2():
-    args = make_args(
-        preset="en_nonfiction",
-        ai_review=True,
-        report=True,
-        finalize=True,
-        notify=True,
-        parallel=2,
-    )
-    with tempfile.TemporaryDirectory() as tmpdir:
-        cmd = build_pipeline_command(args, [], Path(tmpdir))
-    joined = " ".join(cmd)
-    assert "--preset" not in joined
-    assert "--ai-review" not in joined
-    assert "--report" not in joined
-    assert "--finalize" not in joined
-    assert "--notify" not in joined
-    assert "--parallel" not in joined
-
-
-def test_pipeline_command_keeps_legacy_flags_when_not_v2():
-    args = make_args(
-        v2=False,
-        legacy=True,
-        preset="en_nonfiction",
-        ai_review=True,
-        report=True,
-        finalize=True,
-        notify=True,
-        parallel=2,
-    )
-    with tempfile.TemporaryDirectory() as tmpdir:
-        cmd = build_pipeline_command(args, [], Path(tmpdir))
-    joined = " ".join(cmd)
-    assert "--preset en_nonfiction" in joined
-    assert "--ai-review" in joined
-    assert "--report" in joined
-    assert "--finalize" in joined
-    assert "--notify" in joined
-    assert "--parallel 2" in joined
+    assert "--backend codex_local" in joined
+    assert "--model gpt-5.4" in joined
+    assert "--reasoning-effort high" in joined
+    assert "--dry-run" in joined
 
 
 def test_pipeline_command_passes_preset_to_v3():
-    args = make_args(
-        v2=False,
-        v3=True,
-        legacy=False,
-        generation_mode=None,
-        codex_worker_mode=None,
-        preset="en_nonfiction",
-    )
+    args = make_args(preset="en_nonfiction")
     with tempfile.TemporaryDirectory() as tmpdir:
         cmd = build_pipeline_command(args, [], Path(tmpdir))
     joined = " ".join(cmd)
@@ -112,13 +50,13 @@ def test_pipeline_command_passes_preset_to_v3():
     assert "--preset en_nonfiction" in joined
 
 
-def test_extract_v2_artifact():
-    assert extract_v2_artifact("  Ledger: /tmp/a.json") == ("ledger_path", "/tmp/a.json")
-    assert extract_v2_artifact("  Report: /tmp/r.json") == ("report_path", "/tmp/r.json")
-    assert extract_v2_artifact("  Blocked workfile: /tmp/b.txt") == ("blocked_workfile", "/tmp/b.txt")
-    assert extract_v2_artifact("  Delivered to: /tmp/delivery") == ("delivery_dir", "/tmp/delivery")
-    assert extract_v2_artifact("  DELIVERY BLOCKED: nope") == ("delivery_block_reason", "nope")
-    assert extract_v2_artifact("noise") == (None, None)
+def test_pipeline_command_adds_provider_flag_for_provider_api_backend():
+    args = make_args(v3_backend="provider_api")
+    with tempfile.TemporaryDirectory() as tmpdir:
+        cmd = build_pipeline_command(args, [], Path(tmpdir))
+    joined = " ".join(cmd)
+    assert "--backend provider_api" in joined
+    assert "--provider openai" in joined
 
 
 def test_resolve_delivery_dir_prefers_env():
@@ -225,10 +163,8 @@ def test_apply_v3_result_state_marks_blocked_runs_as_blocked():
 
 def main():
     test_pipeline_command_excludes_worker_only_flags()
-    test_pipeline_command_omits_legacy_only_flags_for_v2()
-    test_pipeline_command_keeps_legacy_flags_when_not_v2()
     test_pipeline_command_passes_preset_to_v3()
-    test_extract_v2_artifact()
+    test_pipeline_command_adds_provider_flag_for_provider_api_backend()
     test_resolve_delivery_dir_prefers_env()
     test_deliver_job_artifacts_copies_output_and_logs()
     test_deliver_job_artifacts_rejects_unsafe_extra_files()

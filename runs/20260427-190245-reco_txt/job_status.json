@@ -1,0 +1,32 @@
+{
+  "run_id": "20260427-190245-reco_txt",
+  "input": "/home/hoonsw/dev/translator/input/reco.txt",
+  "output": "/home/hoonsw/dev/translator/output/reco_fresh_ko.txt",
+  "started_at": "2026-04-27T19:02:45",
+  "updated_at": "2026-04-27T21:00:25",
+  "state": "running",
+  "phase": "translating",
+  "quality_status": null,
+  "command": [
+    "/usr/bin/python3",
+    "-u",
+    "-m",
+    "translator_v3.cli",
+    "run",
+    "input/reco.txt",
+    "-o",
+    "output/reco_fresh_ko.txt",
+    "--backend",
+    "codex_local",
+    "--model",
+    "gpt-5.4",
+    "--reasoning-effort",
+    "high",
+    "--run-root",
+    "/home/hoonsw/dev/translator/runs/20260427-190245-reco_txt/v3_artifacts"
+  ],
+  "stdout_log": "/home/hoonsw/dev/translator/runs/20260427-190245-reco_txt/job_stdout.log",
+  "artifact_dir": "/home/hoonsw/dev/translator/runs/20260427-190245-reco_txt/v3_artifacts/20260427-190246-reco",
+  "preview_path": "/home/hoonsw/dev/translator/runs/20260427-190245-reco_txt/v3_artifacts/20260427-190246-reco/translated.preview.txt",
+  "v3_progress": "blocked=42, unresolved=4249"
+}

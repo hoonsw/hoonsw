@@ -1,25 +1,11 @@
 #!/usr/bin/env python3
-"""
-End-to-end translation pipeline with auto-retry, parallelization,
-subagent hooks, reports, and finalization.
+"""Retired legacy pipeline entrypoint."""
 
-Phase 2+3 entry point:
-1. Initial translation (sequential or parallel by chapter)
-2. Structural review
-3. Auto-retry problem chunks (with optional split)
-4. Optional AI review
-5. Optional subagent task dispatch for remaining problems
-6. Post-editing report generation
-7. Finalize: cleanup, package, optional delivery
-8. Progress reporting / OpenClaw notifications
-
-Usage:
-    python3 run_pipeline.py input.txt -o output.txt
-    python3 run_pipeline.py input.txt -o output.txt --preset ja_novel
-    python3 run_pipeline.py input.txt -o output.txt --parallel 3
-    python3 run_pipeline.py input.txt -o output.txt --finalize --report
-    python3 run_pipeline.py input.txt -o output.txt --preset ja_novel --notify --finalize --report
-"""
+raise SystemExit(
+    "run_pipeline.py was retired. "
+    "Use `python3 job_runner.py <input> -o <output> --v3-backend codex_local` "
+    "or `python3 -m translator_v3.cli run <input> -o <output> --backend codex_local`."
+)
 
 import asyncio
 import argparse

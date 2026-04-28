@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""Web GUI for the translation tool."""
+"""Retired legacy web entrypoint."""
+
+raise SystemExit(
+    "web.py was retired. "
+    "Use the translator_v3 CLI or job_runner-based wrappers instead."
+)
 
 import asyncio
 import builtins

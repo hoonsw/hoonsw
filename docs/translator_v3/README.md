@@ -55,8 +55,10 @@ Current implementation caveat:
   local tool is available.
 - It does not yet prove extractor quality superiority across benchmark corpora,
   nor end-to-end translation quality.
-- The practical default wrapper now points at `translator_v3`; `v2` remains
-  available via explicit compatibility wrappers.
+- The practical default wrapper now points only at `translator_v3`.
+- Legacy top-level CLIs were retired from the supported surface.
+- `translate.py` remains in-repo as a shared helper module for review/report/
+  finalize code, not as a supported translation entrypoint.
 - The current runtime-enabled external extractor is `docling`; `marker` and
   `ocrmypdf` are still partial / future-facing integration targets.
 - The operational v3 path is practical-default, but parts of the translation

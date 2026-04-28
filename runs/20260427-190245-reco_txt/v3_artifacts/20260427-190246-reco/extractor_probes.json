@@ -1,0 +1,26 @@
+[
+  {
+    "name": "ocrmypdf",
+    "kind": "preprocessor",
+    "available": false,
+    "module_path": null,
+    "cli_path": null,
+    "detail": "not_installed"
+  },
+  {
+    "name": "marker",
+    "kind": "extractor",
+    "available": true,
+    "module_path": null,
+    "cli_path": "/home/hoonsw/.local/bin/marker",
+    "detail": "module_or_cli_available"
+  },
+  {
+    "name": "docling",
+    "kind": "extractor",
+    "available": true,
+    "module_path": "/home/hoonsw/.local/lib/python3.10/site-packages/docling/__init__.py",
+    "cli_path": "/home/hoonsw/.local/bin/docling",
+    "detail": "module_or_cli_available"
+  }
+]

@@ -47,6 +47,50 @@ def _compression_retry_telemetry(unit: TranslationUnit) -> dict:
     return telemetry
 
 
+def _await_heartbeat(unit: TranslationUnit) -> dict:
+    telemetry = unit.telemetry.setdefault("await_heartbeat", {})
+    telemetry.setdefault("unit_id", unit.unit_id)
+    telemetry.setdefault("call_name", "")
+    telemetry.setdefault("stage", "")
+    telemetry.setdefault("attempt_number", 0)
+    telemetry.setdefault("started_at", "")
+    telemetry.setdefault("completed_at", "")
+    telemetry.setdefault("outcome", "not_started")
+    return telemetry
+
+
+def _mark_before_await(unit: TranslationUnit, *, stage: str, call_name: str, attempt_number: int) -> None:
+    heartbeat = _await_heartbeat(unit)
+    heartbeat["unit_id"] = unit.unit_id
+    heartbeat["call_name"] = call_name
+    heartbeat["stage"] = stage
+    heartbeat["attempt_number"] = attempt_number
+    heartbeat["started_at"] = _now_iso()
+    heartbeat["completed_at"] = ""
+    heartbeat["outcome"] = "in_progress"
+
+
+def _mark_after_await(
+    unit: TranslationUnit,
+    *,
+    stage: str,
+    call_name: str,
+    attempt_number: int,
+    outcome: str,
+) -> None:
+    heartbeat = _await_heartbeat(unit)
+    started_at = heartbeat.get("started_at", "")
+    if heartbeat.get("call_name") != call_name or heartbeat.get("attempt_number") != attempt_number or not started_at:
+        started_at = _now_iso()
+    heartbeat["unit_id"] = unit.unit_id
+    heartbeat["call_name"] = call_name
+    heartbeat["stage"] = stage
+    heartbeat["attempt_number"] = attempt_number
+    heartbeat["started_at"] = started_at
+    heartbeat["completed_at"] = _now_iso()
+    heartbeat["outcome"] = outcome
+
+
 def _is_compression_like_failure(unit: TranslationUnit, config: V3Config) -> bool:
     if unit.unit_class != "body_paragraph":
         return False
@@ -220,15 +264,60 @@ async def run_pipeline(input_path: str, output_path: str, config: V3Config) -> V
             if should_flush:
                 _write_run_artifacts(graph, units, include_graph_bundle=False, include_review_bundle=False)
 
+    async def _persist_await_heartbeat(
+        unit: TranslationUnit,
+        *,
+        stage: str,
+        call_name: str,
+        attempt_number: int,
+        outcome: str,
+    ) -> None:
+        async with snapshot_lock:
+            if stage.startswith("before_"):
+                _mark_before_await(unit, stage=stage, call_name=call_name, attempt_number=attempt_number)
+            else:
+                _mark_after_await(
+                    unit,
+                    stage=stage,
+                    call_name=call_name,
+                    attempt_number=attempt_number,
+                    outcome=outcome,
+                )
+            _update_telemetry(graph, units)
+            _write_run_artifacts(graph, units, include_graph_bundle=False, include_review_bundle=False)
+
     async def _process_unit(unit: TranslationUnit) -> None:
         attempt = 0
         _compression_retry_telemetry(unit)
+        _await_heartbeat(unit)
         async with semaphore:
             while True:
                 hint = _failure_hint(unit, config)
+                translate_attempt_number = unit.attempt_count + 1
+                await _persist_await_heartbeat(
+                    unit,
+                    stage="before_translate_unit",
+                    call_name="translate_unit",
+                    attempt_number=translate_attempt_number,
+                    outcome="in_progress",
+                )
                 try:
                     response = await backend.translate_unit(unit, failure_hint=hint)
+                    await _persist_await_heartbeat(
+                        unit,
+                        stage="after_translate_unit",
+                        call_name="translate_unit",
+                        attempt_number=translate_attempt_number,
+                        outcome="completed",
+                    )
                 except Exception as exc:
+                    await _persist_await_heartbeat(
+                        unit,
+                        stage="after_translate_unit",
+                        call_name="translate_unit",
+                        attempt_number=translate_attempt_number,
+                        outcome="exception",
+                    )
                     unit.validation_errors = [
                         {
                             "issue_type": "backend_exception",
@@ -253,8 +342,23 @@ async def run_pipeline(input_path: str, output_path: str, config: V3Config) -> V
                 if validation.ok and _should_run_adequacy_review(unit, response.text, config):
                     reviewer = getattr(backend, "review_unit_adequacy", None)
                     if reviewer is not None:
+                        review_attempt_number = unit.attempt_count
+                        await _persist_await_heartbeat(
+                            unit,
+                            stage="before_reviewer",
+                            call_name="review_unit_adequacy",
+                            attempt_number=review_attempt_number,
+                            outcome="in_progress",
+                        )
                         try:
                             review_ok, review_reason = await reviewer(unit, response.text)
+                            await _persist_await_heartbeat(
+                                unit,
+                                stage="after_reviewer",
+                                call_name="review_unit_adequacy",
+                                attempt_number=review_attempt_number,
+                                outcome="completed",
+                            )
                             graph.telemetry.adequacy_review_status = "selective_model_review"
                             if not review_ok:
                                 validation.issues.append(
@@ -269,6 +373,13 @@ async def run_pipeline(input_path: str, output_path: str, config: V3Config) -> V
                                 )
                                 validation.ok = False
                         except Exception as exc:
+                            await _persist_await_heartbeat(
+                                unit,
+                                stage="after_reviewer",
+                                call_name="review_unit_adequacy",
+                                attempt_number=review_attempt_number,
+                                outcome="exception",
+                            )
                             graph.telemetry.adequacy_review_status = "review_error"
                             validation.issues.append(
                                 {

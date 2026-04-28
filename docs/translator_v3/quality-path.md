@@ -11,7 +11,7 @@ production by default and points out exactly where `translator_v3` still reuses
 Operational default:
 
 ```bash
-python3 job_runner.py input.txt -o output.txt --v3 --v3-backend codex_local
+python3 job_runner.py input.txt -o output.txt --v3-backend codex_local
 ```
 
 The live call chain is:
@@ -25,14 +25,15 @@ The live call chain is:
 -> `translator_v3/validate/runner.py`
 -> `translator_v3/assemble/reconstructor.py`
 
-`job_runner.py` is the operational wrapper. For `--v3`, it builds:
+`job_runner.py` is the operational wrapper. By default, it builds:
 
 ```text
 python -m translator_v3.cli run ... --backend <provider_api|codex_local>
 ```
 
-That is the current default execution path. Legacy `run_pipeline.py`,
-`review.py`, and `retry_engine.py` are not directly on the active v3 path.
+That is the current supported execution path. Retired `run_pipeline.py` and
+`web.py` shims, plus helper tools such as `review.py` and `retry_engine.py`,
+are not directly on the active v3 path.
 
 ## Stage 1: Runtime Selection
 
@@ -44,7 +45,7 @@ Files:
 
 What happens:
 
-- `job_runner.py` selects `translator_v3.cli run` when `--v3` is enabled.
+- `job_runner.py` always selects `translator_v3.cli run`.
 - `translator_v3/cli.py` resolves presets and builds `V3Config`.
 - The effective defaults matter for quality behavior:
   - `backend_name`
