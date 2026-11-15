@@ -152,7 +152,7 @@ def _():
 @test("pdf-scanned arbitration remains preflight-only before execution")
 def _():
     classified = classify_input(
-        "/home/hoonsw/dev/translator/translator_v3/benchmarks/fixtures/pdfish_en.txt",
+        str(Path(__file__).resolve().parent / "translator_v3/benchmarks/fixtures/pdfish_en.txt"),
         V3Config(source_lang="en"),
     )
     trace = build_extraction_trace(classified, V3Config(source_lang="en"))
